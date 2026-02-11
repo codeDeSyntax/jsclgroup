@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Mail,
   Phone,
@@ -32,8 +33,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 bg-gradient-to-br from-brand-orange to-red-600 rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-lg">JCL</span>
+              <div className="relative w-11 h-11 rounded-lg overflow-hidden shadow-sm bg-white">
+                <Image
+                  src="https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg"
+                  alt="JCL Group Logo"
+                  fill
+                  className="object-contain p-1"
+                  sizes="44px"
+                />
               </div>
               <div>
                 <span className="font-bold text-xl text-brand-navy">

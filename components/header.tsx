@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ChevronDown,
   Menu,
@@ -49,10 +50,15 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 mr-8">
-            <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center shadow-sm">
-              <span className="text-brand-orange font-bold text-xl tracking-tight">
-                JCL
-              </span>
+            <div className="relative w-10 h-10 rounded-lg overflow-hidden shadow-sm bg-white">
+              <Image
+                src="https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg"
+                alt="JCL Group Logo"
+                fill
+                className="object-contain p-1"
+                sizes="40px"
+                priority
+              />
             </div>
             <span className="font-bold text-xl text-brand-navy hidden sm:inline tracking-tight">
               JCL Group

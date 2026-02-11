@@ -210,7 +210,7 @@ export default function HomePage() {
             </div>
 
             {/* Floating Product Showcase Cards - Fully Responsive Grid */}
-            <div className="mt-8 sm:mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mt-8 sm:mt-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 {/* Real Estate Card */}
                 <Link
@@ -324,7 +324,7 @@ export default function HomePage() {
 
         {/* Why Choose Us Section - Enhanced Responsive Design */}
         <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-b from-white via-brand-orange/5 to-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start">
               {/* Left Side - Text Content */}
               <div className="text-center lg:text-left">
@@ -543,7 +543,7 @@ export default function HomePage() {
 
         {/* CTA Banner Section - Enhanced Mobile Design */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-brand-navy/10 via-brand-blue-bright/10 to-white rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100">
               {/* Background Pattern */}
               <div

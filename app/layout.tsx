@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ProVenture Group | Electrical, Real Estate & Travel",
+  title: "JCL Group | Electrical, Real Estate & Travel",
   description:
     "Leading multi-division company offering electrical gadgets, real estate solutions, and premium travel experiences.",
   generator: "v0.app",
@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     maximumScale: 1,
     userScalable: true,
     themeColor: "#135ed5",
+  },
+  icons: {
+    icon: "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
+    shortcut:
+      "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
+    apple:
+      "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
   },
 };
 
