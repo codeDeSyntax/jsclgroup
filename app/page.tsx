@@ -36,7 +36,7 @@ export default function HomePage() {
         <section className="relative overflow-visible pb-32">
           <HeroBackgroundArt />
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 pb-6">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-6">
             {/* Main Heading - Fully Responsive Typography */}
             <h1 className="font-medium text-gray-900 mb-4 sm:mb-6 tracking-tight leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               Over 50,000+ Satisfied Customers
@@ -58,59 +58,64 @@ export default function HomePage() {
             </div>
 
             {/* Search Form - Enhanced Mobile-First Responsive Design */}
-            <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-0">
+            <div className="relative max-w-5xl mx-auto  sm:px-6 lg:px-0">
               <form className="relative">
-                <div className="flex flex-col sm:flex-row items-stretch relative bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl overflow-hidden border border-gray-200">
-                  {/* Division Selector Dropdown - Mobile Optimized */}
-                  <div className="relative border-b sm:border-b-0 sm:border-r border-gray-200 order-1">
+                <div className="flex flex-row items-stretch relative bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl overflow-hidden border border-gray-200">
+                  {/* Division Selector Dropdown - Mobile optimized, scales up */}
+                  <div className="relative border-r border-gray-200">
                     <button
                       type="button"
-                      className="w-full sm:w-auto h-14 sm:h-auto px-4 sm:px-5 py-3 sm:py-4 bg-white hover:bg-gray-50 text-gray-900 font-medium text-sm sm:text-base flex items-center justify-center sm:justify-start gap-2 sm:gap-3 whitespace-nowrap transition-colors"
-                      style={{ minHeight: "3.5rem" }}
+                      className="px-1 sm:px-3 md:px-5 py-2 sm:py-3 md:py-4 bg-white hover:bg-gray-50 text-gray-900 font-medium text-xs sm:text-sm md:text-base flex items-center justify-center gap-1 sm:gap-2 md:gap-3 whitespace-nowrap transition-colors min-w-[80px] sm:min-w-[120px] md:min-w-[180px]"
+                      style={{ minHeight: "2.5rem" }}
                     >
-                      <span className="hidden sm:inline">All Divisions</span>
-                      <span className="sm:hidden text-center">
-                        Select Division
+                      <span className="hidden sm:inline md:inline">
+                        All Divisions
                       </span>
-                      <ChevronDown size={16} className="flex-shrink-0" />
+                      <span className="sm:hidden">All</span>
+                      <ChevronDown
+                        size={14}
+                        className="flex-shrink-0 sm:w-4 sm:h-4"
+                      />
                     </button>
                   </div>
 
-                  {/* Search Input - Mobile First */}
+                  {/* Search Input - Mobile first sizing */}
                   <input
                     type="text"
-                    placeholder="Search Products, Properties & Packages..."
+                    placeholder="Search..."
                     required
                     autoFocus
-                    className="flex-1 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base border-0 focus:outline-none focus:ring-0 placeholder:text-gray-500 order-2"
-                    style={{ minHeight: "3.5rem" }}
+                    className="flex-1 px-2 sm:px-3 md:px-5 py-2 sm:py-3 md:py-4 text-sm sm:text-base border-0 focus:outline-none focus:ring-0 placeholder:text-gray-400 sm:placeholder:text-gray-500"
+                    style={{ minHeight: "2.5rem" }}
                   />
 
-                  {/* Search Buttons - Mobile Optimized */}
-                  <div className="flex items-center justify-center gap-1 sm:gap-2 p-2 border-t sm:border-t-0 border-gray-200 order-3">
-                    {/* Search Button */}
+                  {/* Search Buttons - Mobile optimized sizing */}
+                  <div className="flex items-center gap-1 sm:gap-2 p-1 sm:p-2">
+                    {/* Search Button - Smaller on mobile */}
                     <button
                       type="submit"
-                      className="flex-1 flex sm:flex-initial flex-row min-w-[44px] h-12 sm:h-auto p-2 sm:p-3 bg-brand-navy sm:bg-transparent hover:bg-brand-navy-bright/90 sm:hover:bg-gray-100 text-white sm:text-gray-700 rounded-lg sm:rounded-xl transition-colors font-medium sm:font-normal"
+                      className="flex items-center justify-center min-w-[32px] sm:min-w-[40px] md:min-w-[44px] h-8 sm:h-10 md:h-12 px-2 sm:px-3 md:px-4 bg-brand-navy hover:bg-brand-navy-bright/90 text-white rounded-lg sm:rounded-xl transition-colors font-medium"
                       aria-label="Search"
                     >
-                      <Search size={18} className="mx-au sm:mx-0" />
-                      <span className="ml-2 sm:hidden">Search</span>
+                      <Search size={16} className="sm:w-5 sm:h-5" />
+                      <span className="ml-1 sm:ml-2 hidden lg:inline text-xs sm:text-sm">
+                        Search
+                      </span>
                     </button>
 
-                    {/* Image Search Button - Hidden on mobile */}
+                    {/* Image Search Button - Smaller on mobile */}
                     <button
                       type="button"
-                      className="hidden sm:block p-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors"
+                      className="flex items-center justify-center min-w-[32px] sm:min-w-[40px] md:min-w-[44px] h-8 sm:h-10 md:h-12 px-2 sm:px-3 bg-gray-100 hover:bg-gray-200 rounded-lg sm:rounded-xl transition-colors"
                       title="Try Reverse Image Search"
                       aria-label="Image Search"
                     >
                       <svg
-                        width="24"
-                        height="24"
+                        width="16"
+                        height="16"
                         viewBox="0 0 24 24"
                         fill="none"
-                        className="text-gray-700"
+                        className="text-gray-700 sm:w-5 sm:h-5"
                       >
                         <rect
                           x="3"
@@ -544,13 +549,13 @@ export default function HomePage() {
         {/* CTA Banner Section - Enhanced Mobile Design */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-brand-navy/10 via-brand-blue-bright/10 to-white rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100">
+            <div className="relative max-w-6xl mx-auto bg-brand-navy/10 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100">
               {/* Background Pattern */}
               <div
                 className="absolute inset-0 opacity-[0.02]"
                 style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 2px 2px, #200070 1px, transparent 0)",
+                  // backgroundImage:
+                  //   "radial-gradient(circle at 2px 2px, #200070 1px, transparent 0)",
                   backgroundSize: "40px 40px",
                 }}
               ></div>
@@ -601,7 +606,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Right - Image Carousel */}
-                <div className="relative h-[200px] sm:h-[250px] lg:h-[300px] rounded-lg sm:rounded-xl overflow-hidden shadow-lg order-1 lg:order-2">
+                <div className="relative h-[200px] sm:h-[250px] lg:h-[300px] rounded-lg sm:rounded-xl overflow-hidden  order-1 lg:order-2">
                   <CTABannerImages />
                 </div>
               </div>

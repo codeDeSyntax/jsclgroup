@@ -18,227 +18,203 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 overflow-hidden">
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23200070' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      ></div>
+    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
+            <div className="flex items-center gap-3 mb-7">
+              <Image
+                className="w-auto h-9"
+                src="https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg"
+                alt="JCL Group Logo"
+                width={36}
+                height={36}
+              />
+              <span className="font-bold text-xl text-brand-navy">
+                JCL Group
+              </span>
+            </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 py-12 md:py-16">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="relative w-11 h-11 rounded-lg overflow-hidden shadow-sm bg-white">
-                <Image
-                  src="https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg"
-                  alt="JCL Group Logo"
-                  fill
-                  className="object-contain p-1"
-                  sizes="44px"
+            <p className="text-base leading-relaxed text-gray-600 mt-7">
+              Transforming industries through innovation and excellence across
+              real estate, travel experiences, and cutting-edge electronics.
+              Your trusted partner for quality and innovation.
+            </p>
+
+            <ul className="flex items-center space-x-3 mt-9">
+              <li>
+                <a
+                  href="https://web.facebook.com/profile.php?id=61580477670825"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Facebook"
+                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.instagram.com/rsgroupghana/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Instagram"
+                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://x.com/rsgroupgh?s=09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="X (Twitter)"
+                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
+                >
+                  <Twitter className="w-4 h-4" />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/rs-group-of-companies-limited/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+              Company
+            </p>
+
+            <ul className="mt-6 space-y-4">
+              <li>
+                <Link
+                  href="/about"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
+                >
+                  About
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/services"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
+                >
+                  Services
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/products"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
+                >
+                  Products
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/contact"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+              Divisions
+            </p>
+
+            <ul className="mt-6 space-y-4">
+              <li>
+                <Link
+                  href="/real-estate"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
+                >
+                  Real Estate
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/travel"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
+                >
+                  Travel & Tours
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/gadgets"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
+                >
+                  Electronics
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/properties"
+                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
+                >
+                  Properties
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
+            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+              Subscribe to newsletter
+            </p>
+
+            <form action="#" method="POST" className="mt-6">
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-brand-navy caret-brand-navy"
                 />
               </div>
-              <div>
-                <span className="font-bold text-xl text-brand-navy">
-                  JCL Group
-                </span>
-                <p className="text-xs text-gray-500">
-                  Excellence in Every Division
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-600 text-sm mb-6 leading-relaxed max-w-md">
-              Leading multi-division company delivering exceptional services
-              across real estate, travel & tours, and electronics sectors. Your
-              trusted partner for quality and innovation.
-            </p>
 
-            {/* Social Links */}
-            <div className="flex gap-2.5">
-              {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-9 h-9 bg-brand-navy/5 rounded-lg flex items-center justify-center hover:bg-brand-orange hover:scale-105 transition-all duration-300 border border-brand-navy/10 hover:border-brand-orange group"
-                >
-                  <social.icon
-                    size={16}
-                    className="text-brand-navy group-hover:text-white transition-colors"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-base mb-5 text-brand-navy">
-              Quick Links
-            </h3>
-            <ul className="space-y-2.5">
-              {[
-                { label: "Home", href: "/" },
-                { label: "About Us", href: "/about" },
-                { label: "Services", href: "/services" },
-                { label: "Products", href: "/products" },
-                { label: "Contact", href: "/contact" },
-              ].map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-600 hover:text-brand-orange transition-colors text-sm flex items-center gap-2 group"
-                  >
-                    <ArrowRight
-                      size={13}
-                      className="opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all"
-                    />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Divisions */}
-          <div>
-            <h3 className="font-bold text-base mb-5 text-brand-navy">
-              Our Divisions
-            </h3>
-            <ul className="space-y-3">
-              {[
-                {
-                  label: "Real Estate",
-                  href: "/properties",
-                  icon: Home,
-                  color: "text-brand-navy",
-                },
-                {
-                  label: "Travel & Tours",
-                  href: "/travel",
-                  icon: Plane,
-                  color: "text-brand-navy",
-                },
-                {
-                  label: "Electronics",
-                  href: "/products",
-                  icon: Zap,
-                  color: "text-brand-orange",
-                },
-              ].map((division, index) => (
-                <li key={index}>
-                  <Link
-                    href={division.href}
-                    className="flex items-center gap-2.5 text-gray-600 hover:text-brand-navy transition-colors group"
-                  >
-                    <div className="w-7 h-7 bg-brand-navy/5 rounded-lg flex items-center justify-center group-hover:bg-brand-orange/10 transition-colors border border-brand-navy/5">
-                      <division.icon size={14} className={division.color} />
-                    </div>
-                    <span className="text-sm">{division.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-bold text-base mb-5 text-brand-navy">
-              Get in Touch
-            </h3>
-            <ul className="space-y-3.5">
-              <li className="flex items-start gap-2.5 group">
-                <div className="w-9 h-9 bg-brand-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange transition-colors border border-brand-orange/20">
-                  <Phone
-                    size={14}
-                    className="text-brand-orange group-hover:text-white transition-colors"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 mb-0.5">Call Us</p>
-                  <a
-                    href="tel:+233-123-456-789"
-                    className="text-brand-navy hover:text-brand-orange transition-colors text-sm font-medium"
-                  >
-                    +233 123 456 789
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-2.5 group">
-                <div className="w-9 h-9 bg-brand-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange transition-colors border border-brand-orange/20">
-                  <Mail
-                    size={14}
-                    className="text-brand-orange group-hover:text-white transition-colors"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
-                  <a
-                    href="mailto:info@jclgroup.com"
-                    className="text-brand-navy hover:text-brand-orange transition-colors text-sm font-medium"
-                  >
-                    info@jclgroup.com
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-2.5 group">
-                <div className="w-9 h-9 bg-brand-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange transition-colors border border-brand-orange/20">
-                  <MapPin
-                    size={14}
-                    className="text-brand-orange group-hover:text-white transition-colors"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 mb-0.5">Visit Us</p>
-                  <span className="text-brand-navy text-sm">
-                    Accra, Ghana
-                    <br />
-                    West Africa
-                  </span>
-                </div>
-              </li>
-            </ul>
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-brand-navy rounded-md hover:bg-brand-navy/90 focus:bg-brand-navy/90"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-200 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm">
-              &copy; {currentYear} JCL Group. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link
-                href="/privacy"
-                className="text-gray-500 hover:text-brand-navy transition-colors text-sm"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-gray-500 hover:text-brand-navy transition-colors text-sm"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-500 hover:text-brand-navy transition-colors text-sm"
-              >
-                Cookie Policy
-              </Link>
-            </div>
-          </div>
-        </div>
+        <hr className="mt-16 mb-10 border-gray-200" />
+
+        <p className="text-sm text-center text-gray-600">
+          © Copyright {currentYear}, All Rights Reserved by JCL Group
+        </p>
       </div>
-    </footer>
+    </section>
   );
 }
