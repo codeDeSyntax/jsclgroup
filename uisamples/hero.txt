@@ -1,0 +1,134 @@
+<div class="container_es8Tb"><div aria-hidden="true" class="bgGlow_fesGJ"></div> <div class="container"><div class="text-center pt-10 pb-6 content_v7ddr"><div class="d-flex justify-content-between align-items-center px-3 py-2-5 mx-auto toastWrapper_Syv9I"><a href="https://iconscout.com/ai-suite/illustration-generator" rel="nofollow noopener noreferrer" target="_blank" class="flex-grow-1 mr-4"><div class="d-flex align-items-center textContent_JJs3m"><img src="https://cdn.iconscout.com/strapi/AI_icon_black_25e7a21da4.svg" alt="" width="16" height="16" class="font-size-base mr-2-5"> 
+            Discover IconScout’s suite of AI powered tools
+          </div></a> <button type="button" href="#" class="btn btn-zero d-flex align-items-center closeBtn_hQRdy"><span class="sr-only">Hide banner</span> <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ui-svg-inline"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button></div> <h1 class="heading_8WD1i">
+        Over 13.3M+ Design Assets
+      </h1> <div class="mx-auto d-sm-none d-block subHeading_3cPIx">
+        Curated 3D Icons, Lottie Animations, Vector Illustrations, and SVG Icons.
+      </div> <div class="mx-auto d-sm-block d-none subHeading_3cPIx">The ultimate marketplace for 3D Icons, Lottie Animations, Vector Illustrations &amp; SVG Icons.<br>Sync 10,000+ new daily assets - including Animated Icons, Stickers &amp; Emojis - directly with Figma, Canva, &amp; Adobe.</div></div> <div class="position-relative searchForm_MRqjs"><div class="container_p9Aaw" large-input="true"><form class="position-relative" data-hs-cf-bound="true"><div class="input-group position-relative inputWrapper_Fmb7P"><div class="dropdown b-dropdown btn-group position-relative dropdown_Tut9k input-group-prepend assetsSelection_zrOi1" id="__BVID__608"><!----><button aria-haspopup="menu" aria-expanded="false" type="button" class="btn dropdown-toggle btn-default has-icon btn-rounded btn-lg  dropdownBtnLg_Xriku dropdown-toggle-no-caret" id="__BVID__608__BV_toggle_"><span class="mr-sm-3 mr-2 text-truncate">All Assets</span> <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ui-svg-inline flex-shrink-0"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></button><ul role="menu" tabindex="-1" class="dropdown-menu dropdownMenu_S9ZZj" aria-labelledby="__BVID__608__BV_toggle_"> <li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      All Assets
+
+      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="ui-svg-inline ml-3"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg></span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      3D Icons
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      Lottie Animations
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      Unicons
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      Illustrations
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      Icons
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      Illustration Kits
+
+      </span></button></li><li role="presentation"><button role="menuitem" type="button" class="dropdown-item"><span class="w-100 d-flex justify-content-between align-items-center">
+      AI Images
+
+      </span></button></li></ul></div> <input placeholder="Search from 13,287,170 Design Assets" type="text" required="required" autofocus="autofocus" class="form-control form-control-lg d-block input_0a3vs"> <div class="searchBarButtons_vKcNB"><button type="submit" tabindex="-1" class="btn btn-zero btn-rounded btn-lg btn-icon btnSearch_+04fc"><svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ui-svg-inline"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"></path></svg></button> <button data-balloon="Try Reverse Image Search" data-balloon-pos="down-right" data-balloon-length="large" type="button" class="btn btn-default btn-rounded btn-lg btn-icon position-relative btnImageSearch_41AYw"><img src="https://cdna.iconscout.com/img/reverse-image-search.aa3484a.svg" alt="Image Search" width="32"></button></div></div> </form> <!----> <div class="mx-5-5"><div class="d-flex justify-content-center flex-nowrap font-size-sm text-center mt-3"><div class="o60 mr-3">Trending:</div> <ul class="d-flex justify-content-start flex-wrap p-0 mb-0 list_quB7P"><li class="list-inline-item"><a href="/all-assets/business" class=""><span class="position-relative">Business<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/loading" class=""><span class="position-relative">Loading<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/confetti" class=""><span class="position-relative">Confetti<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/charging" class=""><span class="position-relative">Charging<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/audio-wave" class=""><span class="position-relative">Audio Wave<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/arrow" class=""><span class="position-relative">Arrow<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/success" class=""><span class="position-relative">Success<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/365-days" class=""><span class="position-relative">365 Days<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/user-interface" class=""><span class="position-relative">User Interface<span class="position-absolute">,</span></span> <small class="d-none">Design Assets</small></a></li><li class="list-inline-item"><a href="/all-assets/loader" class=""><span>Loader</span> <small class="d-none">Design Assets</small></a></li></ul></div></div></div></div></div></div>
+
+          -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    --litepicker-container-months-color-bg: #fff;
+    --litepicker-container-months-box-shadow-color: #ddd;
+    --litepicker-footer-color-bg: #fafafa;
+    --litepicker-footer-box-shadow-color: #ddd;
+    --litepicker-tooltip-color-bg: #fff;
+    --litepicker-month-header-color: #333;
+    --litepicker-button-prev-month-color: #9e9e9e;
+    --litepicker-button-next-month-color: #9e9e9e;
+    --litepicker-button-prev-month-color-hover: #2196f3;
+    --litepicker-button-next-month-color-hover: #2196f3;
+    --litepicker-month-width: calc(var(--litepicker-day-width) * 7);
+    --litepicker-month-weekday-color: #9e9e9e;
+    --litepicker-month-week-number-color: #9e9e9e;
+    --litepicker-day-width: 38px;
+    --litepicker-day-color: #333;
+    --litepicker-day-color-hover: #2196f3;
+    --litepicker-is-today-color: #f44336;
+    --litepicker-is-in-range-color: #bbdefb;
+    --litepicker-is-locked-color: #9e9e9e;
+    --litepicker-is-start-color: #fff;
+    --litepicker-is-start-color-bg: #2196f3;
+    --litepicker-is-end-color: #fff;
+    --litepicker-is-end-color-bg: #2196f3;
+    --litepicker-button-cancel-color: #fff;
+    --litepicker-button-cancel-color-bg: #9e9e9e;
+    --litepicker-button-apply-color: #fff;
+    --litepicker-button-apply-color-bg: #2196f3;
+    --litepicker-button-reset-color: #909090;
+    --litepicker-button-reset-color-hover: #2196f3;
+    --litepicker-highlighted-day-color: #333;
+    --litepicker-highlighted-day-color-bg: #ffeb3b;
+    --blue: #2479FF;
+    --red: #DE524C;
+    --yellow: #E7B549;
+    --green: #24A8AF;
+    --white: #fff;
+    --gray: #424866;
+    --primary: #2479FF;
+    --secondary: #596080;
+    --success: #24A8AF;
+    --info: #55AFE7;
+    --warning: #E7B549;
+    --danger: #DE524C;
+    --light: #FAFAFC;
+    --dark: #1C2033;
+    --body: #1C2033;
+    --cyan: #55AFE7;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 1024px;
+    --breakpoint-lg: 1280px;
+    --breakpoint-xl: 1400px;
+    --breakpoint-xxl: 1800px;
+    --font-family-sans-serif: "Averta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-sm: .875rem;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-weight-base: 400;
+    --line-height-base: 1.5rem;
+    --h1-font-size: 3rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --h4-font-size: 1rem;
+    --h5-font-size: .875rem;
+    --h6-font-size: .875rem;
+    --h1-line-height: 3.625rem;
+    --h2-line-height: 2rem;
+    --h3-line-height: 1.75rem;
+    --h4-line-height: 1.5rem;
+    --h5-line-height: 1.25rem;
+    --h6-line-height: 1.25rem;
+    --display1-size: 6rem;
+    --display2-size: 5.5rem;
+    --display3-size: 4.5rem;
+    --display4-size: 3rem;
+    --display1-weight: 300;
+    --display2-weight: 300;
+    --display3-weight: 300;
+    --display4-weight: 700;
+    --display-line-height: 1.2;
+    --lead-font-size: 1rem;
+    --lead-font-weight: normal;
+    --lead-line-height: 1.5rem;
+    --small-font-size: .85em;
+    font-family: "Averta",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    background: linear-gradient(0deg, #e3f8ff, #e3f8ff),linear-gradient(180deg, rgba(0,198,255,0), #00c6ff);
+    position: relative;
+    color: #1B2026;
+    overflow: visible;
+    min-height: 100%;
+    padding-bottom: 5rem;

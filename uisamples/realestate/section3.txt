@@ -1,0 +1,395 @@
+<div class="elementor-element elementor-element-6ae6cbd1 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="6ae6cbd1" data-element_type="container" id="about">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-1a050a3e e-con-full e-flex e-con e-child" data-id="1a050a3e" data-element_type="container">
+		<div class="elementor-element elementor-element-3e633590 e-con-full e-flex e-con e-child" data-id="3e633590" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-51dc5c49 e-con-full e-flex e-con e-child animated fadeInLeft" data-id="51dc5c49" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+				<div class="elementor-element elementor-element-797a89c6 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="797a89c6" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Years of Industrial Experience</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-8b3bd6 e-con-full e-flex e-con e-child" data-id="8b3bd6" data-element_type="container">
+		<div class="elementor-element elementor-element-205e173a e-con-full e-flex e-con e-child" data-id="205e173a" data-element_type="container">
+				<div class="elementor-element elementor-element-6b619f8c elementor-widget elementor-widget-heading animated fadeInDown" data-id="6b619f8c" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:250}" data-widget_type="heading.default">
+					<div class="elementor-heading-title elementor-size-default">Who We Are</div>				</div>
+				<div class="elementor-element elementor-element-53837818 elementor-widget elementor-widget-heading animated fadeInUp" data-id="53837818" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Building Excellence for a Better Tomorrow</h2>				</div>
+				<div class="elementor-element elementor-element-5b07e916 elementor-widget elementor-widget-text-editor animated fadeInLeft" data-id="5b07e916" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="text-editor.default">
+									<p>RS Group of Companies is a fast-growing multi-sector enterprise built on integrity, innovation, and excellence, with subsidiaries delivering quality services across construction, logistics, agriculture, commerce, travel, and more in Ghana.</p><p>At RS Construction, your project is more than just a contract, it is a partnership built on trust. We understand that every home, office, or renovation begins with a vision, and our responsibility is to bring that vision to life with precision, honesty, and excellence.</p>								</div>
+		<div class="elementor-element elementor-element-1dfc81f5 e-con-full e-flex e-con e-child" data-id="1dfc81f5" data-element_type="container">
+		<div class="elementor-element elementor-element-1430efaa e-con-full e-flex e-con e-child animated fadeInUp" data-id="1430efaa" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;}">
+				<div class="elementor-element elementor-element-6e6f7f2b elementor-widget elementor-widget-heading" data-id="6e6f7f2b" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Our Vision</h6>				</div>
+				<div class="elementor-element elementor-element-396b4aae elementor-widget elementor-widget-text-editor" data-id="396b4aae" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>To become a leading construction company recognized for innovation, sustainability, and excellence, improving everyday life through quality and reliable building solutions.</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-616cd375 e-con-full e-flex e-con e-child animated fadeInUp" data-id="616cd375" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;}">
+				<div class="elementor-element elementor-element-535ab984 elementor-widget elementor-widget-heading" data-id="535ab984" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Our Mission</h6>				</div>
+				<div class="elementor-element elementor-element-4c42fdfa elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4c42fdfa" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-square" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Build quality projects that uplift communities across Ghana and Africa.</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-square" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Deliver projects efficiently, on time, and within budget.</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-square" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Embrace technology</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-35777060 e-con-full e-flex e-con e-child animated fadeInUp" data-id="35777060" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+		<div class="elementor-element elementor-element-33d21518 e-con-full e-flex e-con e-child" data-id="33d21518" data-element_type="container">
+				<div class="elementor-element elementor-element-5ad23cc0 elementor-widget elementor-widget-image" data-id="5ad23cc0" data-element_type="widget" data-widget_type="image.default">
+															<img loading="lazy" decoding="async" width="747" height="756" src="https://rsconstruction.rsgroupgh.com/wp-content/uploads/2025/12/architect-e1764575359475.jpg" class="attachment-full size-full wp-image-526" alt="" srcset="https://rsconstruction.rsgroupgh.com/wp-content/uploads/2025/12/architect-e1764575359475.jpg 747w, https://rsconstruction.rsgroupgh.com/wp-content/uploads/2025/12/architect-e1764575359475-296x300.jpg 296w" sizes="(max-width: 747px) 100vw, 747px">															</div>
+				<div class="elementor-element elementor-element-5d489e81 elementor-widget elementor-widget-image-box" data-id="5d489e81" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><div class="elementor-image-box-content"><div class="elementor-image-box-title">Mr. Abraham</div><p class="elementor-image-box-description">Head of Construction</p></div></div>				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+
+                    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    --litepicker-container-months-color-bg: #fff;
+    --litepicker-container-months-box-shadow-color: #ddd;
+    --litepicker-footer-color-bg: #fafafa;
+    --litepicker-footer-box-shadow-color: #ddd;
+    --litepicker-tooltip-color-bg: #fff;
+    --litepicker-month-header-color: #333;
+    --litepicker-button-prev-month-color: #9e9e9e;
+    --litepicker-button-next-month-color: #9e9e9e;
+    --litepicker-button-prev-month-color-hover: #2196f3;
+    --litepicker-button-next-month-color-hover: #2196f3;
+    --litepicker-month-width: calc(var(--litepicker-day-width) * 7);
+    --litepicker-month-weekday-color: #9e9e9e;
+    --litepicker-month-week-number-color: #9e9e9e;
+    --litepicker-day-width: 38px;
+    --litepicker-day-color: #333;
+    --litepicker-day-color-hover: #2196f3;
+    --litepicker-is-today-color: #f44336;
+    --litepicker-is-in-range-color: #bbdefb;
+    --litepicker-is-locked-color: #9e9e9e;
+    --litepicker-is-start-color: #fff;
+    --litepicker-is-start-color-bg: #2196f3;
+    --litepicker-is-end-color: #fff;
+    --litepicker-is-end-color-bg: #2196f3;
+    --litepicker-button-cancel-color: #fff;
+    --litepicker-button-cancel-color-bg: #9e9e9e;
+    --litepicker-button-apply-color: #fff;
+    --litepicker-button-apply-color-bg: #2196f3;
+    --litepicker-button-reset-color: #909090;
+    --litepicker-button-reset-color-hover: #2196f3;
+    --litepicker-highlighted-day-color: #333;
+    --litepicker-highlighted-day-color-bg: #ffeb3b;
+    --theme-font-family: var(--theme-font-stack-default);
+    --theme-font-weight: 400;
+    --theme-text-transform: none;
+    --theme-text-decoration: none;
+    --theme-font-size: 16px;
+    --theme-line-height: 1.65;
+    --theme-letter-spacing: 0em;
+    --theme-button-font-weight: 500;
+    --theme-button-font-size: 15px;
+    --has-classic-forms: var(--true);
+    --has-modern-forms: var(--false);
+    --theme-form-field-border-initial-color: var(--theme-border-color);
+    --theme-form-field-border-focus-color: var(--theme-palette-color-1);
+    --theme-form-selection-field-initial-color: var(--theme-border-color);
+    --theme-form-selection-field-active-color: var(--theme-palette-color-1);
+    --e-global-color-blocksy_palette_1: var(--theme-palette-color-1);
+    --e-global-color-blocksy_palette_2: var(--theme-palette-color-2);
+    --e-global-color-blocksy_palette_3: var(--theme-palette-color-3);
+    --e-global-color-blocksy_palette_4: var(--theme-palette-color-4);
+    --e-global-color-blocksy_palette_5: var(--theme-palette-color-5);
+    --e-global-color-blocksy_palette_6: var(--theme-palette-color-6);
+    --e-global-color-blocksy_palette_7: var(--theme-palette-color-7);
+    --e-global-color-blocksy_palette_8: var(--theme-palette-color-8);
+    --theme-palette-color-1: #2872fa;
+    --theme-palette-color-2: #1559ed;
+    --theme-palette-color-3: #3A4F66;
+    --theme-palette-color-4: #192a3d;
+    --theme-palette-color-5: #e1e8ed;
+    --theme-palette-color-6: #f2f5f7;
+    --theme-palette-color-7: #FAFBFC;
+    --theme-palette-color-8: #ffffff;
+    --theme-text-color: var(--theme-palette-color-3);
+    --theme-link-initial-color: var(--theme-palette-color-1);
+    --theme-link-hover-color: var(--theme-palette-color-2);
+    --theme-selection-text-color: #ffffff;
+    --theme-selection-background-color: var(--theme-palette-color-1);
+    --theme-border-color: var(--theme-palette-color-5);
+    --theme-headings-color: var(--theme-palette-color-4);
+    --theme-content-spacing: 1.5em;
+    --theme-button-min-height: 40px;
+    --theme-button-shadow: none;
+    --theme-button-transform: none;
+    --theme-button-text-initial-color: #ffffff;
+    --theme-button-text-hover-color: #ffffff;
+    --theme-button-background-initial-color: var(--theme-palette-color-1);
+    --theme-button-background-hover-color: var(--theme-palette-color-2);
+    --theme-button-border: none;
+    --theme-button-padding: 5px 20px;
+    --theme-normal-container-max-width: 1290px;
+    --theme-narrow-container-max-width: 750px;
+    --theme-wide-offset: 130px;
+    --theme-content-vertical-spacing: 50px;
+    --theme-container-edge-spacing: 88vw;
+    --wp--preset--aspect-ratio--square: 1;
+    --wp--preset--aspect-ratio--4-3: 4/3;
+    --wp--preset--aspect-ratio--3-4: 3/4;
+    --wp--preset--aspect-ratio--3-2: 3/2;
+    --wp--preset--aspect-ratio--2-3: 2/3;
+    --wp--preset--aspect-ratio--16-9: 16/9;
+    --wp--preset--aspect-ratio--9-16: 9/16;
+    --wp--preset--color--black: #000000;
+    --wp--preset--color--cyan-bluish-gray: #abb8c3;
+    --wp--preset--color--white: #ffffff;
+    --wp--preset--color--pale-pink: #f78da7;
+    --wp--preset--color--vivid-red: #cf2e2e;
+    --wp--preset--color--luminous-vivid-orange: #ff6900;
+    --wp--preset--color--luminous-vivid-amber: #fcb900;
+    --wp--preset--color--light-green-cyan: #7bdcb5;
+    --wp--preset--color--vivid-green-cyan: #00d084;
+    --wp--preset--color--pale-cyan-blue: #8ed1fc;
+    --wp--preset--color--vivid-cyan-blue: #0693e3;
+    --wp--preset--color--vivid-purple: #9b51e0;
+    --wp--preset--color--palette-color-1: var(--theme-palette-color-1, #2872fa);
+    --wp--preset--color--palette-color-2: var(--theme-palette-color-2, #1559ed);
+    --wp--preset--color--palette-color-3: var(--theme-palette-color-3, #3A4F66);
+    --wp--preset--color--palette-color-4: var(--theme-palette-color-4, #192a3d);
+    --wp--preset--color--palette-color-5: var(--theme-palette-color-5, #e1e8ed);
+    --wp--preset--color--palette-color-6: var(--theme-palette-color-6, #f2f5f7);
+    --wp--preset--color--palette-color-7: var(--theme-palette-color-7, #FAFBFC);
+    --wp--preset--color--palette-color-8: var(--theme-palette-color-8, #ffffff);
+    --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
+    --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);
+    --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
+    --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
+    --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
+    --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);
+    --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
+    --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);
+    --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);
+    --wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);
+    --wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);
+    --wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);
+    --wp--preset--gradient--juicy-peach: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    --wp--preset--gradient--young-passion: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    --wp--preset--gradient--true-sunset: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    --wp--preset--gradient--morpheus-den: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    --wp--preset--gradient--plum-plate: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --wp--preset--gradient--aqua-splash: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    --wp--preset--gradient--love-kiss: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    --wp--preset--gradient--new-retrowave: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%);
+    --wp--preset--gradient--plum-bath: linear-gradient(to top, #cc208e 0%, #6713d2 100%);
+    --wp--preset--gradient--high-flight: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+    --wp--preset--gradient--teen-party: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+    --wp--preset--gradient--fabled-sunset: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+    --wp--preset--gradient--arielle-smile: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    --wp--preset--gradient--itmeo-branding: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+    --wp--preset--gradient--deep-blue: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    --wp--preset--gradient--strong-bliss: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    --wp--preset--gradient--sweet-period: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+    --wp--preset--gradient--purple-division: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+    --wp--preset--gradient--cold-evening: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    --wp--preset--gradient--mountain-rock: linear-gradient(to right, #868f96 0%, #596164 100%);
+    --wp--preset--gradient--desert-hump: linear-gradient(to top, #c79081 0%, #dfa579 100%);
+    --wp--preset--gradient--ethernal-constance: linear-gradient(to top, #09203f 0%, #537895 100%);
+    --wp--preset--gradient--happy-memories: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    --wp--preset--gradient--grown-early: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    --wp--preset--gradient--morning-salad: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+    --wp--preset--gradient--night-call: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+    --wp--preset--gradient--mind-crawl: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+    --wp--preset--gradient--angel-care: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+    --wp--preset--gradient--juicy-cake: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
+    --wp--preset--gradient--rich-metal: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+    --wp--preset--gradient--mole-hall: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+    --wp--preset--gradient--cloudy-knoxville: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    --wp--preset--gradient--soft-grass: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    --wp--preset--gradient--saint-petersburg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --wp--preset--gradient--everlasting-sky: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    --wp--preset--gradient--kind-steel: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    --wp--preset--gradient--over-sun: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    --wp--preset--gradient--premium-white: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+    --wp--preset--gradient--clean-mirror: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    --wp--preset--gradient--wild-apple: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+    --wp--preset--gradient--snow-again: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    --wp--preset--gradient--confident-cloud: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+    --wp--preset--gradient--glass-water: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    --wp--preset--gradient--perfect-white: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    --wp--preset--font-size--small: 13px;
+    --wp--preset--font-size--medium: 20px;
+    --wp--preset--font-size--large: clamp(22px, 1.375rem + ((1vw - 3.2px) * 0.625), 30px);
+    --wp--preset--font-size--x-large: clamp(30px, 1.875rem + ((1vw - 3.2px) * 1.563), 50px);
+    --wp--preset--font-size--xx-large: clamp(45px, 2.813rem + ((1vw - 3.2px) * 2.734), 80px);
+    --wp--preset--spacing--20: 0.44rem;
+    --wp--preset--spacing--30: 0.67rem;
+    --wp--preset--spacing--40: 1rem;
+    --wp--preset--spacing--50: 1.5rem;
+    --wp--preset--spacing--60: 2.25rem;
+    --wp--preset--spacing--70: 3.38rem;
+    --wp--preset--spacing--80: 5.06rem;
+    --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+    --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+    --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+    --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+    --wp--style--block-gap: var(--theme-content-spacing);
+    --theme-border: none;
+    --theme-transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --theme-list-indent: 2.5em;
+    --true: initial;
+    --false: "";
+    --has-link-decoration: var(--true);
+    --has-transparent-header: 0;
+    --theme-container-width: min(100%, var(--theme-container-width-base));
+    --theme-container-width-base: calc(var(--theme-container-edge-spacing, 90vw) - var(--theme-frame-size, 0px) * 2);
+    --theme-font-stack-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --direction-multiplier: 1;
+    --page-title-display: none;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    font: inherit;
+    color: var(--theme-text-color);
+    font-family: var(--theme-font-family);
+    font-size: var(--theme-font-size);
+    font-weight: var(--theme-font-weight);
+    font-style: var(--theme-font-style, inherit);
+    line-height: var(--theme-line-height);
+    letter-spacing: var(--theme-letter-spacing);
+    text-transform: var(--theme-text-transform);
+    --header-sticky-animation-speed: 0.2s;
+    --sticky-shrink: 85;
+    --header-height: 81px;
+    --header-sticky-height: 81px;
+    --header-sticky-offset: 13px;
+    --scroll-margin-top-offset: 0px;
+    --e-global-color-primary: #6EC1E4;
+    --e-global-color-secondary: #54595F;
+    --e-global-color-text: #7A7A7A;
+    --e-global-color-accent: #61CE70;
+    --e-global-typography-primary-font-family: "Roboto";
+    --e-global-typography-primary-font-weight: 600;
+    --e-global-typography-secondary-font-family: "Roboto Slab";
+    --e-global-typography-secondary-font-weight: 400;
+    --e-global-typography-text-font-family: "Roboto";
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-accent-font-family: "Roboto";
+    --e-global-typography-accent-font-weight: 500;
+    --theme-block-width: var(--has-wide, var(--theme-container-width));
+    --theme-block-max-width: var(--has-wide, var(--theme-normal-container-max-width));
+    --theme-block-wide-max-width: var(--has-wide, calc(var(--theme-normal-container-max-width) + var(--theme-wide-offset) * 2));
+    --theme-boxed-content-max-width: var(--theme-normal-container-max-width);
+    --has-background: var(--has-boxed);
+    --has-boxed-structure: var(--has-boxed);
+    --wp--style--global--content-size: var(--theme-block-max-width);
+    --wp--style--global--wide-size: var(--theme-block-wide-max-width);
+    --has-boxed: var(--false);
+    --has-wide: var(--true);
+    box-sizing: border-box;
+    --justify-content: initial;
+    --align-items: initial;
+    --align-content: initial;
+    --order: initial;
+    --align-self: initial;
+    align-self: var(--align-self);
+    order: var(--order);
+    --border-radius: 0;
+    --border-top-width: 0px;
+    --border-right-width: 0px;
+    --border-bottom-width: 0px;
+    --border-left-width: 0px;
+    --border-style: initial;
+    --border-color: initial;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --content-width: min(100%,var(--container-max-width,1140px));
+    --min-height: initial;
+    --height: auto;
+    --text-align: initial;
+    --position: relative;
+    --z-index: revert;
+    --overflow: visible;
+    --overlay-mix-blend-mode: initial;
+    --overlay-opacity: 1;
+    --overlay-transition: 0.3s;
+    --e-con-grid-template-columns: repeat(3,1fr);
+    --e-con-grid-template-rows: repeat(2,1fr);
+    border-radius: var(--border-radius);
+    height: var(--height);
+    min-height: var(--min-height);
+    min-width: 0;
+    overflow: var(--overflow);
+    position: var(--position);
+    width: var(--width);
+    z-index: var(--z-index);
+    --flex-wrap-mobile: wrap;
+    margin-block-end: var(--margin-block-end);
+    margin-block-start: var(--margin-block-start);
+    margin-inline-end: var(--margin-inline-end);
+    margin-inline-start: var(--margin-inline-start);
+    padding-inline-end: var(--padding-inline-end);
+    padding-inline-start: var(--padding-inline-start);
+    transition: background var(--background-transition,.3s),border var(--border-transition,.3s),box-shadow var(--border-transition,.3s),transform var(--e-con-transform-transition-duration,.4s);
+    --margin-block-start: var(--margin-top);
+    --margin-block-end: var(--margin-bottom);
+    --margin-inline-start: var(--margin-left);
+    --margin-inline-end: var(--margin-right);
+    --padding-inline-start: var(--padding-left);
+    --padding-inline-end: var(--padding-right);
+    --padding-block-start: var(--padding-top);
+    --padding-block-end: var(--padding-bottom);
+    --border-block-start-width: var(--border-top-width);
+    --border-block-end-width: var(--border-bottom-width);
+    --border-inline-start-width: var(--border-left-width);
+    --border-inline-end-width: var(--border-right-width);
+    display: var(--display);
+    gap: initial;
+    text-align: initial;
+    --widgets-spacing: 20px 20px;
+    --widgets-spacing-row: 20px;
+    --widgets-spacing-column: 20px;
+    --swiper-theme-color: #000;
+    --swiper-navigation-size: 44px;
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+    --container-widget-width: 100%;
+    --container-max-width: var(--theme-block-max-width, var(--theme-normal-container-max-width));
+    --flex-direction: column;
+    --flex-basis: auto;
+    --flex-grow: 0;
+    --flex-shrink: 1;
+    flex: var(--flex-grow) var(--flex-shrink) var(--flex-basis);
+    align-content: normal;
+    align-items: normal;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    max-width: min(100%,var(--width));
+    --width: 100%;
+    --flex-wrap: var(--flex-wrap-mobile);
+    --display: flex;
+    --gap: 0px 0px;
+    --row-gap: 0px;
+    --column-gap: 0px;
+    --margin-top: 0px;
+    --margin-bottom: 0px;
+    --margin-left: 0px;
+    --margin-right: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 48px;
+    --padding-left: 0px;
+    --padding-right: 0px;

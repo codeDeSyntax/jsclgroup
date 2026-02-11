@@ -1,0 +1,561 @@
+{
+  "realEstate": {
+    "hero": [
+      {
+        "id": "real_estate_hero_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742160/Tutorial_PSD_copy_dexlub.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742160/Tutorial_PSD_copy_dexlub.jpg",
+        "alt": "Modern luxury real estate property exterior design",
+        "type": "hero",
+        "category": "real-estate",
+        "width": 2000,
+        "height": 2300,
+        "publicId": "Tutorial_PSD_copy_dexlub"
+      }
+    ],
+    "properties": [
+      {
+        "id": "re_prop_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742175/IMG-20251003-WA0050_ev2zhg.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742175/IMG-20251003-WA0050_ev2zhg.jpg",
+        "alt": "Modern residential property exterior",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 836,
+        "publicId": "IMG-20251003-WA0050_ev2zhg"
+      },
+      {
+        "id": "re_prop_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742174/IMG-20251003-WA0048_nsfzmr.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742174/IMG-20251003-WA0048_nsfzmr.jpg",
+        "alt": "Residential property with landscaping",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 584,
+        "publicId": "IMG-20251003-WA0048_nsfzmr"
+      },
+      {
+        "id": "re_prop_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742171/IMG-20251003-WA0044_cbvyow.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742171/IMG-20251003-WA0044_cbvyow.jpg",
+        "alt": "Luxury apartment interior design",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1058,
+        "publicId": "IMG-20251003-WA0044_cbvyow"
+      },
+      {
+        "id": "re_prop_4",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742170/IMG-20251003-WA0038_wxijce.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742170/IMG-20251003-WA0038_wxijce.jpg",
+        "alt": "Contemporary home exterior with modern architecture",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 801,
+        "publicId": "IMG-20251003-WA0038_wxijce"
+      },
+      {
+        "id": "re_prop_5",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742169/IMG-20251003-WA0037_vdpydc.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742169/IMG-20251003-WA0037_vdpydc.jpg",
+        "alt": "Spacious modern residential property",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 709,
+        "publicId": "IMG-20251003-WA0037_vdpydc"
+      },
+      {
+        "id": "re_prop_6",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742167/IMG-20251003-WA0036_liuu2t.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742167/IMG-20251003-WA0036_liuu2t.jpg",
+        "alt": "Executive residential home exterior",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 806,
+        "publicId": "IMG-20251003-WA0036_liuu2t"
+      },
+      {
+        "id": "re_prop_7",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742154/IMG-20251003-WA0117_iikj7l.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742154/IMG-20251003-WA0117_iikj7l.jpg",
+        "alt": "Elegant property with gardens",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 774,
+        "publicId": "IMG-20251003-WA0117_iikj7l"
+      },
+      {
+        "id": "re_prop_8",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742151/IMG-20251003-WA0114_zkwmar.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742151/IMG-20251003-WA0114_zkwmar.jpg",
+        "alt": "Premium residential complex",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1060,
+        "publicId": "IMG-20251003-WA0114_zkwmar"
+      },
+      {
+        "id": "re_prop_9",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742150/IMG-20251003-WA0108_oy0g7x.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742150/IMG-20251003-WA0108_oy0g7x.jpg",
+        "alt": "Contemporary apartment building facade",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 855,
+        "height": 1080,
+        "publicId": "IMG-20251003-WA0108_oy0g7x"
+      },
+      {
+        "id": "re_prop_10",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742149/IMG-20251003-WA0103_rfxx0g.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742149/IMG-20251003-WA0103_rfxx0g.jpg",
+        "alt": "Modern minimalist property exterior",
+        "type": "property-card",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 656,
+        "publicId": "IMG-20251003-WA0103_rfxx0g"
+      }
+    ],
+    "featured": [
+      {
+        "id": "re_featured_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742161/Vibrant_Yellow_Grey_Modern_Exterior_tod62i.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742161/Vibrant_Yellow_Grey_Modern_Exterior_tod62i.jpg",
+        "alt": "Vibrant Modern Home Exterior Design",
+        "type": "featured",
+        "category": "real-estate",
+        "width": 736,
+        "height": 736,
+        "publicId": "Vibrant_Yellow_Grey_Modern_Exterior_tod62i"
+      },
+      {
+        "id": "re_featured_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742157/Tri_Colour_Exterior__Bold_Blue_and_Gray_Home_d6qgd2.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742157/Tri_Colour_Exterior__Bold_Blue_and_Gray_Home_d6qgd2.jpg",
+        "alt": "Tri-Color Bold Blue and Gray House Exterior",
+        "type": "featured",
+        "category": "real-estate",
+        "width": 736,
+        "height": 736,
+        "publicId": "Tri_Colour_Exterior__Bold_Blue_and_Gray_Home_d6qgd2"
+      },
+      {
+        "id": "re_featured_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742155/Latest_3d_elevation_design_houseelevation_Architecturaldesign_bestelevationdesign_jxw5js.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742155/Latest_3d_elevation_design_houseelevation_Architecturaldesign_bestelevationdesign_jxw5js.jpg",
+        "alt": "3D Elevation Architectural Design",
+        "type": "featured",
+        "category": "real-estate",
+        "width": 736,
+        "height": 736,
+        "publicId": "Latest_3d_elevation_design_houseelevation_Architecturaldesign_bestelevationdesign_jxw5js"
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "re_portfolio_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742147/IMG-20251003-WA0102_r5z5ux.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742147/IMG-20251003-WA0102_r5z5ux.jpg",
+        "alt": "Portfolio property showcase",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1036,
+        "publicId": "IMG-20251003-WA0102_r5z5ux"
+      },
+      {
+        "id": "re_portfolio_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742145/IMG-20251003-WA0100_pivlva.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742145/IMG-20251003-WA0100_pivlva.jpg",
+        "alt": "Portfolio property example",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1124,
+        "publicId": "IMG-20251003-WA0100_pivlva"
+      },
+      {
+        "id": "re_portfolio_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742143/IMG-20251003-WA0098_ytwpel.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742143/IMG-20251003-WA0098_ytwpel.jpg",
+        "alt": "Completed real estate project",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1027,
+        "height": 1280,
+        "publicId": "IMG-20251003-WA0098_ytwpel"
+      },
+      {
+        "id": "re_portfolio_4",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742141/IMG-20251003-WA0095_ouqyco.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742141/IMG-20251003-WA0095_ouqyco.jpg",
+        "alt": "Real estate project presentation",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 891,
+        "publicId": "IMG-20251003-WA0095_ouqyco"
+      },
+      {
+        "id": "re_portfolio_5",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742140/IMG-20251003-WA0094_hhxrvi.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742140/IMG-20251003-WA0094_hhxrvi.jpg",
+        "alt": "Showcase property listing",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 854,
+        "publicId": "IMG-20251003-WA0094_hhxrvi"
+      },
+      {
+        "id": "re_portfolio_6",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742138/IMG-20251003-WA0089_wozjgx.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742138/IMG-20251003-WA0089_wozjgx.jpg",
+        "alt": "Developer portfolio image",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1125,
+        "publicId": "IMG-20251003-WA0089_wozjgx"
+      },
+      {
+        "id": "re_portfolio_7",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742137/IMG-20251003-WA0085_se7wzr.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742137/IMG-20251003-WA0085_se7wzr.jpg",
+        "alt": "Professional real estate listing",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 801,
+        "publicId": "IMG-20251003-WA0085_se7wzr"
+      },
+      {
+        "id": "re_portfolio_8",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742136/IMG-20251003-WA0081_vkzox0.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742136/IMG-20251003-WA0081_vkzox0.jpg",
+        "alt": "Residential development project",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 967,
+        "publicId": "IMG-20251003-WA0081_vkzox0"
+      },
+      {
+        "id": "re_portfolio_9",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742136/IMG-20251003-WA0055_lxv5zp.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742136/IMG-20251003-WA0055_lxv5zp.jpg",
+        "alt": "Construction and design showcase",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 1080,
+        "height": 1212,
+        "publicId": "IMG-20251003-WA0055_lxv5zp"
+      },
+      {
+        "id": "re_portfolio_10",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742165/download_lmxnrz.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742165/download_lmxnrz.jpg",
+        "alt": "Portfolio property image",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 736,
+        "height": 736,
+        "publicId": "download_lmxnrz"
+      },
+      {
+        "id": "re_portfolio_11",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742163/download_1_d0agta.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742163/download_1_d0agta.jpg",
+        "alt": "Portfolio property image (1)",
+        "type": "portfolio",
+        "category": "real-estate",
+        "width": 736,
+        "height": 736,
+        "publicId": "download_1_d0agta"
+      }
+    ]
+  },
+  "travel": {
+    "hero": [
+      {
+        "id": "travel_hero_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742276/Travel_Abroad_cg0xdp.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742276/Travel_Abroad_cg0xdp.jpg",
+        "alt": "Travel Abroad destination inspiration",
+        "type": "hero",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Travel_Abroad_cg0xdp"
+      }
+    ],
+    "packages": [
+      {
+        "id": "travel_pkg_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742282/Travel_Visa_Flier_Design_For_Social_Media_Post_ypq1ki.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742282/Travel_Visa_Flier_Design_For_Social_Media_Post_ypq1ki.jpg",
+        "alt": "Travel Visa Processing Package",
+        "type": "package-card",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Travel_Visa_Flier_Design_For_Social_Media_Post_ypq1ki"
+      },
+      {
+        "id": "travel_pkg_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742280/Travel_Flyer_Design_dnpchp.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742280/Travel_Flyer_Design_dnpchp.jpg",
+        "alt": "Travel Holiday Package",
+        "type": "package-card",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Travel_Flyer_Design_dnpchp"
+      },
+      {
+        "id": "travel_pkg_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742278/Travel_Flyer_Design_1_ablnyp.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742278/Travel_Flyer_Design_1_ablnyp.jpg",
+        "alt": "Adventure Travel Package",
+        "type": "package-card",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Travel_Flyer_Design_1_ablnyp"
+      }
+    ],
+    "destinations": [
+      {
+        "id": "travel_dest_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742274/Promotional_flyer_design_for_FlySafe_Travels_Tour_cvwgng.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742274/Promotional_flyer_design_for_FlySafe_Travels_Tour_cvwgng.jpg",
+        "alt": "FlySafe Travels Promotional Destination",
+        "type": "destination",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Promotional_flyer_design_for_FlySafe_Travels_Tour_cvwgng"
+      },
+      {
+        "id": "travel_dest_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742272/download_gbcwim.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742272/download_gbcwim.jpg",
+        "alt": "Tropical travel destination",
+        "type": "destination",
+        "category": "travel",
+        "width": 626,
+        "height": 417,
+        "publicId": "download_gbcwim"
+      },
+      {
+        "id": "travel_dest_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742270/download_1_d3vwle.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742270/download_1_d3vwle.jpg",
+        "alt": "Beautiful travel destination",
+        "type": "destination",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "download_1_d3vwle"
+      },
+      {
+        "id": "travel_dest_4",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742268/Deft_Media_on_Instagram___Explore_the_wonders_of_travel_with_FindUS_%EF%B8%8F_From_msvijl.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742268/Deft_Media_on_Instagram___Explore_the_wonders_of_travel_with_FindUS_%EF%B8%8F_From_msvijl.jpg",
+        "alt": "Explore Wonders of Travel Destination",
+        "type": "destination",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "Deft_Media_on_Instagram___Explore_the_wonders_of_travel_with_FindUS"
+      }
+    ],
+    "accessories": [
+      {
+        "id": "travel_acc_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742267/Best_Travel_Accessories_for_Outdoor_Adventures_p2owwq.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742267/Best_Travel_Accessories_for_Outdoor_Adventures_p2owwq.jpg",
+        "alt": "Travel Accessories for Outdoor Adventures",
+        "type": "accessory",
+        "category": "travel",
+        "width": 736,
+        "height": 1079,
+        "publicId": "Best_Travel_Accessories_for_Outdoor_Adventures_p2owwq"
+      },
+      {
+        "id": "travel_acc_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742265/Best_Travel_Accessories_for_Outdoor_Adventures_1_ozmz0c.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742265/Best_Travel_Accessories_for_Outdoor_Adventures_1_ozmz0c.jpg",
+        "alt": "Essential Travel Gear Collection",
+        "type": "accessory",
+        "category": "travel",
+        "width": 736,
+        "height": 1079,
+        "publicId": "Best_Travel_Accessories_for_Outdoor_Adventures_1_ozmz0c"
+      },
+      {
+        "id": "travel_acc_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742263/-_Travel_flyer_design_jo2l9k.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742263/-_Travel_flyer_design_jo2l9k.jpg",
+        "alt": "Travel Essentials Flyer",
+        "type": "accessory",
+        "category": "travel",
+        "width": 736,
+        "height": 736,
+        "publicId": "-_Travel_flyer_design_jo2l9k"
+      }
+    ]
+  },
+  "gadgets": {
+    "hero": [
+      {
+        "id": "gadgets_hero_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742220/Social_media_template_design_for_iconikstore_official___GraphicDesignAgency_excellentgraphic_pqz4pt.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742220/Social_media_template_design_for_iconikstore_official___GraphicDesignAgency_excellentgraphic_pqz4pt.jpg",
+        "alt": "Electronics and Gadgets Showcase",
+        "type": "hero",
+        "category": "gadgets",
+        "width": 736,
+        "height": 736,
+        "publicId": "Social_media_template_design_for_iconikstore_official"
+      }
+    ],
+    "phones": [
+      {
+        "id": "gadgets_phones_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742219/Send_Electronics_To_India_From_UK_Door_To_Door_Service_Free_Pickup_Service_lttpjb.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742219/Send_Electronics_To_India_From_UK_Door_To_Door_Service_Free_Pickup_Service_lttpjb.jpg",
+        "alt": "Electronics Shipping and Delivery Service",
+        "type": "product-card",
+        "category": "gadgets",
+        "subcategory": "phones",
+        "width": 640,
+        "height": 360,
+        "publicId": "Send_Electronics_To_India_From_UK"
+      }
+    ],
+    "appliances": [
+      {
+        "id": "gadgets_appliances_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742216/Nearly_everything_at_Costco_will_be_on_sale_including_housewares_and_appliances_join_us_July_1st_for_the_Canada_Day_Sale_rcd1ch.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742216/Nearly_everything_at_Costco_will_be_on_sale_including_housewares_and_appliances_join_us_July_1st_for_the_Canada_Day_Sale_rcd1ch.jpg",
+        "alt": "Kitchen and Home Appliances Sale",
+        "type": "product-card",
+        "category": "gadgets",
+        "subcategory": "appliances",
+        "width": 734,
+        "height": 262,
+        "publicId": "Nearly_everything_at_Costco_will_be_on_sale"
+      },
+      {
+        "id": "gadgets_appliances_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742206/5_Ltr_Digital_Air_Fryer_With_Window_Viewer_eae1ov.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742206/5_Ltr_Digital_Air_Fryer_With_Window_Viewer_eae1ov.jpg",
+        "alt": "Digital Air Fryer - 5 Liter Capacity",
+        "type": "product-card",
+        "category": "gadgets",
+        "subcategory": "appliances",
+        "width": 460,
+        "height": 633,
+        "publicId": "5_Ltr_Digital_Air_Fryer_With_Window_Viewer_eae1ov"
+      }
+    ],
+    "electronics": [
+      {
+        "id": "gadgets_electronics_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742225/%E0%A6%95%E0%A6%B0%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%87%E0%A6%9F_%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%E0%A6%9F%E0%A6%BF%E0%A6%82%E0%A7%9F%E0%A7%87_%E0%A6%9C%E0%A7%8B%E0%A6%B0_%E0%A6%A6%E0%A6%BF%E0%A6%9A%E0%A7%8B%E0%A7%87_%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%B2%E0%A6%9F%E0%A6%A8_mlxyaf.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742225/%E0%A6%95%E0%A6%B0%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%87%E0%A6%9F_%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%E0%A6%9F%E0%A6%BF%E0%A6%82%E0%A7%9F%E0%A7%87_%E0%A6%9C%E0%A7%8B%E0%A6%B0_%E0%A6%A6%E0%A6%BF%E0%A6%9A%E0%A7%8B%E0%A7%87_%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%B2%E0%A6%9F%E0%A6%A8_mlxyaf.jpg",
+        "alt": "Corporate Electronics Marketing",
+        "type": "marketing",
+        "category": "gadgets",
+        "subcategory": "electronics",
+        "width": 725,
+        "height": 425,
+        "publicId": "Corporate_Marketing"
+      },
+      {
+        "id": "gadgets_electronics_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742223/You_can_know_more_about_the_services_please_visit__http___www_iceageair.com_wz6yho.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742223/You_can_know_more_about_the_services_please_visit__http___www_iceageair.com_wz6yho.jpg",
+        "alt": "Professional Services Description",
+        "type": "marketing",
+        "category": "gadgets",
+        "subcategory": "electronics",
+        "width": 656,
+        "height": 545,
+        "publicId": "Professional_Services_Marketing"
+      },
+      {
+        "id": "gadgets_electronics_3",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742213/Google_Image_Result_for_https___unitedhvacbd_com_wp-content_uploads_2023_12_Experience-02-1_f9vtrk.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742213/Google_Image_Result_for_https___unitedhvacbd_com_wp-content_uploads_2023_12_Experience-02-1_f9vtrk.jpg",
+        "alt": "HVAC and Climate Control Solutions",
+        "type": "product-card",
+        "category": "gadgets",
+        "subcategory": "electronics",
+        "width": 680,
+        "height": 620,
+        "publicId": "HVAC_Solutions"
+      },
+      {
+        "id": "gadgets_electronics_4",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742208/Cheapest_shipping_of_all_electronic_items_to_Pakistan_from_UK_yx18xr.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742208/Cheapest_shipping_of_all_electronic_items_to_Pakistan_from_UK_yx18xr.jpg",
+        "alt": "Electronics Shipping Services",
+        "type": "service",
+        "category": "gadgets",
+        "subcategory": "electronics",
+        "width": 700,
+        "height": 400,
+        "publicId": "Electronics_Shipping_Service"
+      }
+    ],
+    "importExport": [
+      {
+        "id": "gadgets_import_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742215/Importation_Flyer_dclnhz.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742215/Importation_Flyer_dclnhz.jpg",
+        "alt": "Import Export Logistics Services",
+        "type": "service",
+        "category": "gadgets",
+        "subcategory": "import-export",
+        "width": 736,
+        "height": 827,
+        "publicId": "Importation_Flyer_dclnhz"
+      }
+    ],
+    "featured": [
+      {
+        "id": "gadgets_featured_1",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742211/download_xudnqv.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742211/download_xudnqv.jpg",
+        "alt": "Featured Technology Product",
+        "type": "featured",
+        "category": "gadgets",
+        "width": 736,
+        "height": 1308,
+        "publicId": "download_xudnqv"
+      },
+      {
+        "id": "gadgets_featured_2",
+        "url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742210/download_1_fhbkp6.jpg",
+        "secure_url": "https://res.cloudinary.com/dqidnnssq/image/upload/v1770742210/download_1_fhbkp6.jpg",
+        "alt": "Featured Gadgets Collection",
+        "type": "featured",
+        "category": "gadgets",
+        "width": 736,
+        "height": 851,
+        "publicId": "download_1_fhbkp6"
+      }
+    ]
+  }
+}
