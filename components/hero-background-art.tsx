@@ -47,19 +47,19 @@ export default function HeroBackgroundArt() {
 
         {/* Elegant Spiral Growth Pattern - Now matching right side network */}
         <svg
-          className="absolute bottom-[10%] left-[5%] w-80 h-80 opacity-20"
+          className="absolute bottom-[50%] left-[5%] w-96 h-96 opacity-20"
           viewBox="0 0 400 400"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <radialGradient id="networkGradientLeft">
-              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.3)" />
+              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.7)" />
               <stop offset="100%" stopColor="rgba(248, 85, 6, 0)" />
             </radialGradient>
           </defs>
           <circle cx="200" cy="200" r="150" fill="url(#networkGradientLeft)" />
           {/* Radiating connection lines */}
-          <g stroke="rgba(248, 85, 6, 0.45)" strokeWidth="1.2">
+          <g stroke="rgba(248, 85, 6, 0.9)" strokeWidth="1.2">
             <line x1="200" y1="200" x2="340" y2="140" />
             <line x1="200" y1="200" x2="320" y2="240" />
             <line x1="200" y1="200" x2="260" y2="320" />

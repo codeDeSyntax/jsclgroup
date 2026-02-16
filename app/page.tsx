@@ -33,7 +33,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-visible pb-32">
+        <section className="relative overflow-hidden pb-32">
           <HeroBackgroundArt />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-6">
@@ -60,7 +60,7 @@ export default function HomePage() {
             {/* Search Form - Enhanced Mobile-First Responsive Design */}
             <div className="relative max-w-5xl mx-auto  sm:px-6 lg:px-0">
               <form className="relative">
-                <div className="flex flex-row items-stretch relative bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl overflow-hidden border border-gray-200">
+                <div className="flex flex-row items-stretch relative bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200">
                   {/* Division Selector Dropdown - Mobile optimized, scales up */}
                   <div className="relative border-r border-gray-200">
                     <button
@@ -441,17 +441,68 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials Section - Enhanced Mobile Responsiveness */}
-        <section className="relative py-16 sm:py-20 lg:py-24 xl:py-32 bg-white overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.02]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23200070' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              }}
-            ></div>
+ <section className="relative py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-b from-white via-brand-navy/2 to-white overflow-hidden">
+          {/* CEO Message Section */}
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 mb-20 sm:mb-24 lg:mb-32">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              {/* CEO Image */}
+              <div className="relative order-2 lg:order-1">
+                <div className="relative w-full aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg"
+                    alt="CEO - JCL Group"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
+                {/* Decorative Element */}
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-orange rounded-2xl opacity-10 blur-2xl" />
+              </div>
+
+              {/* CEO Message */}
+              <div className="order-1 lg:order-2">
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-orange/10 rounded-full mb-4 sm:mb-6 border border-brand-orange/20">
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-brand-orange" />
+                  <span className="text-xs sm:text-sm font-semibold text-brand-orange uppercase tracking-wide">
+                    Message from Leadership
+                  </span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-brand-navy mb-4 sm:mb-6 tracking-tight">
+                  Driven by Vision, Guided by Values
+                </h2>
+
+                <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                  At JCL Group, we believe in transforming lives through
+                  excellence. For over a decade, our commitment to quality,
+                  integrity, and customer satisfaction has made us a trusted
+                  name across Ghana.
+                </p>
+
+                <p className="text-gray-600 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base">
+                  Whether it's finding your dream home, embarking on
+                  unforgettable travels, or accessing cutting-edge technology,
+                  JCL Group is your partner in success. Thank you for your
+                  continued trust in us.
+                </p>
+
+                <div className="space-y-3 sm:space-y-4">
+                  <div>
+                    <p className="font-bold text-brand-navy text-base sm:text-lg">
+                      Chief Executive Officer
+                    </p>
+                    <p className="text-gray-600 text-xs sm:text-sm">
+                      JCL Group of Companies
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Original Testimonials Header and Content */}
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 sm:mb-16 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-navy rounded-full mb-4 sm:mb-6">
@@ -545,7 +596,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
         {/* CTA Banner Section - Enhanced Mobile Design */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
