@@ -75,7 +75,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
   const ctaHref =
     ctaMode === "whatsapp"
-      ? "https://wa.me/233557869299?text=Hello%20JCL%20Group"
+      ? "https://wa.me/233557860299?text=Hello%20JCL%20Group"
       : "/contact";
   const ctaLabel = ctaMode === "whatsapp" ? "WhatsApp" : "Contact";
   const ctaAriaLabel =

@@ -34,12 +34,18 @@ export default function AddToCart({ product, quantity = 1 }: Props) {
         const payload = await res.json();
         const p = payload?.data || payload;
         if (!p) throw new Error("Product not found");
+        // Debug: log payload and resolved product shape
+        // eslint-disable-next-line no-console
+        console.debug("AddToCart fetched payload:", { payload, resolved: p });
         // Try several common paths for price
         const candidate =
           p.price ??
           p?.data?.price ??
           (Array.isArray(p) ? p[0]?.price : undefined) ??
           payload.price;
+        // Debug: log candidate before normalization
+        // eslint-disable-next-line no-console
+        console.debug("AddToCart price candidate:", { candidate });
         const realPrice =
           typeof candidate === "number"
             ? candidate
@@ -53,6 +59,9 @@ export default function AddToCart({ product, quantity = 1 }: Props) {
           });
           return;
         }
+        // Debug: log final numeric price
+        // eslint-disable-next-line no-console
+        console.debug("AddToCart realPrice:", { realPrice });
         addItem(
           {
             id: String(product.id),

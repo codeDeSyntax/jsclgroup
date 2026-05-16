@@ -1,5 +1,14 @@
 // Authentication utilities and constants
-export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000";
+// Resolve backend URL using explicit NEXT_PUBLIC_BACKEND_URL when provided.
+// Otherwise fall back to per-environment variables for clarity.
+const explicit = process.env.NEXT_PUBLIC_BACKEND_URL;
+const prod = process.env.NEXT_PUBLIC_PROD_BACKEND_URL;
+const dev = process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+export const BACKEND_URL =
+  explicit ||
+  (process.env.NODE_ENV === "production"
+    ? prod || "https://api.example.com"
+    : dev || "http://localhost:4000");
 
 export interface AuthToken {
   access_token: string;
@@ -33,7 +42,7 @@ export function clearTokens(): void {
 // Login user with email and password
 export async function loginAdmin(
   email: string,
-  password: string
+  password: string,
 ): Promise<{ success: boolean; error?: string; tokens?: AuthToken }> {
   try {
     const response = await fetch(`${BACKEND_URL}/auth/login`, {
@@ -55,7 +64,10 @@ export async function loginAdmin(
     };
 
     if (!tokens.access_token || !tokens.refresh_token) {
-      return { success: false, error: "Login response did not include valid tokens" };
+      return {
+        success: false,
+        error: "Login response did not include valid tokens",
+      };
     }
 
     storeTokens(tokens);
@@ -70,7 +82,7 @@ export async function loginAdmin(
 
 // Verify current token and get user info
 export async function verifyToken(
-  token: string
+  token: string,
 ): Promise<{ success: boolean; user?: AuthUser; error?: string }> {
   try {
     const response = await fetch(`${BACKEND_URL}/auth/me`, {

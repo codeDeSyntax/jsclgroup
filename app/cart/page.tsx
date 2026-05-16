@@ -26,7 +26,7 @@ export default function CartPage() {
 
   const confirmPurchase = () => {
     const message = buildWhatsAppMessage();
-    const phone = "233557869299";
+    const phone = "2335578609299";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     setShowConfirm(false);
