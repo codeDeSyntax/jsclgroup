@@ -12,7 +12,7 @@ export type ImageType =
   | "product-card"
   | "marketing"
   | "service";
-export type Division = "realEstate" | "travel" | "gadgets";
+export type Division = "realEstate" | "gadgets";
 
 export interface ImageData {
   id: string;
@@ -29,7 +29,7 @@ export interface ImageData {
 
 /**
  * Get all images for a specific division
- * @param division - 'realEstate' | 'travel' | 'gadgets'
+ * @param division - 'realEstate' | 'gadgets'
  * @returns All images grouped by category for that division
  */
 export const getImagesByDivision = (division: Division) => {
@@ -38,7 +38,7 @@ export const getImagesByDivision = (division: Division) => {
 
 /**
  * Get a specific image type within a division
- * @param division - 'realEstate' | 'travel' | 'gadgets'
+ * @param division - 'realEstate' | 'gadgets'
  * @param type - e.g., 'hero', 'properties', 'packages', 'featured', etc.
  * @returns Array of images for that specific type
  */
@@ -54,7 +54,7 @@ export const getImagesByType = (
 
 /**
  * Get a random image from a specific category
- * @param division - 'realEstate' | 'travel' | 'gadgets'
+ * @param division - 'realEstate' | 'gadgets'
  * @param type - e.g., 'properties', 'packages'
  * @returns A random image from that category
  */
@@ -64,7 +64,10 @@ export const getRandomImage = (
 ): ImageData | null => {
   const images = getImagesByType(division, type);
   if (images.length === 0) return null;
-  return images[Math.floor(Math.random() * images.length)];
+  // Avoid server-side randomness to keep server-render deterministic.
+  // Return the first image on the server; client components can pick
+  // a random image if they need variety.
+  return images[0] || null;
 };
 
 /**
@@ -86,7 +89,7 @@ export const getImageById = (id: string): ImageData | null => {
 
 /**
  * Get first N images from a category
- * @param division - 'realEstate' | 'travel' | 'gadgets'
+ * @param division - 'realEstate' | 'gadgets'
  * @param type - category type
  * @param count - number of images to return
  * @returns Limited array of images
@@ -122,13 +125,11 @@ export { imagesData };
 
 // Named exports for each division
 export const realEstateImages = imagesData.realEstate;
-export const travelImages = imagesData.travel;
 export const gadgetsImages = imagesData.gadgets;
 
 // Common queries
 export const heroImages = {
   realEstate: realEstateImages.hero,
-  travel: travelImages.hero,
   gadgets: gadgetsImages.hero,
 };
 
@@ -139,6 +140,5 @@ export const featuredImages = {
 
 export const allDivisionImages = {
   realEstate: realEstateImages,
-  travel: travelImages,
   gadgets: gadgetsImages,
 };

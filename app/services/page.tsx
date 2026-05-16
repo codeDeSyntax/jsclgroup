@@ -7,7 +7,6 @@ import Image from "next/image";
 import {
   Zap,
   Home,
-  Plane,
   Shield,
   Headphones,
   Truck,
@@ -15,7 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { realEstateImages, travelImages, gadgetsImages } from "@/lib/images";
+import { realEstateImages, gadgetsImages } from "@/lib/images";
 
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState(0);
@@ -36,7 +35,7 @@ export default function ServicesPage() {
         "Trade-in Programs",
       ],
       image: gadgetsImages.featured[0]?.secure_url || "",
-      link: "/products",
+      link: "/products/electronics",
       linkText: "Browse Products",
       icon: Zap,
     },
@@ -61,22 +60,25 @@ export default function ServicesPage() {
     },
     {
       id: 2,
-      category: "Travel & Tours",
-      title: "Unforgettable Travel Experiences",
+      category: "Support",
+      title: "Reliable Customer Support",
       description:
-        "Every journey is unique and special. Our travel services provide carefully curated experiences to explore the world, create lasting memories, and discover new destinations. Our experienced travel consultants use proven expertise to help you plan the perfect trip.",
+        "We keep the buying process simple with responsive guidance, after-sales help, and clear communication from start to finish.",
       items: [
-        "Guided Tours",
-        "Luxury Packages",
-        "Adventure Travel",
-        "Custom Itineraries",
-        "Travel Insurance",
-        "Visa Assistance",
+        "Fast Response",
+        "Order Guidance",
+        "After-Sales Help",
+        "Clear Communication",
+        "Reliable Delivery Updates",
+        "Friendly Assistance",
       ],
-      image: travelImages.destinations[0]?.secure_url || "",
-      link: "/travel",
-      linkText: "Explore Packages",
-      icon: Plane,
+      image:
+        gadgetsImages.featured[1]?.secure_url ||
+        gadgetsImages.featured[0]?.secure_url ||
+        "",
+      link: "/contact",
+      linkText: "Contact Us",
+      icon: Shield,
     },
   ];
 
@@ -120,12 +122,12 @@ export default function ServicesPage() {
               <h1 className="text-5xl md:text-6xl font-bold text-brand-navy mb-6 leading-tight">
                 Expert Care for Your
                 <br />
-                Specific Needs
+                Property and Tech Needs
               </h1>
               <p className="text-base text-gray-600 leading-relaxed">
-                To empower you to achieve your goals across real estate,
-                technology, and travel. We aim to make our services accessible,
-                supportive, and transformative for everyone who seeks excellence.
+                To empower you to achieve your goals across real estate and
+                technology. We aim to make our services accessible, supportive,
+                and transformative for everyone who seeks excellence.
               </p>
             </div>
           </div>
@@ -252,14 +254,14 @@ export default function ServicesPage() {
             <div className="bg-brand-navy rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl"></div>
-              
+
               <div className="relative">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Ready to Experience Our Services?
                 </h2>
                 <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-                  Contact us today to learn more about how we can serve your needs
-                  across all our divisions.
+                  Contact us today to learn more about how we can serve your
+                  needs across our product and service offerings.
                 </p>
                 <Link
                   href="/contact"

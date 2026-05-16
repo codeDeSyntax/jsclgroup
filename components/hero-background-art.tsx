@@ -1,290 +1,354 @@
-export default function HeroBackgroundArt() {
+type HeroBackgroundArtProps = {
+  variant?: "light" | "dark";
+};
+
+export default function HeroBackgroundArt({
+  variant = "light",
+}: HeroBackgroundArtProps) {
+  const isDark = variant === "dark";
+
   return (
     <>
-      {/* Background Glow Effect */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-transparent to-brand-orange/5 -z-10"
+        className={`absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 ${
+          isDark
+            ? "bg-[radial-gradient(circle_at_50%_18%,rgba(248,85,6,0.3),transparent_38%)]"
+            : "bg-gradient-to-b from-transparent to-brand-orange/5"
+        }`}
         aria-hidden="true"
-      ></div>
+      />
 
-      {/* Ultra-Artistic Business Pattern - Premium & Sophisticated */}
-      <div className="absolute inset-0 -z-5" aria-hidden="true">
-        {/* Radial Network Hub - Global Business Reach */}
+      <div
+        className={`absolute inset-0 w-full md:w-[92%] m-auto -z-5 overflow-hidden pointer-events-none ${
+          isDark ? "opacity-90" : ""
+        }`}
+        aria-hidden="true"
+      >
+        {/* Left mesh */}
         <svg
-          className="absolute top-[5%] right-[8%] w-80 h-80 opacity-25"
-          viewBox="0 0 400 400"
+          className="absolute left-[-22%] top-[-15%] h-[62%] w-[122%] opacity-[0.34] sm:left-[-16%] sm:h-[66%] sm:w-[108%] md:left-[-6%] md:top-[4%] md:h-[75%] md:w-[78%] md:opacity-[0.42]"
+          viewBox="0 0 980 700"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <radialGradient id="networkGradient">
-              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.4)" />
-              <stop offset="100%" stopColor="rgba(248, 85, 6, 0)" />
-            </radialGradient>
+            <linearGradient id="meshFill" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.5)" />
+              <stop offset="55%" stopColor="rgba(255, 255, 255, 0.08)" />
+              <stop offset="100%" stopColor="rgba(18, 55, 111, 0.18)" />
+            </linearGradient>
           </defs>
-          <circle cx="200" cy="200" r="150" fill="url(#networkGradient)" />
-          {/* Radiating connection lines */}
-          <g stroke="rgba(248, 85, 6, 0.5)" strokeWidth="1.2">
-            <line x1="200" y1="200" x2="340" y2="140" />
-            <line x1="200" y1="200" x2="320" y2="240" />
-            <line x1="200" y1="200" x2="260" y2="320" />
-            <line x1="200" y1="200" x2="140" y2="300" />
-            <line x1="200" y1="200" x2="80" y2="220" />
-            <line x1="200" y1="200" x2="100" y2="120" />
-            <line x1="200" y1="200" x2="180" y2="60" />
-            <line x1="200" y1="200" x2="280" y2="80" />
+
+          <g transform="translate(90 52) skewX(-18)">
+            <g>
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="url(#meshFill)"
+                stroke="rgba(255,255,255,0.12)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.32)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="url(#meshFill)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.2)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="url(#meshFill)"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.12)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <g transform="translate(40 84)">
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="url(#meshFill)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.18)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="url(#meshFill)"
+                stroke="rgba(248,85,6,0.5)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.11)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="url(#meshFill)"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <g transform="translate(0 168)">
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="url(#meshFill)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.5)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="url(#meshFill)"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="url(#meshFill)"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="552,0 644,0 684,80 592,80"
+                fill="url(#meshFill)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <path
+              d="M 40 40 L 632 40 M 80 124 L 672 124 M 40 208 L 684 208 M 80 292 L 632 292 M 40 376 L 592 376 M 80 460 L 552 460"
+              stroke="rgba(255,255,255,0.14)"
+              strokeWidth="1.2"
+              fill="none"
+            />
+            <path
+              d="M 40 40 L 80 124 L 40 208 L 80 292 L 40 376 L 80 460"
+              stroke="rgba(248,85,6,0.4)"
+              strokeWidth="1.2"
+              fill="none"
+            />
+            <path
+              d="M 132 40 L 172 124 L 132 208 L 172 292 L 132 376 L 172 460"
+              stroke="rgba(18,55,111,0.24)"
+              strokeWidth="1.2"
+              fill="none"
+            />
           </g>
-          {/* Connection nodes */}
-          <circle cx="340" cy="140" r="6" fill="rgba(248, 85, 6, 0.5)" />
-          <circle cx="320" cy="240" r="5" fill="rgba(32, 0, 112, 0.4)" />
-          <circle cx="260" cy="320" r="4" fill="rgba(248, 85, 6, 0.4)" />
-          <circle cx="140" cy="300" r="5" fill="rgba(248, 85, 6, 0.45)" />
-          <circle cx="80" cy="220" r="4" fill="rgba(32, 0, 112, 0.35)" />
-          <circle cx="100" cy="120" r="5" fill="rgba(248, 85, 6, 0.4)" />
-          <circle cx="180" cy="60" r="4" fill="rgba(248, 85, 6, 0.5)" />
-          <circle cx="280" cy="80" r="5" fill="rgba(32, 0, 112, 0.4)" />
-          <circle cx="200" cy="200" r="8" fill="rgba(248, 85, 6, 0.6)" />
         </svg>
 
-        {/* Elegant Spiral Growth Pattern - Now matching right side network */}
+        {/* Right mesh (mirrored) */}
         <svg
-          className="absolute bottom-[50%] left-[5%] w-96 h-96 opacity-20"
-          viewBox="0 0 400 400"
+          className="absolute right-[-22%] top-[-15%] h-[62%] w-[122%] opacity-[0.34] sm:right-[-16%] sm:h-[66%] sm:w-[108%] md:right-[-6%] md:top-[4%] md:h-[75%] md:w-[78%] md:opacity-[0.42]"
+          viewBox="0 0 980 700"
           xmlns="http://www.w3.org/2000/svg"
+          style={{ transform: "scaleX(-1)" }}
         >
           <defs>
-            <radialGradient id="networkGradientLeft">
-              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.7)" />
-              <stop offset="100%" stopColor="rgba(248, 85, 6, 0)" />
-            </radialGradient>
+            <linearGradient
+              id="meshFillRight"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="rgba(248, 85, 6, 0.5)" />
+              <stop offset="55%" stopColor="rgba(255, 255, 255, 0.08)" />
+              <stop offset="100%" stopColor="rgba(18, 55, 111, 0.18)" />
+            </linearGradient>
           </defs>
-          <circle cx="200" cy="200" r="150" fill="url(#networkGradientLeft)" />
-          {/* Radiating connection lines */}
-          <g stroke="rgba(248, 85, 6, 0.9)" strokeWidth="1.2">
-            <line x1="200" y1="200" x2="340" y2="140" />
-            <line x1="200" y1="200" x2="320" y2="240" />
-            <line x1="200" y1="200" x2="260" y2="320" />
-            <line x1="200" y1="200" x2="140" y2="300" />
-            <line x1="200" y1="200" x2="80" y2="220" />
-            <line x1="200" y1="200" x2="100" y2="120" />
-            <line x1="200" y1="200" x2="180" y2="60" />
-            <line x1="200" y1="200" x2="280" y2="80" />
+
+          <g transform="translate(90 52) skewX(-18)">
+            <g>
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(255,255,255,0.12)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.32)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.2)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.12)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <g transform="translate(40 84)">
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.18)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(248,85,6,0.5)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.11)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <g transform="translate(0 168)">
+              <polygon
+                points="0,0 92,0 132,80 40,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="92,0 184,0 224,80 132,80"
+                fill="none"
+                stroke="rgba(248,85,6,0.5)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="184,0 276,0 316,80 224,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="276,0 368,0 408,80 316,80"
+                fill="none"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="368,0 460,0 500,80 408,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(248,85,6,0.4)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="460,0 552,0 592,80 500,80"
+                fill="none"
+                stroke="rgba(18,55,111,0.16)"
+                strokeWidth="1"
+              />
+              <polygon
+                points="552,0 644,0 684,80 592,80"
+                fill="url(#meshFillRight)"
+                stroke="rgba(255,255,255,0.1)"
+                strokeWidth="1"
+              />
+            </g>
+
+            <path
+              d="M 40 40 L 632 40 M 80 124 L 672 124 M 40 208 L 684 208 M 80 292 L 632 292 M 40 376 L 592 376 M 80 460 L 552 460"
+              stroke="rgba(255,255,255,0.14)"
+              strokeWidth="1.2"
+              fill="none"
+            />
+            <path
+              d="M 40 40 L 80 124 L 40 208 L 80 292 L 40 376 L 80 460"
+              stroke="rgba(248,85,6,0.4)"
+              strokeWidth="1.2"
+              fill="none"
+            />
+            <path
+              d="M 132 40 L 172 124 L 132 208 L 172 292 L 132 376 L 172 460"
+              stroke="rgba(18,55,111,0.24)"
+              strokeWidth="1.2"
+              fill="none"
+            />
           </g>
-          {/* Connection nodes */}
-          <circle cx="340" cy="140" r="6" fill="rgba(248, 85, 6, 0.3)" />
-          <circle cx="320" cy="240" r="5" fill="rgba(32, 0, 112, 0.25)" />
-          <circle cx="260" cy="320" r="4" fill="rgba(248, 85, 6, 0.25)" />
-          <circle cx="140" cy="300" r="5" fill="rgba(248, 85, 6, 0.28)" />
-          <circle cx="80" cy="220" r="4" fill="rgba(32, 0, 112, 0.22)" />
-          <circle cx="100" cy="120" r="5" fill="rgba(248, 85, 6, 0.25)" />
-          <circle cx="180" cy="60" r="4" fill="rgba(248, 85, 6, 0.3)" />
-          <circle cx="280" cy="80" r="5" fill="rgba(32, 0, 112, 0.25)" />
-          <circle cx="200" cy="200" r="8" fill="rgba(248, 85, 6, 0.35)" />
-        </svg>
-
-        {/* Abstract Mesh Grid - Innovation Framework */}
-        <svg
-          className="absolute top-[20%] left-[15%] w-[70%] h-[65%] opacity-15"
-          viewBox="0 0 800 600"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Curved mesh lines */}
-          <path
-            d="M 0 100 Q 200 120, 400 100 T 800 100"
-            stroke="rgba(248, 85, 6, 0.25)"
-            strokeWidth="1"
-            fill="none"
-          />
-          <path
-            d="M 0 200 Q 200 180, 400 200 T 800 200"
-            stroke="rgba(248, 85, 6, 0.2)"
-            strokeWidth="1"
-            fill="none"
-          />
-          <path
-            d="M 0 300 Q 200 320, 400 300 T 800 300"
-            stroke="rgba(32, 0, 112, 0.2)"
-            strokeWidth="1"
-            fill="none"
-          />
-          <path
-            d="M 0 400 Q 200 380, 400 400 T 800 400"
-            stroke="rgba(248, 85, 6, 0.18)"
-            strokeWidth="1"
-            fill="none"
-          />
-          {/* Vertical mesh */}
-          <path
-            d="M 150 0 Q 160 150, 150 300 T 150 600"
-            stroke="rgba(248, 85, 6, 0.2)"
-            strokeWidth="0.8"
-            fill="none"
-          />
-          <path
-            d="M 350 0 Q 340 150, 350 300 T 350 600"
-            stroke="rgba(32, 0, 112, 0.18)"
-            strokeWidth="0.8"
-            fill="none"
-          />
-          <path
-            d="M 550 0 Q 560 150, 550 300 T 550 600"
-            stroke="rgba(248, 85, 6, 0.15)"
-            strokeWidth="0.8"
-            fill="none"
-          />
-          {/* Intersection nodes */}
-          <circle cx="150" cy="100" r="3" fill="rgba(248, 85, 6, 0.35)" />
-          <circle cx="350" cy="200" r="3" fill="rgba(32, 0, 112, 0.3)" />
-          <circle cx="550" cy="300" r="3" fill="rgba(248, 85, 6, 0.3)" />
-          <circle cx="350" cy="400" r="3" fill="rgba(248, 85, 6, 0.35)" />
-        </svg>
-
-        {/* Flowing Stream Lines - Market Flow */}
-        <svg
-          className="absolute top-[35%] right-[10%] w-[35%] h-[40%] opacity-25"
-          viewBox="0 0 400 400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M 50 100 C 120 80, 180 120, 250 100 C 320 80, 350 50, 380 40"
-            stroke="rgba(248, 85, 6, 0.4)"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 40 150 C 110 130, 170 170, 240 150 C 310 130, 340 100, 370 90"
-            stroke="rgba(248, 85, 6, 0.3)"
-            strokeWidth="2.5"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 45 200 C 115 180, 175 220, 245 200 C 315 180, 345 150, 375 140"
-            stroke="rgba(32, 0, 112, 0.25)"
-            strokeWidth="1.8"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 50 250 C 120 230, 180 270, 250 250 C 320 230, 350 200, 380 190"
-            stroke="rgba(248, 85, 6, 0.25)"
-            strokeWidth="1.5"
-            fill="none"
-            strokeLinecap="round"
-          />
-        </svg>
-
-        {/* Organic Liquid Shapes - Dynamic Growth - Now sleek like right side */}
-        <svg
-          className="absolute top-[45%] left-[10%] w-72 h-72 opacity-20"
-          viewBox="0 0 400 400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="200"
-            cy="200"
-            r="180"
-            fill="none"
-            stroke="rgba(248, 85, 6, 0.15)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="140"
-            fill="none"
-            stroke="rgba(248, 85, 6, 0.2)"
-            strokeWidth="1.2"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="100"
-            fill="none"
-            stroke="rgba(32, 0, 112, 0.2)"
-            strokeWidth="1.5"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="60"
-            fill="rgba(248, 85, 6, 0.15)"
-            stroke="rgba(248, 85, 6, 0.3)"
-            strokeWidth="1.8"
-          />
-          <circle cx="200" cy="200" r="12" fill="rgba(248, 85, 6, 0.4)" />
-        </svg>
-
-        {/* Circular Ripple Effect - Impact & Influence */}
-        <svg
-          className="absolute bottom-[25%] right-[15%] w-72 h-72 opacity-20"
-          viewBox="0 0 400 400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="200"
-            cy="200"
-            r="180"
-            fill="none"
-            stroke="rgba(248, 85, 6, 0.15)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="140"
-            fill="none"
-            stroke="rgba(248, 85, 6, 0.2)"
-            strokeWidth="1.2"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="100"
-            fill="none"
-            stroke="rgba(32, 0, 112, 0.2)"
-            strokeWidth="1.5"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="60"
-            fill="rgba(248, 85, 6, 0.15)"
-            stroke="rgba(248, 85, 6, 0.3)"
-            strokeWidth="1.8"
-          />
-          <circle cx="200" cy="200" r="12" fill="rgba(248, 85, 6, 0.4)" />
-        </svg>
-
-        {/* Scattered Data Points - Analytics */}
-        <div className="absolute inset-0 opacity-25">
-          <div className="absolute top-[12%] left-[22%] w-2 h-2 bg-brand-orange/50 rounded-full animate-pulse"></div>
-          <div className="absolute top-[18%] left-[68%] w-2.5 h-2.5 bg-brand-orange/40 rounded-full"></div>
-          <div className="absolute top-[42%] left-[19%] w-1.5 h-1.5 bg-brand-navy/40 rounded-full animate-pulse"></div>
-          <div className="absolute top-[55%] right-[22%] w-2 h-2 bg-brand-orange/45 rounded-full"></div>
-          <div className="absolute bottom-[28%] left-[45%] w-2 h-2 bg-brand-orange/35 rounded-full animate-pulse"></div>
-          <div className="absolute top-[32%] right-[38%] w-1.5 h-1.5 bg-brand-navy/35 rounded-full"></div>
-          <div className="absolute bottom-[35%] left-[62%] w-2.5 h-2.5 bg-brand-orange/40 rounded-full"></div>
-        </div>
-
-        {/* Abstract Lightning Bolts - Innovation Energy */}
-        <svg
-          className="absolute top-[8%] left-[40%] w-20 h-20 opacity-15"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M 50 10 L 40 45 L 55 45 L 45 90 L 70 50 L 55 50 Z"
-            fill="rgba(248, 85, 6, 0.3)"
-          />
         </svg>
       </div>
-
-      {/* Bottom Fade Overlay - creates blend into next section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-white -z-5 pointer-events-none"
-        aria-hidden="true"
-      ></div>
     </>
   );
 }

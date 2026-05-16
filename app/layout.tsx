@@ -1,31 +1,32 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Viewport } from "next";
 
 import "./globals.css";
-
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+import { AuthProvider } from "@/components/auth-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { CartProvider } from "@/hooks/use-cart";
 
 export const metadata: Metadata = {
-  title: "JCL Group | Electrical, Real Estate & Travel",
+  title: "JCL Group | Electrical & Real Estate",
   description:
-    "Leading multi-division company offering electrical gadgets, real estate solutions, and premium travel experiences.",
+    "Leading multi-division company offering electrical gadgets and real estate solutions.",
   generator: "v0.app",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: true,
-    themeColor: "#135ed5",
-  },
   icons: {
-    icon: "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
+    icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
     shortcut:
-      "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
     apple:
-      "https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: true,
+  themeColor: "#135ed5",
 };
 
 export default function RootLayout({
@@ -34,15 +35,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className="font-sans antialiased"
         style={{
           background:
             "linear-gradient(180deg, rgba(248, 85, 6, 0.08) 0%, rgba(248, 85, 6, 0.03) 30%, transparent 100%)",
         }}
       >
-        {children}
+        <AuthProvider>
+          <CartProvider>{children}</CartProvider>
+        </AuthProvider>
+        <Toaster />
       </body>
     </html>
   );

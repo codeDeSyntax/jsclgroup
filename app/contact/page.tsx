@@ -1,29 +1,30 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import Image from "next/image";
-import { Phone, Mail, MapPin, Send, Clock } from "lucide-react";
-import { realEstateImages, travelImages, gadgetsImages } from "@/lib/images";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Phone,
+  Send,
+  Twitter,
+} from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    division: "Electrical Gadgets",
-    subject: "",
     message: "",
   });
-
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -31,329 +32,190 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        division: "Electrical Gadgets",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", message: "" });
       setSubmitted(false);
     }, 3000);
   };
 
-  const offices = [
+  const contactBlocks = [
     {
-      division: "Electrical Gadgets",
-      address: "123 Tech Plaza, San Francisco, CA 94105",
-      phone: "+1 (415) 555-0123",
-      email: "gadgets@proventure.com",
-      hours: "Mon-Fri: 9AM-6PM",
+      title: "Chat to us",
+      description: "Our friendly team is here to help.",
+      value: "info@jclgroupgh.com",
+      icon: MessageSquare,
     },
     {
-      division: "Real Estate",
-      address: "456 Property Ave, New York, NY 10001",
-      phone: "+1 (212) 555-0456",
-      email: "realestate@proventure.com",
-      hours: "Mon-Fri: 9AM-7PM",
+      title: "Visit us",
+      description: "Come say hello at our office HQ.",
+      value: "Accra, Ghana",
+      icon: MapPin,
     },
     {
-      division: "Travel & Tours",
-      address: "789 Adventure Blvd, Miami, FL 33139",
-      phone: "+1 (305) 555-0789",
-      email: "travel@proventure.com",
-      hours: "Mon-Sun: 8AM-8PM",
+      title: "Call us",
+      description: "Mon-Fri from 8am to 5pm.",
+      value: "+233 (0) 20 000 0000",
+      icon: Phone,
     },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-transparent via-brand-orange/5 to-white/50 ">
-      <Header />
+    <div className="flex min-h-screen flex-col bg-jcl-white">
+      <Header  variant="hero"/>
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl"></div>
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Text Content */}
-              <div>
-                <div className="text-[10px] tracking-[0.4em] uppercase text-gray-400 font-medium mb-6">
-                  Contact Us
-                </div>
-                <h1 className="text-5xl md:text-7xl font-bold text-brand-navy mb-6 leading-tight">
-                  Get in Touch
-                </h1>
-                <p className="text-base text-gray-600 leading-relaxed">
-                  Have questions? We'd love to hear from you. Reach out to our
-                  team at any of our divisions.
-                </p>
-              </div>
+        <section className="py-20 sm:py-14 lg:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-[32px] border-[3px] border-jcl-primary/90 bg-[#f2f2f2] p-3 sm:p-4">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.85fr_1.35fr]">
+                <aside className="order-2 rounded-[24px] bg-transparent px-4 py-5 sm:px-6 sm:py-6 lg:order-1 lg:px-8 lg:py-8">
+                  <div className="mb-8 flex items-center gap-2">
+                    <div className="h-3 w-3 rounded-full bg-jcl-primary" />
+                    <span className="text-xl font-extrabold tracking-tight text-jcl-primary">
+                      JCL Group
+                    </span>
+                  </div>
 
-              {/* Image Arrangement */}
-              <div className="relative h-[400px]">
-                <div className="grid grid-cols-2 gap-3 h-full">
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
-                    <Image
-                      src={realEstateImages.featured[0]?.secure_url || ""}
-                      alt="Real Estate"
-                      fill
-                      className="object-contain"
-                      sizes="300px"
-                    />
+                  <div className="space-y-7">
+                    {contactBlocks.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={item.title} className="flex gap-3">
+                          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-jcl-primary/15 bg-white text-jcl-primary">
+                            <Icon className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-jcl-primary">
+                              {item.title}
+                            </h3>
+                            <p className="mt-0.5 text-sm text-jcl-primary/75">
+                              {item.description}
+                            </p>
+                            <p className="mt-2 text-base font-semibold text-jcl-primary">
+                              {item.value}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl bg-gray-100 rotate-2">
-                    <Image
-                      src={travelImages.destinations[0]?.secure_url || ""}
-                      alt="Travel"
-                      fill
-                      className="object-contain"
-                      sizes="300px"
-                    />
+
+                  <div className="mt-10 flex items-center gap-2.5">
+                    {[Facebook, Twitter, Linkedin, Instagram].map(
+                      (Icon, index) => (
+                        <a
+                          key={index}
+                          href="#"
+                          className="flex h-9 w-9 items-center justify-center rounded-md border border-jcl-primary/15 bg-white text-jcl-primary transition hover:bg-jcl-primary hover:text-white"
+                          aria-label="Social media"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </a>
+                      ),
+                    )}
                   </div>
-                  <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-xl bg-gray-100 -rotate-1">
-                    <Image
-                      src={gadgetsImages.featured[0]?.secure_url || ""}
-                      alt="Electronics"
-                      fill
-                      className="object-contain"
-                      sizes="600px"
-                    />
-                  </div>
+                </aside>
+
+                <div className="order-1 rounded-[24px] border border-jcl-primary/10 bg-white px-5 py-6 shadow-[0_20px_60px_rgba(7,13,75,0.06)] relative overflow-hidden sm:px-8 sm:py-8 lg:order-2 lg:px-10 lg:py-10">
+                  <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-brand-orange/10 via-brand-orange/5 to-transparent" />
+                  {submitted ? (
+                    <div className="relative z-10 rounded-xl border border-jcl-primary/15 bg-white/80 p-8 text-center">
+                      <p className="text-4xl font-black text-jcl-primary">✓</p>
+                      <h2 className="mt-3 text-2xl font-black text-jcl-primary">
+                        Message Sent
+                      </h2>
+                      <p className="mt-2 text-jcl-primary/80">
+                        Thanks for reaching out. Our team will get back shortly.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="relative z-10">
+                      <h1 className="max-w-2xl text-3xl font-black leading-tight tracking-tight text-black sm:text-3xl lg:text-5xl">
+                        Do you want to reach out? We&apos;re here to help.
+                      </h1>
+                      <p className="mt-3 max-w-2xl text-sm text-jcl-primary/80 sm:text-base">
+                        Tell us more about yourself and what you&apos;re
+                        building.
+                      </p>
+
+                      <div className="mt-8 space-y-5">
+                        <div>
+                          <label
+                            htmlFor="name"
+                            className="text-sm font-medium text-jcl-primary"
+                          >
+                            Your name
+                          </label>
+                          <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            placeholder="Your full name"
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="text-sm font-medium text-jcl-primary"
+                          >
+                            Email
+                          </label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            placeholder="name@yourdomain.com"
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="message"
+                            className="text-sm font-medium text-jcl-primary"
+                          >
+                            Tell us a little about what you have in mind...
+                          </label>
+                          <textarea
+                            id="message"
+                            name="message"
+                            required
+                            rows={3}
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="mt-2 w-full resize-none border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            placeholder="Tell us what you have in mind"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Service selection removed per project requirements */}
+
+                      <button
+                        type="submit"
+                        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-jcl-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-jcl-blue-900"
+                      >
+                        Let&apos;s get started
+                        <Send className="h-4 w-4" />
+                      </button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Form and Info */}
-        <section className="py-16 md:py-24 relative bg-white/50">
-          <div className="absolute inset-0 "></div>
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              {/* Contact Info */}
-              <div className="lg:col-span-1">
-                <h2 className="text-2xl font-bold text-brand-navy mb-8">
-                  Contact Information
-                </h2>
-
-                <div className="space-y-6">
-                  {offices.map((office, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all"
-                    >
-                      <h3 className="font-semibold text-brand-orange mb-4">
-                        {office.division}
-                      </h3>
-                      <div className="space-y-3">
-                        <div className="flex gap-3">
-                          <MapPin
-                            size={20}
-                            className="text-brand-navy flex-shrink-0 mt-1"
-                          />
-                          <p className="text-gray-600 text-sm">
-                            {office.address}
-                          </p>
-                        </div>
-                        <div className="flex gap-3">
-                          <Phone
-                            size={20}
-                            className="text-brand-navy flex-shrink-0"
-                          />
-                          <a
-                            href={`tel:${office.phone}`}
-                            className="text-gray-700 hover:text-brand-orange transition-colors text-sm"
-                          >
-                            {office.phone}
-                          </a>
-                        </div>
-                        <div className="flex gap-3">
-                          <Mail
-                            size={20}
-                            className="text-brand-navy flex-shrink-0"
-                          />
-                          <a
-                            href={`mailto:${office.email}`}
-                            className="text-gray-700 hover:text-brand-orange transition-colors text-sm"
-                          >
-                            {office.email}
-                          </a>
-                        </div>
-                        <div className="flex gap-3">
-                          <Clock
-                            size={20}
-                            className="text-brand-navy flex-shrink-0"
-                          />
-                          <p className="text-gray-600 text-sm">
-                            {office.hours}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="lg:col-span-2 ">
-                <h2 className="text-2xl font-bold text-brand-navy mb-8">
-                  Send us a Message
-                </h2>
-
-                {submitted ? (
-                  <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-xl p-8 text-center">
-                    <div className="text-4xl mb-4 text-brand-orange">✓</div>
-                    <h3 className="text-lg font-semibold text-brand-navy mb-2">
-                      Message Sent!
-                    </h3>
-                    <p className="text-gray-700">
-                      Thank you for contacting us. We'll get back to you
-                      shortly.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-brand-navy mb-2"
-                        >
-                          Full Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-brand-navy mb-2"
-                        >
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900"
-                          placeholder="john@example.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium text-brand-navy mb-2"
-                        >
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900"
-                          placeholder="+1 (555) 123-4567"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="division"
-                          className="block text-sm font-medium text-brand-navy mb-2"
-                        >
-                          Division
-                        </label>
-                        <select
-                          id="division"
-                          name="division"
-                          value={formData.division}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900"
-                        >
-                          <option>Electrical Gadgets</option>
-                          <option>Real Estate</option>
-                          <option>Travel & Tours</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium text-brand-navy mb-2"
-                      >
-                        Subject
-                      </label>
-                      <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900"
-                        placeholder="How can we help?"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-brand-navy mb-2"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white text-gray-900 resize-none"
-                        placeholder="Tell us more about your inquiry..."
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full flex items-center justify-center px-8 py-3 bg-brand-orange text-white rounded-full font-semibold hover:opacity-90 transition-all hover:shadow-lg group"
-                    >
-                      Send Message
-                      <Send
-                        size={20}
-                        className="ml-2 group-hover:translate-x-1 transition-transform"
-                      />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Map Section */}
         <section className="py-16 md:py-24 relative">
-          <div className="absolute inset-0 bg-white/50"></div>
+          <div className="absolute inset-0 bg-jcl-white" />
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-8 text-center">
               Find Us
@@ -363,7 +225,6 @@ export default function ContactPage() {
               channels above
             </p>
 
-            {/* Embedded Map */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
               <div className="aspect-[16/9] w-full">
                 <iframe
@@ -379,7 +240,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Quick Location Link */}
             <div className="mt-8 text-center">
               <a
                 href="https://maps.google.com/?q=Accra,Ghana"
@@ -390,47 +250,6 @@ export default function ContactPage() {
                 <MapPin className="w-4 h-4" />
                 Open in Google Maps
               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 md:py-24 relative">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl"></div>
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-12 text-center">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-4">
-              {[
-                {
-                  q: "How quickly will I hear back from your team?",
-                  a: "We typically respond to inquiries within 24 business hours. Urgent matters may be addressed sooner.",
-                },
-                {
-                  q: "Can I contact a specific division?",
-                  a: "Yes! You can select your division in the contact form or reach out directly using the contact information provided above.",
-                },
-                {
-                  q: "Do you offer consulting services?",
-                  a: "Absolutely! We offer free initial consultations for all our divisions. Contact us to schedule yours.",
-                },
-                {
-                  q: "What are your business hours?",
-                  a: "Hours vary by division. Please refer to the contact information section above for specific hours.",
-                },
-              ].map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl p-6 border border-gray-100 hover:border-brand-orange/30 hover:shadow-lg transition-all"
-                >
-                  <h3 className="font-semibold text-brand-navy mb-2">
-                    {faq.q}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{faq.a}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

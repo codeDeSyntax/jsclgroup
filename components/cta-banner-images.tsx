@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { realEstateImages, travelImages, gadgetsImages } from "@/lib/images";
+import { realEstateImages, gadgetsImages } from "@/lib/images";
 
 const images = [
   ...(realEstateImages.properties || []).slice(0, 2),
-  ...(travelImages.packages || []).slice(0, 2),
   ...(gadgetsImages.electronics || []).slice(0, 2),
 ].filter((img) => img && img.secure_url); // Filter out any null/undefined images
 
@@ -89,7 +88,7 @@ export default function CTABannerImages() {
           alt={currentImage.alt || "JCL Services"}
           fill
           className="object-cover sm:object-contain rounded-lg sm:rounded-xl"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           onLoad={() => {
             setIsLoading(false);
             setHasError(false);
@@ -102,8 +101,7 @@ export default function CTABannerImages() {
         />
       </div>
 
-      {/* Gradient Overlay - Enhanced for Mobile */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-brand-navy/10 sm:from-brand-navy/30 sm:via-transparent to-transparent rounded-lg sm:rounded-xl"></div>
+     
 
       {/* Loading indicator - Show when loading */}
       {(isLoading || hasError) && (

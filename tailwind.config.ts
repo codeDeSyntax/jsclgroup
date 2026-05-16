@@ -11,11 +11,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // JCL Brand Colors
+        // JCL theme colors. Use as bg-jcl-primary, text-jcl-orange-500,
+        // border-jcl-blue-800, etc.
+        jcl: {
+          DEFAULT: "#12376f",
+          primary: "#070d4b",
+          accent: "#f85506",
+          white: "#e8e8e8",
+          black: "#000000",
+          blue: {
+            50: "#eef6ff",
+            100: "#d9eaff",
+            200: "#bcdbff",
+            300: "#8ec5ff",
+            400: "#59a3ff",
+            500: "#2f7df5",
+            600: "#135ed5",
+            700: "#1556b0",
+            800: "#12376f",
+            900: "#0d2b59",
+            950: "#0b2145",
+          },
+          orange: {
+            50: "#fff4ed",
+            100: "#ffe5d4",
+            200: "#ffc7a8",
+            300: "#ff9e70",
+            400: "#ff6d35",
+            500: "#f85506",
+            600: "#df4300",
+            700: "#b83304",
+            800: "#922b0a",
+            900: "#76260d",
+            950: "#401003",
+          },
+        },
+        // Legacy aliases kept during the UI refresh.
         brand: {
-          white: "#fefefe",
-          "blue-bright": "#0000fe",
-          navy: "#200070",
+          white: "#ffffff",
+          "blue-bright": "#135ed5",
+          navy: "#12376f",
           orange: "#f85506",
         },
         background: "hsl(var(--background))",

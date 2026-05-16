@@ -1,220 +1,160 @@
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Linkedin,
-  Twitter,
-  Instagram,
-  ArrowRight,
-  Home,
-  Plane,
-  Zap,
-} from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import FooterCtaCard from "@/components/footer-cta-card";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const quickLinks = [
+    { href: "/", label: "Home" },
+    { href: "/products/electronics", label: "Shop" },
+    { href: "/gadgets", label: "Gadgets" },
+    { href: "/services", label: "Services" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://web.facebook.com/profile.php?id=61580477670825",
+      label: "Facebook",
+      icon: Facebook,
+    },
+    {
+      href: "https://www.instagram.com/rsgroupghana/",
+      label: "Instagram",
+      icon: Instagram,
+    },
+    {
+      href: "https://x.com/rsgroupgh?s=09",
+      label: "X",
+      icon: Twitter,
+    },
+    {
+      href: "https://www.linkedin.com/company/rs-group-of-companies-limited/",
+      label: "LinkedIn",
+      icon: Linkedin,
+    },
+  ];
+
   return (
-    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
-          <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <div className="flex items-center gap-3 mb-7">
-              <Image
-                className="w-auto h-9"
-                src="https://res.cloudinary.com/dqidnnssq/image/upload/v1770810231/jcllogo_rj8hvw.jpg"
-                alt="JCL Group Logo"
-                width={36}
-                height={36}
-              />
-              <span className="font-bold text-xl text-brand-navy">
-                JCL Group
-              </span>
-            </div>
-
-            <p className="text-base leading-relaxed text-gray-600 mt-7">
-              Transforming industries through innovation and excellence across
-              real estate, travel experiences, and cutting-edge electronics.
-              Your trusted partner for quality and innovation.
-            </p>
-
-            <ul className="flex items-center space-x-3 mt-9">
-              <li>
-                <a
-                  href="https://web.facebook.com/profile.php?id=61580477670825"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Facebook"
-                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.instagram.com/rsgroupghana/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Instagram"
-                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://x.com/rsgroupgh?s=09"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="X (Twitter)"
-                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/rs-group-of-companies-limited/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="LinkedIn"
-                  className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-brand-navy focus:bg-brand-navy"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-              Company
-            </p>
-
-            <ul className="mt-6 space-y-4">
-              <li>
-                <Link
-                  href="/about"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
-                >
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
-                >
-                  Services
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/products"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
-                >
-                  Products
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/contact"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-navy focus:text-brand-navy"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-              Divisions
-            </p>
-
-            <ul className="mt-6 space-y-4">
-              <li>
-                <Link
-                  href="/real-estate"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
-                >
-                  Real Estate
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/travel"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
-                >
-                  Travel & Tours
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/gadgets"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
-                >
-                  Electronics
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/properties"
-                  className="flex text-base text-black transition-all duration-200 hover:text-brand-orange focus:text-brand-orange"
-                >
-                  Properties
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
-            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-              Subscribe to newsletter
-            </p>
-
-            <form action="#" method="POST" className="mt-6">
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-brand-navy caret-brand-navy"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-brand-navy rounded-md hover:bg-brand-navy/90 focus:bg-brand-navy/90"
-              >
-                Subscribe
-              </button>
-            </form>
+    <footer className="relative mt-28 w-full rounded-t-3xl bg-black text-white sm:mt-32">
+      <div className="w-full">
+        <div className="pointer-events-none absolute left-0 right-0 -top-24 z-20 px-4 sm:-top-28 sm:px-6 lg:px-8">
+          <div className="pointer-events-auto mx-auto flex max-w-6xl justify-center">
+            <FooterCtaCard />
           </div>
         </div>
 
-        <hr className="mt-16 mb-10 border-gray-200" />
+        <div className="relative z-10 w-full px-4 pb-8 pt-44 sm:px-6 sm:pt-48 lg:pt-52">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-10 pb-12 md:grid-cols-3">
+              <div>
+                <h3 className="text-3xl font-black tracking-[-0.03em] text-white">
+                  Quick Links
+                </h3>
+                <ul className="mt-6 space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/75 transition hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-        <p className="text-sm text-center text-gray-600">
-          © Copyright {currentYear}, All Rights Reserved by JCL Group
-        </p>
+              <div>
+                <h3 className="text-3xl font-black tracking-[-0.03em] text-white">
+                  Contact &amp; Legal
+                </h3>
+                <ul className="mt-6 space-y-3 text-sm text-white/75">
+                  <li className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-jcl-orange-400" />
+                    <a
+                      href="mailto:info@jclgroupgh.com"
+                      className="transition hover:text-white"
+                    >
+                      info@jclgroupgh.com
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      href="/privacy"
+                      className="transition hover:text-white"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/terms" className="transition hover:text-white">
+                      Terms &amp; Conditions
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="max-w-sm text-3xl font-black leading-tight tracking-[-0.03em] text-white">
+                  Join the conversation let&apos;s connect!
+                </h3>
+                <ul className="mt-6 flex items-center gap-3">
+                  {socialLinks.map(({ href, label, icon: Icon }) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        title={label}
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-jcl-primary transition hover:-translate-y-0.5 hover:bg-jcl-orange-500 hover:text-white"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid gap-6 border-t border-white/15 py-8 lg:grid-cols-[1fr_1.15fr] lg:items-end">
+              <p className="max-w-xl text-4xl font-black leading-tight tracking-[-0.04em] text-white sm:text-5xl">
+                Never miss updates from our community.
+              </p>
+
+              <form className="space-y-3">
+                <label
+                  htmlFor="footer-email"
+                  className="text-sm font-medium text-white/75"
+                >
+                  Email
+                </label>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <input
+                    id="footer-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="h-12 w-full rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white placeholder:text-white/55 outline-none ring-0 transition focus:border-jcl-orange-400"
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-jcl-orange-500 px-8 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-jcl-orange-600"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div className="border-t border-white/10 pt-6 text-center text-xs text-white/55">
+              Copyright © {currentYear} JCL Group. All rights reserved.
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 }
