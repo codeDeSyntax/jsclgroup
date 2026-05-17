@@ -9,6 +9,7 @@ import ElectronicsHeroSection from "@/components/electronics/electronics-hero";
 // ElectronicsPopularCategories removed — use BestSellers fallback or add component if needed
 import ElectronicsBestSellers from "@/components/electronics/electronics-best-sellers";
 import ElectronicsCta from "@/components/electronics/electronics-cta";
+import ProductCardSkeleton from "@/components/electronics/product-card-skeleton";
 import { ArrowRight, ChevronRight, Filter, Heart, Star } from "lucide-react";
 import AddToCart from "@/components/cart/add-to-cart";
 import { BACKEND_URL } from "@/lib/auth";
@@ -115,14 +116,20 @@ export default function ElectronicsPage() {
             </Link>
           </div>
 
-          {loading && <p>Loading products…</p>}
+          {loading && (
+            <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <ProductCardSkeleton key={`skeleton-${index}`} />
+              ))}
+            </div>
+          )}
 
           {!loading && products && products.length === 0 && (
             <ElectronicsBestSellers />
           )}
 
           {!loading && products && products.length > 0 && (
-            <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-4 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
               {products.map((p) => (
                 <Link
                   key={p.id}

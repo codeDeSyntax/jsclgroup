@@ -164,8 +164,8 @@ export default function ProjectsPage() {
           ctaText="Create First Project"
         />
       ) : (
-        <div className="overflow-hidden rounded-lg border border-gray-200/40 bg-white">
-          <table className="w-full">
+        <div className="rounded-lg border border-gray-200/40 bg-white overflow-x-auto">
+          <table className="w-full min-w-[720px]">
             {/* Table Header */}
             <thead>
               <tr className="border-b border-gray-100 bg-gray-50/30">

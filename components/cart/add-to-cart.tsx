@@ -22,7 +22,7 @@ export default function AddToCart({ product, quantity = 1 }: Props) {
   const priceNum =
     typeof product.price === "number"
       ? product.price
-      : Number(String(product.price).replace(/[^\\d.]/g, "")) || 0;
+      : Number(String(product.price).replace(/[^\d.]/g, "")) || 0;
 
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -49,7 +49,7 @@ export default function AddToCart({ product, quantity = 1 }: Props) {
         const realPrice =
           typeof candidate === "number"
             ? candidate
-            : Number(String(candidate ?? "").replace(/[^\\d.]/g, "")) || 0;
+            : Number(String(candidate ?? "").replace(/[^\d.]/g, "")) || 0;
         if (!realPrice) {
           // don't add items with missing/zero price
           toast({

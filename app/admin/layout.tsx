@@ -14,6 +14,7 @@ import {
   Tag,
   Menu,
   X,
+  Settings,
 } from "lucide-react";
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/components/auth-provider";
@@ -49,6 +50,7 @@ export default function AdminLayout({
     { href: "/admin/products", label: "Products", icon: Package },
     { href: "/admin/projects", label: "Projects", icon: FileText },
     { href: "/admin/discounts", label: "Discount Banners", icon: Tag },
+    { href: "/admin/settings", label: "Settings", icon: Settings },
   ];
 
   const isActive = (href: string) => {
@@ -78,7 +80,6 @@ export default function AdminLayout({
                     height={40}
                     className=" h-10 w-8 opacity-90"
                   />
-                 
                 </div>
                 <div className="min-w-0">
                   <h1 className="truncate text-lg font-black tracking-[-0.04em] text-black">
@@ -95,14 +96,14 @@ export default function AdminLayout({
                   href={href}
                   className={`group relative flex items-center gap-3 rounded-2xl px-4 py-1 transition-all duration-200 ${
                     isActive(href)
-                      ? "bg-jcl-white text-black "
+                      ? "bg-jcl-black/10 text-black"
                       : "text-black/72 hover:bg-black/[0.04] hover:text-black"
                   }`}
                 >
                   <span
                     className={`absolute inset-y-2 left-1 w-1 rounded-full transition-opacity ${
                       isActive(href)
-                        ? "bg-black opacity-100"
+                        ? "bg-jcl-black opacity-100"
                         : "bg-jcl-black opacity-0 group-hover:opacity-80"
                     }`}
                   />
@@ -238,7 +239,7 @@ export default function AdminLayout({
                       aria-current={isActive(href) ? "page" : undefined}
                       className={`block rounded-2xl px-1 py-1 transition-all duration-200 ${
                         isActive(href)
-                          ? "bg-white/10 text-white ring-1 ring-white/15"
+                          ? "bg-jcl-primary text-white ring-1 ring-jcl-accent/35"
                           : "text-white"
                       }`}
                     >

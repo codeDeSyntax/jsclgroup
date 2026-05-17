@@ -13,25 +13,25 @@ export default function HeroSection2() {
       name: "Refrigerator",
       image:
         "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778761897/Ashfridge_wvsbqv.png",
-      description: "Premium cooling solutions",
+      description: "Reliable cooling for modern homes",
     },
     {
       name: "Blender",
       image:
         "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778761897/powerful-metallic-silver-blender-with-sleek-design-smooth-blending-transparent-background_1059034-40329-removebg-preview_r3irun.png",
-      description: "Powerful blending technology",
+      description: "Everyday power for fast prep",
     },
     {
       name: "Flat Screen TV",
       image:
         "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778761898/flatscreen_ebhsbj.png",
-      description: "Crystal clear entertainment",
+      description: "Sharp viewing for work and play",
     },
     {
       name: "Standing Fan",
       image:
         "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778761898/standing_fan_mzwgrz.png",
-      description: "Efficient air circulation",
+      description: "Comfort that keeps every room moving",
     },
   ];
 
@@ -101,19 +101,19 @@ export default function HeroSection2() {
                   {/* Main Heading */}
                   <div>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-[0.95] tracking-[-0.08em] text-black mb-2">
-                      QUALITY
+                      ELECTRICAL
                     </h1>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95] tracking-[-0.08em] text-black">
-                      SALES
+                      GADGET SALES
                     </h2>
                   </div>
 
                   {/* Description */}
                   <p className="text-base sm:text-lg leading-7 sm:leading-8 text-black/85 max-w-xl">
-                    Explore our premium selection of quality appliances. From
-                    refrigerators and stoves to washing machines and
-                    entertainment systems, we have everything you need for your
-                    home at competitive prices.
+                    Explore our curated selection of electrical gadgets and home
+                    appliances, from refrigerators and fans to televisions,
+                    kitchen essentials, and everyday devices at competitive
+                    prices.
                   </p>
 
                   {/* CTA Buttons */}
@@ -122,13 +122,13 @@ export default function HeroSection2() {
                       href="/products/electronics"
                       className="px-7 sm:px-8 py-3 bg-jcl-accent text-white font-bold text-sm sm:text-base rounded-lg hover:bg-black/90 transition-colors duration-300 inline-flex items-center justify-center"
                     >
-                      Explore Appliances
+                      Explore Products
                     </Link>
                     <Link
                       href="/products/electronics"
                       className="px-7 sm:px-8 py-3 border-2 border-black text-black font-bold text-sm sm:text-base rounded-lg hover:bg-black/5 transition-colors duration-300 inline-flex items-center justify-center"
                     >
-                      Shop Now
+                      Shop Electricals
                     </Link>
                   </div>
                 </div>

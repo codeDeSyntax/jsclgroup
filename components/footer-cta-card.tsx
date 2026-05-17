@@ -7,7 +7,7 @@ export default function FooterCtaCard() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-t-3xl shadow-[0_28px_90px_rgba(7,13,75,0.14)] sm:rounded-3xl"
+      className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-t-3xl rounded-br-3xl shadow-[0_28px_90px_rgba(7,13,75,0.14)] sm:rounded-3xl"
       style={{
         backgroundImage: `url(${ctaBgImage})`,
         backgroundSize: "cover",
@@ -22,17 +22,16 @@ export default function FooterCtaCard() {
 
           <div className="relative">
             <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-jcl-orange-500/20 bg-white/75 px-2.5 py-1 text-[10px] font-bold uppercase text-jcl-orange-600 shadow-sm sm:px-3 sm:py-1.5 sm:text-xs">
-              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-              Let&apos;s Work Together
+              Let&apos;s Talk Property & Gadgets
             </div>
 
             <h2 className="max-w-lg text-2xl font-black leading-[0.98] tracking-[-0.04em] text-black sm:text-3xl lg:text-4xl">
-              Build your next chapter with JCL Group
+              Build your next home, investment, or gadget order with JCL Group
             </h2>
 
-            <p className="mt-3 max-w-xl text-xs leading-5 text-jcl-blue-900/70 sm:text-sm sm:leading-6 lg:text-base">
-              From everyday essentials to trusted gadgets, we deliver reliable
-              options and guidance built around your goals.
+            <p className="mt-3 max-w-xl  leading-5 text-jcl-blue-900/70 sm:text-sm sm:leading-6 lg:text-base">
+              From properties and rentals to electrical gadgets and appliances,
+              we deliver reliable options and guidance built around your goals.
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2.5">
@@ -40,7 +39,7 @@ export default function FooterCtaCard() {
                 href="/contact"
                 className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-jcl-accent px-4 text-xs font-bold text-white transition hover:bg-jcl-blue-900 sm:min-h-11 sm:px-5 sm:text-sm"
               >
-                Contact Us Today
+                Contact Our Team
                 <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Link>
               <Link

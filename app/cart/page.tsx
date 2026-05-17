@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { ChevronLeft, X } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { useCart } from "@/hooks/use-cart";
+import { BACKEND_URL } from "@/lib/auth";
 
 export default function CartPage() {
   const {
@@ -16,18 +19,33 @@ export default function CartPage() {
     buildWhatsAppMessage,
   } = useCart();
 
+  const [contactPhone, setContactPhone] = useState("2335578609299");
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  // Fetch phone number from settings
+  useEffect(() => {
+    const fetchPhone = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
+        if (res.ok) {
+          const data = await res.json();
+          setContactPhone(data.data.value);
+        }
+      } catch (error) {
+        console.error("Failed to fetch phone number:", error);
+      }
+    };
+    fetchPhone();
+  }, []);
+
   const handlePurchase = () => {
-    // show confirmation modal
     if (items.length === 0) return;
     setShowConfirm(true);
   };
 
-  const [showConfirm, setShowConfirm] = useState(false);
-
   const confirmPurchase = () => {
     const message = buildWhatsAppMessage();
-    const phone = "2335578609299";
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${contactPhone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     setShowConfirm(false);
   };
@@ -35,128 +53,151 @@ export default function CartPage() {
   return (
     <div className="flex min-h-screen flex-col bg-jcl-white text-black">
       <Header />
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-20 sm:px-6 lg:px-8">
-        <h1 className="mb-6 text-2xl font-black">Your cart</h1>
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 lg:px-8 md:origin-top-left md:transform md:scale-90">
+        {/* Back link */}
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-1 text-sm font-medium text-black/60 hover:text-black"
+        >
+          <ChevronLeft className="h-4 w-4" />
+          Back
+        </Link>
+
+        <h1 className="mb-8 text-3xl font-black tracking-[-0.02em]">
+          YOUR CART
+        </h1>
 
         {items.length === 0 ? (
-          <div className="rounded-lg border border-black/10 bg-white p-6">
-            Your cart is empty.
+          <div className="flex min-h-[300px] items-center justify-center">
+            <div>
+              <p className="text-center text-black/60">Your cart is empty.</p>
+              <Link
+                href="/products"
+                className="mt-4 inline-block rounded-lg bg-jcl-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+              >
+                Continue shopping
+              </Link>
+            </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
-            <div>
-              <div className="rounded-lg bg-white">
-                <div className="px-6 py-4">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold">Your Order</h2>
+          <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+            {/* Cart items */}
+            <div className="divide-y divide-black/10">
+              {items.map((it) => (
+                <div
+                  key={it.id}
+                  className="flex gap-4 py-6 first:pt-0 last:pb-0"
+                >
+                  {/* Image */}
+                  <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-black/[0.02]">
+                    {it.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={it.image}
+                        alt={it.name}
+                        className="h-full w-full object-contain"
+                      />
+                    ) : null}
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex flex-1 flex-col">
+                    <p className="font-semibold text-black/90">{it.name}</p>
+                    <p className="mt-0.5 text-xs text-black/50">SKU: {it.id}</p>
+                    {/* Quantity controls */}
+                    <div className="mt-auto flex items-center gap-2">
+                      <button
+                        onClick={() =>
+                          updateQuantity(it.id, Math.max(1, it.quantity - 1))
+                        }
+                        className="h-7 w-7 rounded border border-black/10 bg-white text-sm font-semibold hover:bg-black/5"
+                      >
+                        −
+                      </button>
+                      <span className="w-6 text-center text-sm font-semibold">
+                        {it.quantity}
+                      </span>
+                      <button
+                        onClick={() => updateQuantity(it.id, it.quantity + 1)}
+                        className="h-7 w-7 rounded border border-black/10 bg-white text-sm font-semibold hover:bg-black/5"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Price and remove */}
+                  <div className="flex flex-col items-end">
+                    <p className="font-black text-jcl-primary">
+                      ${it.price.toFixed(2)}
+                    </p>
                     <button
-                      className="text-sm text-jcl-accent"
-                      onClick={() => clear()}
+                      onClick={() => removeItem(it.id)}
+                      className="mt-auto rounded-full p-1 text-black/40 hover:bg-black/5 hover:text-black/60"
+                      aria-label="Remove item"
                     >
-                      Clear all
+                      <X className="h-4 w-4" />
                     </button>
                   </div>
                 </div>
-
-                <div className="divide-y">
-                  {items.map((it) => (
-                    <div
-                      key={it.id}
-                      className="flex items-center gap-4 px-6 py-4 hover:bg-gray-50"
-                    >
-                      <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md bg-black/[0.03]">
-                        {it.image ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={it.image}
-                            alt={it.name}
-                            className="h-full w-full object-contain"
-                          />
-                        ) : null}
-                      </div>
-
-                      <div className="flex flex-1 flex-col">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="min-w-0">
-                            <p className="truncate text-base font-semibold">
-                              {it.name}
-                            </p>
-                            <p className="mt-1 text-xs text-black/60">
-                              SKU: {it.id}
-                            </p>
-                          </div>
-                          <div className="text-sm font-bold text-jcl-primary">
-                            ${it.price.toFixed(2)}
-                          </div>
-                        </div>
-
-                        <div className="mt-3 flex items-center gap-3">
-                          <button
-                            onClick={() =>
-                              updateQuantity(it.id, it.quantity - 1)
-                            }
-                            className="h-8 w-8 rounded-md border border-black/10 bg-white"
-                          >
-                            -
-                          </button>
-                          <div className="px-3 text-sm font-semibold">
-                            {it.quantity}
-                          </div>
-                          <button
-                            onClick={() =>
-                              updateQuantity(it.id, it.quantity + 1)
-                            }
-                            className="h-8 w-8 rounded-md border border-black/10 bg-white"
-                          >
-                            +
-                          </button>
-
-                          <button
-                            onClick={() => removeItem(it.id)}
-                            className="ml-4 rounded-full bg-black/5 px-2 py-1 text-sm text-jcl-accent"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
 
+            {/* Totals sidebar */}
             <aside className="relative">
-              <div className="sticky top-28 rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-lg font-semibold">Order Summary</h3>
+              <div className="sticky top-28 space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-wide text-black/60">
+                  CART TOTALS
+                </h3>
 
-                <div className="mb-4 flex items-center justify-between text-sm text-black/70">
-                  <div>
-                    Subtotal ({totalCount} item{totalCount > 1 ? "s" : ""})
+                <div className="space-y-3 border-t border-black/10 pt-4">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-black/60">
+                      Shipping (2-5 Business Days)
+                    </span>
+                    <span className="font-semibold">Free</span>
                   </div>
-                  <div className="font-semibold">${totalPrice.toFixed(2)}</div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-black/60">
+                      Tax (estimated for the United States (US))
+                    </span>
+                    <span className="font-semibold">$0</span>
+                  </div>
                 </div>
 
-                <div className="mb-6 border-t border-black/5 pt-4">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-black/70">Order total</div>
-                    <div className="text-xl font-black text-jcl-primary">
+                <div className="border-t border-black/10 pt-4">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-black/60">Subtotal</span>
+                    <span className="font-semibold">
                       ${totalPrice.toFixed(2)}
-                    </div>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="border-t border-black/10 pt-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-black/60">
+                      Total
+                    </span>
+                    <span className="text-2xl font-black text-jcl-primary">
+                      ${totalPrice.toFixed(2)}
+                    </span>
                   </div>
                 </div>
 
                 <button
                   onClick={handlePurchase}
-                  className="mb-2 w-full rounded-xl bg-jcl-primary px-4 py-3 text-white hover:opacity-95"
+                  className="mt-6 w-full rounded-md bg-jcl-black py-3 text-sm font-bold text-white transition hover:opacity-90"
                 >
-                  Purchase my items
+                  PROCEED TO CHECKOUT
                 </button>
-                <button
-                  onClick={() => clear()}
-                  className="w-full rounded-xl border border-black/10 px-4 py-3"
+
+                <Link
+                  href="/products"
+                  className="flex justify-center rounded-md border border-black/10 py-3 text-sm font-semibold text-black transition hover:bg-black/5"
                 >
-                  Clear cart
-                </button>
+                  ← CONTINUE SHOPPING
+                </Link>
               </div>
             </aside>
           </div>

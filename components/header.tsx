@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
+import { BACKEND_URL } from "@/lib/auth";
 
 type HeaderProps = {
   variant?: "default" | "hero";
@@ -24,6 +25,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const { totalCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ctaMode, setCtaMode] = useState<"whatsapp" | "contact">("whatsapp");
+  const [contactPhone, setContactPhone] = useState("2335578609299");
   const pathname = usePathname();
 
   const navLinks = [
@@ -73,9 +75,29 @@ export default function Header({ variant = "default" }: HeaderProps) {
     return () => window.clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const fetchContactPhone = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
+        if (!res.ok) return;
+
+        const data = await res.json();
+        if (data?.data?.value) {
+          setContactPhone(String(data.data.value));
+        }
+      } catch (error) {
+        console.error("Failed to fetch contact phone:", error);
+      }
+    };
+
+    fetchContactPhone();
+  }, []);
+
+  const normalizedPhone = contactPhone.replace(/\D/g, "");
+
   const ctaHref =
     ctaMode === "whatsapp"
-      ? "https://wa.me/233557860299?text=Hello%20JCL%20Group"
+      ? `https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`
       : "/contact";
   const ctaLabel = ctaMode === "whatsapp" ? "WhatsApp" : "Contact";
   const ctaAriaLabel =
@@ -102,8 +124,8 @@ export default function Header({ variant = "default" }: HeaderProps) {
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
       <nav
-        className={`mx-auto px-0 md:px-0 ${
-          isHero ? "py-3 max-w-5xl" : "py- w-full"
+        className={`mx-auto   ${
+          isHero ? "py-3 px-2 md:px-0 max-w-5xl" : "py- w-full"
         }`}
       >
         <div
@@ -247,7 +269,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
       </nav>
 
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-jcl-primary text-white transition-all duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-50 bg-jcl-black text-white transition-all duration-300 ease-in-out ${
           mobileMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -304,19 +326,32 @@ export default function Header({ variant = "default" }: HeaderProps) {
                   </span>
                 </Link>
               ))}
+
+              <a
+                href={`https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl border border-white/10 bg-white/5 px-1 py-1 transition-all duration-200 hover:bg-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="flex items-center gap-3 text-[clamp(1.2rem,5vw,1.9rem)] font-semibold tracking-[-0.03em] text-white">
+                  <MessageCircle size={18} />
+                  <span>WhatsApp</span>
+                </span>
+              </a>
             </div>
           </div>
 
           <div className="grid grid-cols-2 border-t border-white/10 pt-3 text-sm font-medium text-white/85">
             <a
-              href="tel:+1234567890"
+              href="tel:+233557860299"
               className="flex items-center justify-center gap-2 border-r border-white/10 py-4 transition hover:bg-white/5"
             >
               <Phone size={16} />
               <span>Call</span>
             </a>
             <a
-              href="mailto:info@jclgroupgh.com"
+              href="mailto:joelokornoe97@gmail.com"
               className="flex items-center justify-center gap-2 py-4 transition hover:bg-white/5"
             >
               <Mail size={16} />

@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="absolute top-0 left-0 right-0 z-50">
           <Header variant="hero" />
         </div>
-        
+
         {/* Hero Switcher */}
         <HeroSectionSwitcher />
       </div>
@@ -33,12 +33,12 @@ export default function HomePage() {
         {/* Services Section */}
         <ServicesSection />
 
-        {/* Why Choose Us Section - Reference-style mosaic */}
-        <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-jcl-white">
+        {/* The JCL Difference Section - Reference-style mosaic */}
+        <section className="py-16  sm:py-20 lg:py-24 xl:py-28 bg-jcl-white">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-[24px] bg-transparent p-0">
-              <div className="relative z-10 mb-6 sm:mb-8 lg:mb-10">
-                <h2 className="max-w-4xl text-4xl font-black leading-[0.95] tracking-[-0.08em] text-black sm:text-6xl md:text-7xl lg:text-7xl">
+            <div className="relative overflow-hidden  bg-transparent p-0">
+              <div className="relative  z-10 mb-6 sm:mb-8 lg:mb-10">
+                <h2 className=" text-4xl font-black leading-[0.95] tracking-[-0.08em] text-black sm:text-6xl ">
                   The JCL Difference
                 </h2>
               </div>
@@ -47,7 +47,7 @@ export default function HomePage() {
                 <div className="overflow-hidden rounded-[20px] bg-[#d9c7b2] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg"
-                    alt="Home appliances display"
+                    alt="Property and home essentials display"
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -58,11 +58,11 @@ export default function HomePage() {
                 <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-[18rem]">
                     <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Trusted Network of Specialists:
+                      Verified Property & Product Experts:
                     </h3>
-                    <p className="mt-3 max-w-[15rem] text-xs leading-5 text-brand-navy/70 sm:text-sm sm:leading-6">
-                      We partner with the best property specialists near you,
-                      ensuring top-tier care and service.
+                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70  sm:leading-6">
+                      We work with trusted property professionals and product
+                      sourcing partners to keep every recommendation reliable.
                     </p>
                   </div>
                 </div>
@@ -70,11 +70,11 @@ export default function HomePage() {
                 <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-[18rem]">
                     <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Compassionate Approach:
+                      Personal Service, Start to Finish:
                     </h3>
-                    <p className="mt-3 max-w-[15rem] text-xs leading-5 text-brand-navy/70 sm:text-sm sm:leading-6">
-                      We prioritize your comfort and well-being, fostering a
-                      welcoming environment built on respect and understanding.
+                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70 sm:leading-6">
+                      From first inquiry to final handover, we guide you with
+                      clear communication and dependable support.
                     </p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ export default function HomePage() {
                 <div className="overflow-hidden rounded-[20px] bg-[#d7c2a8] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
-                    alt="Modern home appliances"
+                    alt="Electrical gadgets and home appliances"
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -93,7 +93,7 @@ export default function HomePage() {
                 <div className="overflow-hidden rounded-[20px] bg-[#eef1ec] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
-                    alt="Modern home appliance showcase"
+                    alt="Home and electrical product showcase"
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -104,11 +104,11 @@ export default function HomePage() {
                 <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-[18rem]">
                     <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Rapid Response:
+                      Fast Turnaround:
                     </h3>
-                    <p className="mt-3 max-w-[15rem] text-xs leading-5 text-brand-navy/70 sm:text-sm sm:leading-6">
-                      We expedite the process of getting qualified support to
-                      your home, often meeting urgent needs promptly.
+                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70  sm:leading-6">
+                      When a property opportunity or gadget request is urgent,
+                      we move quickly without losing quality.
                     </p>
                   </div>
                 </div>
@@ -125,25 +125,26 @@ export default function HomePage() {
               {/* Left: Text */}
               <div className="order-1 lg:order-1">
                 <div className="text-sm font-medium text-brand-navy/70 mb-3">
-                  Matt Balshin - CEO / Founder
+                  Mr Eric Kwaw - CEO / Founder
                 </div>
 
-                <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[0.95] tracking-tight text-black mb-4">
-                  mb's head
+                <h2 className="text-5xl sm:text-6xl font-extrabold leading-[0.95] tracking-tight text-black mb-4">
+                  JCL's
                   <br />
-                  honcho.
+                  Honcho.
                 </h2>
 
                 <p className="text-lg font-semibold text-brand-navy/90 mb-4 max-w-xl">
-                  A hands on strategist & design creative, with a passion for
-                  the details.
+                  A hands-on builder of brands, deals, and customer trust, with
+                  a sharp eye for the details.
                 </p>
 
-                <p className="text-gray-700 mb-6 max-w-2xl">
-                  Matt has been responsible for bringing concepts to life for
-                  some of the world's most exciting and forward thinking brands.
-                  Outside of work Matt can be found watching his favourite
-                  sports and searching for a comedy show to have a few laughs.
+                <p className="text-black mb-6 max-w-2xl">
+                  Mr. Eric Kwaw, the visionary CEO and founder of JCL Group, has
+                  helped shape a business built around dependable property
+                  solutions and trusted electrical gadget sales. His focus on
+                  quality, speed, and customer satisfaction continues to guide
+                  the company’s growth across both divisions.
                 </p>
 
                 <div className="flex items-center gap-4 text-gray-600">
@@ -188,11 +189,11 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-navy rounded-full mb-4 sm:mb-6">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-white fill-white" />
                 <span className="text-xs sm:text-sm font-semibold text-white tracking-wide">
-                  Ratings & Reviews
+                  Client Stories
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-brand-navy tracking-tight">
-                Real Stories. Real People. Real Results.
+                Real experiences from property buyers and gadget customers.
               </h2>
             </div>
 
@@ -201,7 +202,7 @@ export default function HomePage() {
                 {
                   name: "Tunde O",
                   content:
-                    "From check-in to check-out, everything was smooth. The place was so cozy and had this modern vibe. I even hosted a small hangout with friends. Will definitely book again.",
+                    "We found a home that matched our budget and move-in timeline. The process was clear, fast, and handled professionally from the first call to the final paperwork.",
                   image:
                     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
                   bgColor: "bg-brand-navy/5",
@@ -211,7 +212,7 @@ export default function HomePage() {
                 {
                   name: "Chinelo A",
                   content:
-                    "JCL Group's real estate division helped us find our dream property. Their attention to detail and personalized service exceeded all expectations.",
+                    "JCL Group helped us secure the right property and gave practical advice every step of the way. The service felt personal and genuinely reliable.",
                   image:
                     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
                   bgColor: "bg-white",
@@ -221,7 +222,7 @@ export default function HomePage() {
                 {
                   name: "Idris B.",
                   content:
-                    "I needed a quiet place to relax and work. Delivered! The location was central, the Wi-Fi was strong, and the host was super responsive. 10/10 experience.",
+                    "I ordered electrical gadgets for my home and the recommendations were spot on. Good value, great support, and delivery was handled without stress.",
                   image:
                     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
                   bgColor: "bg-brand-orange/5",
@@ -237,7 +238,7 @@ export default function HomePage() {
                   }}
                 >
                   <div
-                    className={`${testimonial.bgColor} ${testimonial.rotation} rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-md sm:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-lg sm:hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 relative`}
+                    className={`${testimonial.bgColor} ${testimonial.rotation} rounded-3xl sm:rounded-3xl p-6 sm:p-8  hover:shadow-lg sm:hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 relative`}
                   >
                     {/* Avatar and Name at Top */}
                     <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">

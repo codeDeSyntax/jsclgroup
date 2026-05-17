@@ -9,8 +9,8 @@ export default function HeroSectionSwitcher() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const heroes = [
-    { id: 0, component: HeroSection1, label: "Real Estate" },
-    { id: 1, component: HeroSection2, label: "Appliance Sales" },
+    { id: 0, component: HeroSection1, label: "Property" },
+    { id: 1, component: HeroSection2, label: "Electrical Gadgets" },
   ];
 
   const handleNext = () => {

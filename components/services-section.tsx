@@ -20,7 +20,7 @@ const services: Service[] = [
     icon: <Home className="w-6 h-6" />,
     title: "Property Sales & Rentals",
     description:
-      "Browse verified homes, rentals, and investment opportunities with a team that understands the local market.",
+      "Browse verified homes, rentals, and investment opportunities with a team that understands what matters in every neighborhood.",
     imageUrl:
       "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683097/Modern_Luxury_Bangla_Villa_sm7qxz.jpg",
   },
@@ -29,7 +29,7 @@ const services: Service[] = [
     icon: <Shield className="w-6 h-6" />,
     title: "Building & Construction",
     description:
-      "From design to completion, we manage construction projects with quality craftsmanship and attention to detail.",
+      "From planning to completion, we manage construction projects with quality craftsmanship, clear timelines, and attention to detail.",
     imageUrl:
       "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683100/download_vqjuzk.jpg",
   },
@@ -38,7 +38,7 @@ const services: Service[] = [
     icon: <Zap className="w-6 h-6" />,
     title: "Gadget Sales & Sourcing",
     description:
-      "Find modern devices, accessories, and technology essentials selected for quality and value.",
+      "Find electrical gadgets, appliances, and accessories selected for quality, performance, and value.",
     imageUrl:
       "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778682789/applc1_xs8bbg.jpg",
   },
@@ -47,7 +47,7 @@ const services: Service[] = [
     icon: <Sparkles className="w-6 h-6" />,
     title: "Customer Support",
     description:
-      "Work with a responsive team that helps you move smoothly from inquiry to delivery.",
+      "Work with a responsive team that helps you move smoothly from inquiry to delivery and after-sales support.",
     imageUrl:
       "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778682833/applc2_q3svit.png",
   },
@@ -61,17 +61,18 @@ export default function ServicesSection() {
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.75fr)] lg:items-end">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full  bg-brand-navy/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/80">
-                What we can do for you
+                What we do best
               </div>
-              <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.92] tracking-[-0.08em] text-black sm:text-5xl md:text-6xl lg:text-7xl">
-                Solutions that feel sharp, simple, and dependable.
+              <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.92] tracking-[-0.08em] text-black sm:text-5xl md:text-6xl">
+                Property and electrical solutions that feel sharp, simple, and
+                dependable.
               </h2>
             </div>
 
             <div className="max-w-md lg:justify-self-end">
-              <p className="text-sm leading-7 text-brand-navy/75 sm:text-base lg:text-[1.05rem]">
-                From property guidance to gadget sourcing, we provide quality
-                solutions tailored to your needs and handled with care.
+              <p className="text-sm leading-7 text-brand-navy/75 ">
+                From property guidance to gadget sourcing, we provide tailored
+                solutions for homes, investment buyers, and everyday tech needs.
               </p>
               <Link
                 href="/services"

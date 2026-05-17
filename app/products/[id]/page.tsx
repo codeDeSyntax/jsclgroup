@@ -11,7 +11,7 @@ import {
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import AddToCartWithQty from "@/components/cart/add-to-cart-with-qty";
-import { BACKEND_URL } from "@/lib/auth";
+import { getBackendUrl } from "@/lib/server-config";
 
 type ProductPageProps = {
   params: {
@@ -32,6 +32,7 @@ function formatPrice(price: unknown) {
 }
 
 export default async function ProductDetailsPage({ params }: ProductPageProps) {
+  const BACKEND_URL = getBackendUrl();
   // `params` can be a Promise in some Next.js setups; await if needed.
   // This makes the route resilient to both Promise and plain object forms.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -224,8 +225,6 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
                   <span className="px-2 text-sm font-semibold">1</span>
                 </div>
                 <div>
-                  {/* Client AddToCart button */}
-                  {/* @ts-expect-error Server -> Client prop passing is allowed */}
                   <AddToCartWithQty
                     product={{
                       id: product.id,

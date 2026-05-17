@@ -38,9 +38,9 @@ export default function HeroSection1() {
               <div className="grid gap-6 w-full lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.6fr)] lg:gap-10 xl:gap-14 items-start">
                 <div className="max-w-3xl">
                   <h1 className="max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.08em] text-black sm:text-5xl md:text-7xl">
-                    Find a place you
+                    Find a property you
                     <br />
-                    will call home
+                    will be proud to own
                   </h1>
 
                   <div className="mt-6 sm:mt-8">
@@ -48,14 +48,15 @@ export default function HeroSection1() {
                       href="/contact"
                       className="inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black/90"
                     >
-                      Book a call
+                      Start your search
                     </Link>
                   </div>
                 </div>
 
                 <div className="pt-2 text-left lg:pt-8 lg:text-right">
                   <p className="mt-4 max-w-xl text-lg sm:text-xl leading-7 text-black/80 lg:ml-auto">
-                    Step into a home that feels like the start of something new.
+                    Discover homes, land, and investment opportunities that fit
+                    the way you want to live and grow.
                   </p>
                 </div>
               </div>

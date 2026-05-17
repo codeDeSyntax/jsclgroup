@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { BACKEND_URL } from "@/lib/auth";
 import {
   Facebook,
   Instagram,
@@ -22,6 +23,23 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [contactPhone, setContactPhone] = useState("+233 (0) 20 000 0000");
+
+  // Fetch phone number from settings
+  useEffect(() => {
+    const fetchPhone = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
+        if (res.ok) {
+          const data = await res.json();
+          setContactPhone(data.data.value);
+        }
+      } catch (error) {
+        console.error("Failed to fetch phone number:", error);
+      }
+    };
+    fetchPhone();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -55,14 +73,14 @@ export default function ContactPage() {
     {
       title: "Call us",
       description: "Mon-Fri from 8am to 5pm.",
-      value: "+233 (0) 20 000 0000",
+      value: contactPhone,
       icon: Phone,
     },
   ];
 
   return (
     <div className="flex min-h-screen flex-col bg-jcl-white">
-      <Header  variant="hero"/>
+      <Header variant="hero" />
       <main className="flex-1">
         <section className="py-20 sm:py-14 lg:py-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

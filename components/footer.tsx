@@ -38,15 +38,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-28 w-full rounded-t-3xl bg-black text-white sm:mt-32">
+    <footer className="relative mt-32 w-full rounded-t-3xl bg-black text-white sm:mt-32">
       <div className="w-full">
-        <div className="pointer-events-none absolute left-0 right-0 -top-24 z-20 px-4 sm:-top-28 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute left-0 right-0 -top-28 z-20 px-4 sm:-top-28 sm:px-6 lg:px-8">
           <div className="pointer-events-auto mx-auto flex max-w-6xl justify-center">
             <FooterCtaCard />
           </div>
         </div>
 
-        <div className="relative z-10 w-full px-4 pb-8 pt-44 sm:px-6 sm:pt-48 lg:pt-52">
+        <div className="relative z-10 w-full px-4 pb-8 pt-52 sm:px-6 sm:pt-48 lg:pt-52">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-10 pb-12 md:grid-cols-3">
               <div>
@@ -99,7 +99,7 @@ export default function Footer() {
 
               <div>
                 <h3 className="max-w-sm text-3xl font-black leading-tight tracking-[-0.03em] text-white">
-                  Join the conversation let&apos;s connect!
+                  Ready to buy, rent, or source the right gadget?
                 </h3>
                 <ul className="mt-6 flex items-center gap-3">
                   {socialLinks.map(({ href, label, icon: Icon }) => (
@@ -122,7 +122,7 @@ export default function Footer() {
 
             <div className="grid gap-6 border-t border-white/15 py-8 lg:grid-cols-[1fr_1.15fr] lg:items-end">
               <p className="max-w-xl text-4xl font-black leading-tight tracking-[-0.04em] text-white sm:text-5xl">
-                Never miss updates from our community.
+                Get updates on fresh properties, offers, and gadget drops.
               </p>
 
               <form className="space-y-3">
@@ -143,7 +143,7 @@ export default function Footer() {
                     type="submit"
                     className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-jcl-orange-500 px-8 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-jcl-orange-600"
                   >
-                    Subscribe
+                    Stay Updated
                   </button>
                 </div>
               </form>
