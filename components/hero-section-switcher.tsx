@@ -42,7 +42,7 @@ export default function HeroSectionSwitcher() {
   const CurrentHeroComponent = heroes[activeHero].component;
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-x-hidden overflow-y-visible">
       {/* Hero Content with fade animation */}
       <div
         className={`transition-opacity duration-500 ${

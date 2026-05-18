@@ -15,6 +15,7 @@ import {
   Menu,
   X,
   Settings,
+  Images,
 } from "lucide-react";
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/components/auth-provider";
@@ -49,6 +50,7 @@ export default function AdminLayout({
     { href: "/admin", label: "Dashboard", icon: Home },
     { href: "/admin/products", label: "Products", icon: Package },
     { href: "/admin/projects", label: "Projects", icon: FileText },
+    { href: "/admin/gallery", label: "Gallery", icon: Images },
     { href: "/admin/discounts", label: "Discount Banners", icon: Tag },
     { href: "/admin/settings", label: "Settings", icon: Settings },
   ];

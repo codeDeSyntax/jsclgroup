@@ -25,7 +25,7 @@ export default function FooterCtaCard() {
               Let&apos;s Talk Property & Gadgets
             </div>
 
-            <h2 className="max-w-lg text-2xl font-black leading-[0.98] tracking-[-0.04em] text-black sm:text-3xl lg:text-4xl">
+            <h2 className="max-w-lg text-2xl font-black leading-[0.98] tracking-[-0.04em] text-jcl-primary sm:text-3xl lg:text-4xl">
               Build your next home, investment, or gadget order with JCL Group
             </h2>
 

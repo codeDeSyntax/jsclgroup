@@ -124,7 +124,7 @@ export default async function ProjectsPage() {
                 <Building2 className="h-3.5 w-3.5" />
                 Our projects
               </div>
-              <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.06em] text-black sm:text-5xl lg:text-[3.9rem] lg:leading-[0.95]">
+              <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.06em] text-jcl-primary sm:text-5xl lg:text-[3.9rem] lg:leading-[0.95]">
                 Handcrafted project profiles and collaborative case studies.
               </h1>
               <p className="mt-4 max-w-xl text-sm leading-6 text-black/55 sm:text-base">

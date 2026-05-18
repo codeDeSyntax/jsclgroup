@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import FooterCtaCard from "@/components/footer-cta-card";
 
@@ -38,7 +39,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-32 w-full rounded-t-3xl bg-black text-white sm:mt-32">
+    <footer className="relative mt-32 w-full rounded-t-3xl bg-jcl-primary text-white sm:mt-32">
       <div className="w-full">
         <div className="pointer-events-none absolute left-0 right-0 -top-28 z-20 px-4 sm:-top-28 sm:px-6 lg:px-8">
           <div className="pointer-events-auto mx-auto flex max-w-6xl justify-center">
@@ -117,6 +118,17 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 w-full max-w-[220px]">
+                  <div className="relative h-40 sm:h-56 rounded-lg overflow-hidden">
+                    <Image
+                      src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101287/realestatefly3_djlm5i.jpg"
+                      alt="Featured real estate"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

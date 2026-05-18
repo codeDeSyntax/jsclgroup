@@ -55,22 +55,22 @@ const services: Service[] = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 xl:py-28">
-      <div className="relative mx-auto max-w-6xl  px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-16 sm:py-0 sm:pb-20 lg:pb-24">
+      <div className="relative mx-auto max-w-6xl  px-0 sm:px-6 lg:px-8">
         <div className="rounded-[32px]   px-5 py-6  sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.75fr)] lg:items-end">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full  bg-brand-navy/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/80">
                 What we do best
               </div>
-              <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.92] tracking-[-0.08em] text-black sm:text-5xl md:text-6xl">
+              <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.92] tracking-[-0.04em] text-jcl-primary sm:text-5xl md:text-6xl">
                 Property and electrical solutions that feel sharp, simple, and
                 dependable.
               </h2>
             </div>
 
             <div className="max-w-md lg:justify-self-end">
-              <p className="text-sm leading-7 text-brand-navy/75 ">
+              <p className="text-sm leading-7 text-jcl ">
                 From property guidance to gadget sourcing, we provide tailored
                 solutions for homes, investment buyers, and everyday tech needs.
               </p>

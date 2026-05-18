@@ -18,7 +18,7 @@ import { useCart } from "@/hooks/use-cart";
 import { BACKEND_URL } from "@/lib/auth";
 
 type HeaderProps = {
-  variant?: "default" | "hero";
+  variant?: "default" | "hero" | "realestate";
 };
 
 export default function Header({ variant = "default" }: HeaderProps) {
@@ -30,8 +30,10 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Shop", href: "/products/electronics" },
+    { label: "Tonefo", href: "/products/electronics" },
     { label: "Projects", href: "/projects" },
+    { label: "Services", href: "/services" },
+    { label: "Gallery", href: "/gallery" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
@@ -46,24 +48,41 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
   // Styling variables for consistent theming
   const isHero = variant === "hero";
+  const isRealestate = variant === "realestate";
 
   // Background colors
-  const headerBgClass = isHero ? "bg-transparent" : "bg-transparent";
-  const navBarBgClass = isHero
-    ? "bg-black shadow-lg rounded-full"
-    : "bg-black shadow-none rounded-none";
+  const headerBgClass = isRealestate
+    ? "bg-transparent"
+    : isHero
+      ? "bg-transparent"
+      : "bg-transparent";
+  const navBarBgClass = isRealestate
+    ? "bg-transparent shadow-none"
+    : isHero
+      ? "bg-jcl-primary shadow-lg rounded-full"
+      : "bg-jcl-primary shadow-none rounded-none";
 
   // Text and icon colors - ensure proper contrast on black backgrounds
-  const logoTextClass = isHero ? "text-white" : "text-white";
-  const navLinkClass = isHero
-    ? "text-white/90 hover:text-white hover:bg-white/10"
-    : "text-white/90 hover:text-white hover:bg-white/10";
-  const iconClass = isHero
-    ? "text-white/70 hover:text-white hover:bg-white/10"
-    : "text-white/70 hover:text-white hover:bg-white/10";
-  const hamburgerClass = isHero
-    ? "text-white hover:text-white/80"
-    : "text-white hover:text-white/80";
+  const logoTextClass = isRealestate
+    ? "text-black"
+    : isHero
+      ? "text-white"
+      : "text-white";
+  const navLinkClass = isRealestate
+    ? "text-black/90 hover:text-black hover:bg-black/5"
+    : isHero
+      ? "text-white/90 hover:text-white hover:bg-white/10"
+      : "text-white/90 hover:text-white hover:bg-white/10";
+  const iconClass = isRealestate
+    ? "text-black/70 hover:text-black hover:bg-black/5"
+    : isHero
+      ? "text-white/70 hover:text-white hover:bg-white/10"
+      : "text-white/70 hover:text-white hover:bg-white/10";
+  const hamburgerClass = isRealestate
+    ? "text-black hover:text-black/80"
+    : isHero
+      ? "text-white hover:text-white/80"
+      : "text-white hover:text-white/80";
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -124,9 +143,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
       <nav
-        className={`mx-auto   ${
-          isHero ? "py-3 px-2 md:px-0 max-w-5xl" : "py- w-full"
-        }`}
+        className={`mx-auto ${isRealestate ? "max-w-5xl bg-jcl-white" : isHero ? "py-3 px-2 md:px-0 max-w-6xl" : "py- w-full"}`}
       >
         <div
           className={`flex h-14 items-center justify-between px-4 sm:px-6 ${navBarBgClass}`}
@@ -178,7 +195,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-lg px-3 py-2 text-sm font-thin transition-all duration-200 ${
+                className={ ` ${link.label === "Contact" && "hidden"}  ${link.label === "Home" && "hidden"} rounded-lg px-3 py-2 text-sm font-thin transition-all duration-200 ${
                   isActiveRoute(link.href)
                     ? isHero
                       ? "bg-white/10 text-white"
@@ -269,7 +286,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
       </nav>
 
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-jcl-black text-white transition-all duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-50 bg-jcl-primary text-white transition-all duration-300 ease-in-out ${
           mobileMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -321,7 +338,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
                       : "text-white"
                   }`}
                 >
-                  <span className="block text-[clamp(2.25rem,9vw,4rem)] font-light leading-none tracking-[-0.04em]">
+                  <span className={`  block  text-[clamp(2.25rem,9vw,4rem)] font-light leading-none tracking-[-0.04em]`}>
                     {item.label}
                   </span>
                 </Link>
@@ -343,13 +360,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
           </div>
 
           <div className="grid grid-cols-2 border-t border-white/10 pt-3 text-sm font-medium text-white/85">
-            <a
-              href="tel:+233557860299"
-              className="flex items-center justify-center gap-2 border-r border-white/10 py-4 transition hover:bg-white/5"
-            >
-              <Phone size={16} />
-              <span>Call</span>
-            </a>
+         
             <a
               href="mailto:joelokornoe97@gmail.com"
               className="flex items-center justify-center gap-2 py-4 transition hover:bg-white/5"

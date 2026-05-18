@@ -35,10 +35,10 @@ export default function HomePage() {
 
         {/* The JCL Difference Section - Reference-style mosaic */}
         <section className="py-16  sm:py-20 lg:py-24 xl:py-28 bg-jcl-white">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden  bg-transparent p-0">
               <div className="relative  z-10 mb-6 sm:mb-8 lg:mb-10">
-                <h2 className=" text-4xl font-black leading-[0.95] tracking-[-0.08em] text-black sm:text-6xl ">
+                <h2 className=" text-4xl font-black leading-[0.95] tracking-[-0.08em] text-jcl-primary sm:text-6xl ">
                   The JCL Difference
                 </h2>
               </div>
@@ -101,15 +101,28 @@ export default function HomePage() {
                   />
                 </div>
 
-                <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
-                  <div className="max-w-[18rem]">
-                    <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Fast Turnaround:
-                    </h3>
-                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70  sm:leading-6">
-                      When a property opportunity or gadget request is urgent,
-                      we move quickly without losing quality.
-                    </p>
+                <div className="grid h-56 sm:h-48 md:h-44 grid-cols-2 gap-2 overflow-hidden rounded-[20px] bg-jcl-white p-2 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:gap-3 sm:p-3">
+                  <div className="relative overflow-hidden rounded-[14px]">
+                    <div className="relative h-full w-full">
+                      <Image
+                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101289/tonefosales1_hwwbvj.jpg"
+                        alt="Real estate sales promotion"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="relative overflow-hidden rounded-[14px]">
+                    <div className="relative h-full w-full">
+                      <Image
+                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101297/tonefosales2_z3irlm.jpg"
+                        alt="Property offer campaign visual"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -155,29 +168,16 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right: Blob-masked image */}
               <div className="order-2 lg:order-2 flex justify-center lg:justify-end">
-                <div className="w-full max-w-[520px] drop-shadow-2xl">
-                  <svg viewBox="0 0 600 600" className="w-full h-auto block">
-                    <defs>
-                      <clipPath id="ceoClip">
-                        <path
-                          d="M490.6,136.5c38.6,62.7,53.1,180.1,24.6,256.7c-28.6,76.6-111.4,151.2-205.9,155.6c-94.5,4.4-173.8-53.8-223.2-129.9
-                          C48.9,357.9,68.4,221.9,110,147.2C151.6,72.6,233.1,65.6,312,60.6C390.9,55.6,452,73.8,490.6,136.5z"
-                        />
-                      </clipPath>
-                    </defs>
-                    <g clipPath="url(#ceoClip)">
-                      <image
-                        href="https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg"
-                        x="0"
-                        y="0"
-                        width="600"
-                        height="600"
-                        preserveAspectRatio="xMidYMid slice"
-                      />
-                    </g>
-                  </svg>
+                <div className="relative w-full max-w-[520px] overflow-hidden rounded-[28px] border border-white/40 bg-white shadow-[0_24px_70px_rgba(7,13,75,0.16)] aspect-[4/5]">
+                  <Image
+                    src="https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg"
+                    alt="Mr Eric Kwaw, CEO and founder of JCL Group"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                    priority
+                  />
                 </div>
               </div>
             </div>

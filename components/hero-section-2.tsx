@@ -120,7 +120,7 @@ export default function HeroSection2() {
                   <div className="flex flex-col sm:flex-row gap-3 pt-4">
                     <Link
                       href="/products/electronics"
-                      className="px-7 sm:px-8 py-3 bg-jcl-accent text-white font-bold text-sm sm:text-base rounded-lg hover:bg-black/90 transition-colors duration-300 inline-flex items-center justify-center"
+                      className="px-7 sm:px-8 py-3 bg-jcl-primary text-white font-bold text-sm sm:text-base rounded-lg hover:bg-jcl-primary/90 transition-colors duration-300 inline-flex items-center justify-center"
                     >
                       Explore Products
                     </Link>
