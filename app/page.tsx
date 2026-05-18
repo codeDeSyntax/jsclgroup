@@ -3,6 +3,8 @@ import Footer from "@/components/footer";
 import ServicesSection from "@/components/services-section";
 import FloatingShowcaseCards from "@/components/floating-showcase-cards";
 import HeroSectionSwitcher from "@/components/hero-section-switcher";
+import HeroWatermarkSection from "@/components/hero-watermark-section";
+import ScrollAwareHeader from "@/components/scroll-aware-header";
 import {
   Star,
   Search,
@@ -18,16 +20,16 @@ import Image from "next/image";
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-jcl-white">
-      {/* Hero Section Switcher with Header Overlay */}
-      <div className="relative">
-        {/* Header - Fixed overlay */}
-        <div className="absolute top-0 left-0 right-0 z-50">
-          <Header variant="hero" />
-        </div>
+      {/* Scroll-aware header - appears after hero */}
+      <ScrollAwareHeader />
 
-        {/* Hero Switcher */}
+      {/* Hero Section Switcher */}
+      <div className="relative">
         <HeroSectionSwitcher />
       </div>
+
+      {/* Hero Watermark Section - fills 20% gap */}
+      <HeroWatermarkSection />
 
       <main className="flex-1">
         {/* Services Section */}

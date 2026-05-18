@@ -1,101 +1,143 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { usePathname } from "next/navigation";
 import HeroMeshPattern from "./hero-mesh-pattern";
+import HeroHeader from "./hero/hero-header";
+import HeroContent from "./hero/hero-content";
+import HeroImage from "./hero/hero-image";
+import HeroStats from "./hero/hero-stats";
+import HeroRightColumn from "./hero/hero-right-column";
+import { BACKEND_URL } from "@/lib/auth";
+import { contactInfo } from "@/lib/contact";
+import { setActiveImage, setCtaMode, setContactPhone } from "@/store/heroSlice";
+import type { RootState, AppDispatch } from "@/store";
 
-const heroImages = [
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779084984/transparentrealestatebuilding2.png_psd62r.png",
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779084988/transparentrealestatebuilding1_xphksl.png",
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779098137/h16_kudnoq.png",
+const desktopHeroImages = [
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg",
 ];
 
+const mobileHeroImages = [
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779094334/h14_ydoyxe.png",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779089309/h13_aegefd.png",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779095349/h15_k5hyga.png"
+];
+
+const heroImageCount = Math.max(
+  desktopHeroImages.length,
+  mobileHeroImages.length,
+);
+
 export default function HeroSection1() {
-  const [activeImage, setActiveImage] = useState(0);
+  const dispatch = useDispatch<AppDispatch>();
+  const pathname = usePathname();
+
+  const { activeImage, ctaMode } = useSelector(
+    (state: RootState) => state.hero,
+  );
+
+  useEffect(() => {
+    const fetchContactPhone = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
+        if (!res.ok) return;
+
+        const data = await res.json();
+        if (data?.data?.value) {
+          dispatch(setContactPhone(String(data.data.value)));
+        } else {
+          dispatch(setContactPhone(contactInfo.phone));
+        }
+      } catch (error) {
+        console.error("Failed to fetch contact phone:", error);
+        dispatch(setContactPhone(contactInfo.phone));
+      }
+    };
+
+    fetchContactPhone();
+  }, [dispatch]);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
-      setActiveImage((current) => (current + 1) % heroImages.length);
+      dispatch(setActiveImage((activeImage + 1) % heroImageCount));
     }, 6800);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [activeImage, dispatch]);
+
+  useEffect(() => {
+    const ctaIntervalId = window.setInterval(() => {
+      dispatch(setCtaMode(ctaMode === "whatsapp" ? "contact" : "whatsapp"));
+    }, 9000);
+
+    return () => window.clearInterval(ctaIntervalId);
+  }, [ctaMode, dispatch]);
+
+  const navLinks = [
+    { label: "Tonefo", href: "/products/electronics" },
+    { label: "Projects", href: "/projects" },
+    { label: "Services", href: "/services" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  const isActiveRoute = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-jcl-white">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeImage}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat max-w-5xl mx-auto top-20"
-          style={{ backgroundImage: `url(${heroImages[activeImage]})` }}
-          initial={{ opacity: 0, scale: 1.1, filter: "blur(18px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, scale: 1.08, filter: "blur(14px)" }}
-          transition={{ duration: 1.25, ease: [0.22, 1, 0.36, 1] }}
-        />
-      </AnimatePresence>
-
+    <div className="relative w-full min-h-[75vh] sm:min-h-[85vh] md:h-screen overflow-x-hidden bg-jcl-white">
       <HeroMeshPattern
         className="absolute inset-0 opacity-100"
         colorClass="text-"
       />
 
-      <motion.div
+      <div
         className="absolute inset-0"
-        animate={{ opacity: [0.92, 1, 0.92] }}
-        transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
-      />
+        style={{
+          animation: "fade-in-out 7.5s ease-in-out infinite",
+        }}
+      >
+        <style>{`
+          @keyframes fade-in-out {
+            0%, 100% { opacity: 0.92; }
+            50% { opacity: 1; }
+          }
+        `}</style>
+      </div>
 
       {/* Hero Section Content */}
-      <main className="relative z-20 w-full min-h-screen flex items-start pt-20 sm:pt-24 lg:pt-28">
-        {/* Hero Section */}
-        <section className="relative w-full overflow-hidden bg-transparent text-brand-navy">
-          <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-              <div className="grid gap-6 w-full lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.6fr)] lg:gap-10 xl:gap-14 items-start">
-                <div className="max-w-3xl">
-                  <h1 className="max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.08em] text-jcl-primary sm:text-5xl md:text-7xl">
-                    Find a property you
-                    <br />
-                    will be proud to own
-                  </h1>
+      <main className="relative z-20 w-full h-full">
+        <section className="relative mx-auto flex h-full w-full max-w-[73rem] items-start sm:items-center overflow-visible bg-transparent px-3 text-brand-navy sm:px-4 py-6 sm:py-4">
+          <div className="grid h-full w-full grid-cols-1 items-stretch gap-4 lg:grid-cols-[0.7fr_0.3fr]">
+            {/* Left Column: Content (full height) */}
+            <div className="flex h-full flex-col justify-between overflow-visible sm:overflow-hidden rounded-3xl bg-jcl-primary p-4 sm:p-6 lg:p-10">
+              {/* Header with logo and nav */}
+              <HeroHeader navLinks={navLinks} isActiveRoute={isActiveRoute} />
 
-                  <div className="mt-6 sm:mt-8">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center justify-center rounded-full bg-jcl-accent px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black/90"
-                    >
-                      Start your search
-                    </Link>
-                  </div>
-                </div>
+              {/* Main content */}
+              <div>
+                <HeroContent />
 
-                <div className="pt-2 text-left lg:pt-8 lg:text-right">
-                  <p className="max-w-xl text-lg leading-7 text-black/80 sm:text-xl lg:ml-auto">
-                    Discover homes, land, and investment opportunities that fit
-                    the way you want to live and grow.
-                  </p>
-                </div>
+                {/* Mobile-only hero image */}
+                <HeroImage heroImages={mobileHeroImages} />
               </div>
+
+              {/* Stats */}
+              <HeroStats />
             </div>
+
+            {/* Right Column */}
+            <HeroRightColumn heroImages={desktopHeroImages} />
           </div>
         </section>
       </main>
-
-      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3 py-2 backdrop-blur-md sm:bottom-8">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => setActiveImage(index)}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              index === activeImage ? "w-8 bg-white" : "w-2 bg-white/50"
-            }`}
-            aria-label={`Show hero background ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

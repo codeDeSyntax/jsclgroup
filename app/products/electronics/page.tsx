@@ -6,8 +6,6 @@ import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ElectronicsHeroSection from "@/components/electronics/electronics-hero";
-// ElectronicsPopularCategories removed — use BestSellers fallback or add component if needed
-import ElectronicsBestSellers from "@/components/electronics/electronics-best-sellers";
 import ElectronicsCta from "@/components/electronics/electronics-cta";
 import ProductCardSkeleton from "@/components/electronics/product-card-skeleton";
 import { ArrowRight, ChevronRight, Filter, Heart, Star } from "lucide-react";
@@ -124,10 +122,6 @@ export default function ElectronicsPage() {
             </div>
           )}
 
-          {!loading && products && products.length === 0 && (
-            <ElectronicsBestSellers />
-          )}
-
           {!loading && products && products.length > 0 && (
             <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
               {products.map((p) => (
@@ -194,9 +188,6 @@ export default function ElectronicsPage() {
             </div>
           )}
         </section>
-
-        {/* Best Sellers section restored */}
-        <ElectronicsBestSellers />
 
         <ElectronicsCta />
       </main>

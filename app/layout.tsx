@@ -4,48 +4,22 @@ import type { Viewport } from "next";
 
 import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
+import ReduxProvider from "@/components/redux-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/hooks/use-cart";
-
-const brandImage =
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121039/Screenshot_2026-05-18_161309_dwu9cc.png";
-const brandUrl = "https://jclgroup.com";
+import { MobileMenuProvider } from "@/contexts/mobile-menu-context";
 
 export const metadata: Metadata = {
   title: "JCL Group | Electrical & Real Estate",
   description:
     "Leading multi-division company offering electrical gadgets and real estate solutions.",
   generator: "v0.app",
-  metadataBase: new URL(brandUrl),
   icons: {
-    icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
+    icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
     shortcut:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
     apple:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
-  },
-  openGraph: {
-    title: "JCL Group | Electrical & Real Estate",
-    description:
-      "Leading multi-division company offering electrical gadgets and real estate solutions.",
-    type: "website",
-    siteName: "JCL Group",
-    url: brandUrl,
-    images: [
-      {
-        url: brandImage,
-        width: 1200,
-        height: 630,
-        alt: "JCL Group - Electrical Gadgets & Real Estate Solutions",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "JCL Group | Electrical & Real Estate",
-    description:
-      "Leading multi-division company offering electrical gadgets and real estate solutions.",
-    images: [brandImage],
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
   },
 };
 
@@ -72,9 +46,13 @@ export default function RootLayout({
             "linear-gradient(180deg, rgba(248, 85, 6, 0.08) 0%, rgba(248, 85, 6, 0.03) 30%, transparent 100%)",
         }}
       >
-        <AuthProvider>
-          <CartProvider>{children}</CartProvider>
-        </AuthProvider>
+        <ReduxProvider>
+          <AuthProvider>
+            <MobileMenuProvider>
+              <CartProvider>{children}</CartProvider>
+            </MobileMenuProvider>
+          </AuthProvider>
+        </ReduxProvider>
         <Toaster />
       </body>
     </html>

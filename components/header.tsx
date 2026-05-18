@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useMobileMenu } from "@/contexts/mobile-menu-context";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -16,6 +17,7 @@ import {
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { BACKEND_URL } from "@/lib/auth";
+import { contactInfo } from "@/lib/contact";
 
 type HeaderProps = {
   variant?: "default" | "hero" | "realestate";
@@ -23,9 +25,9 @@ type HeaderProps = {
 
 export default function Header({ variant = "default" }: HeaderProps) {
   const { totalCount } = useCart();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
   const [ctaMode, setCtaMode] = useState<"whatsapp" | "contact">("whatsapp");
-  const [contactPhone, setContactPhone] = useState("2335578609299");
+  const [contactPhone, setContactPhone] = useState(contactInfo.phone);
   const pathname = usePathname();
 
   const navLinks = [
@@ -152,7 +154,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
             <button
               type="button"
               aria-label="Toggle menu"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`${hamburgerClass} relative -ml-2 flex h-8 w-8 flex-col items-center justify-center p-2 transition-all duration-200 hover:scale-110`}
             >
               <span
@@ -195,7 +197,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={ ` ${link.label === "Contact" && "hidden"}  ${link.label === "Home" && "hidden"} rounded-lg px-3 py-2 text-sm font-thin transition-all duration-200 ${
+                className={` ${link.label === "Contact" && "hidden"}  ${link.label === "Home" && "hidden"} rounded-lg px-3 py-2 text-sm font-thin transition-all duration-200 ${
                   isActiveRoute(link.href)
                     ? isHero
                       ? "bg-white/10 text-white"
@@ -237,7 +239,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
               <Twitter size={16} />
             </a>
             <a
-              href="tel:+1234567890"
+              href={`tel:${contactInfo.phone}`}
               aria-label="Call us"
               className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
             >
@@ -338,7 +340,9 @@ export default function Header({ variant = "default" }: HeaderProps) {
                       : "text-white"
                   }`}
                 >
-                  <span className={`  block  text-[clamp(2.25rem,9vw,4rem)] font-light leading-none tracking-[-0.04em]`}>
+                  <span
+                    className={`  block  text-[clamp(2.25rem,9vw,4rem)] font-light leading-none tracking-[-0.04em]`}
+                  >
                     {item.label}
                   </span>
                 </Link>
@@ -360,9 +364,8 @@ export default function Header({ variant = "default" }: HeaderProps) {
           </div>
 
           <div className="grid grid-cols-2 border-t border-white/10 pt-3 text-sm font-medium text-white/85">
-         
             <a
-              href="mailto:joelokornoe97@gmail.com"
+              href={contactInfo.emailHref}
               className="flex items-center justify-center gap-2 py-4 transition hover:bg-white/5"
             >
               <Mail size={16} />

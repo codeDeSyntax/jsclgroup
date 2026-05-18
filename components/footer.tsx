@@ -1,7 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  Twitter,
+} from "lucide-react";
 import FooterCtaCard from "@/components/footer-cta-card";
+import { contactInfo } from "@/lib/contact";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -74,12 +82,21 @@ export default function Footer() {
                 </h3>
                 <ul className="mt-6 space-y-3 text-sm text-white/75">
                   <li className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-jcl-orange-400" />
+                    <Phone className="h-4 w-4 text-jcl-orange-400" />
                     <a
-                      href="mailto:info@jclgroupgh.com"
+                      href={`tel:${contactInfo.phone}`}
                       className="transition hover:text-white"
                     >
-                      info@jclgroupgh.com
+                      {contactInfo.phoneDisplay}
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-jcl-orange-400" />
+                    <a
+                      href={contactInfo.emailHref}
+                      className="transition hover:text-white"
+                    >
+                      {contactInfo.email}
                     </a>
                   </li>
                   <li>

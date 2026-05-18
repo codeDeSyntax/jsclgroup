@@ -15,6 +15,7 @@ import {
   Send,
   Twitter,
 } from "lucide-react";
+import { contactInfo } from "@/lib/contact";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const [contactPhone, setContactPhone] = useState("+233 (0) 20 000 0000");
+  const [contactPhone, setContactPhone] = useState(contactInfo.phoneDisplay);
 
   // Fetch phone number from settings
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function ContactPage() {
     {
       title: "Chat to us",
       description: "Our friendly team is here to help.",
-      value: "info@jclgroupgh.com",
+      value: contactInfo.email,
       icon: MessageSquare,
     },
     {
