@@ -20,7 +20,7 @@ export default function HeroQuickContact({
   ctaButtonClass,
 }: HeroQuickContactProps) {
   return (
-    <div className="grid min-h-0 gap-2 rounded-2xl border border-black/5 bg-jcl-white p-2.5 sm:p-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-3">
+    <div className="grid min-h-0 gap-2 rounded-2xl border border-black/5 bg-jcl-white p-2.5 sm:p-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-center  lg:gap-3">
       <div className="min-w-0">
         <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-brand-navy/40">
           Quick Contact

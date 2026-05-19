@@ -22,7 +22,7 @@ const desktopHeroImages = [
 const mobileHeroImages = [
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779094334/h14_ydoyxe.png",
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779089309/h13_aegefd.png",
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779095349/h15_k5hyga.png"
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779095349/h15_k5hyga.png",
 ];
 
 const heroImageCount = Math.max(
@@ -114,10 +114,10 @@ export default function HeroSection1() {
 
       {/* Hero Section Content */}
       <main className="relative z-20 w-full h-full">
-        <section className="relative mx-auto flex h-full w-full max-w-[73rem] items-start sm:items-center overflow-visible bg-transparent px-3 text-brand-navy sm:px-4 py-6 sm:py-4">
+        <section className="relative mx-auto flex h-full w-full max-w-[73rem] items-start sm:items-center overflow-visible bg-transparent px-3 py-0 text-brand-navy sm:px-4 sm:py-4">
           <div className="grid h-full w-full grid-cols-1 items-stretch gap-4 lg:grid-cols-[0.7fr_0.3fr]">
             {/* Left Column: Content (full height) */}
-            <div className="flex h-full flex-col justify-between overflow-visible sm:overflow-hidden rounded-3xl bg-jcl-primary p-4 sm:p-6 lg:p-10">
+            <div className="-mx-3 flex h-full flex-col justify-between overflow-visible rounded-b-3xl rounded-t-none bg-jcl-primary p-4 pb-8 sm:pb-0 sm:mx-0 sm:overflow-hidden sm:rounded-3xl sm:p-6 lg:p-10">
               {/* Header with logo and nav */}
               <HeroHeader navLinks={navLinks} isActiveRoute={isActiveRoute} />
 

@@ -9,11 +9,36 @@ import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/hooks/use-cart";
 import { MobileMenuProvider } from "@/contexts/mobile-menu-context";
 
+const socialPreviewImage =
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779168270/download_qhsj8n.png";
+
 export const metadata: Metadata = {
   title: "JCL Group | Electrical & Real Estate",
   description:
     "Leading multi-division company offering electrical gadgets and real estate solutions.",
   generator: "v0.app",
+  openGraph: {
+    title: "JCL Group | Electrical & Real Estate",
+    description:
+      "Leading multi-division company offering electrical gadgets and real estate solutions.",
+    siteName: "JCL Group",
+    type: "website",
+    images: [
+      {
+        url: socialPreviewImage,
+        width: 1200,
+        height: 630,
+        alt: "JCL Group social preview image",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JCL Group | Electrical & Real Estate",
+    description:
+      "Leading multi-division company offering electrical gadgets and real estate solutions.",
+    images: [socialPreviewImage],
+  },
   icons: {
     icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
     shortcut:

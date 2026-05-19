@@ -14,7 +14,7 @@ export default function HeroImage({ heroImages }: HeroImageProps) {
     heroImages[activeImage % heroImages.length] ?? heroImages[0];
 
   return (
-    <div className="block sm:hidden mt-5 rounded-2xl overflow-hidden">
+    <div className="block sm:hidden mt-5 rounded2xl overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeImage + "-mobile"}

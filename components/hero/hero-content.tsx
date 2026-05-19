@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function HeroContent() {
   return (
     <div>
-      <h1 className="max-w-2xl text-balance text-3xl pt-4 sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-[-0.08em] text-white">
+      <h1 className="max-w-2xl text-balance text-4xl pt-8 sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-[-0.04em] text-white">
         Find a property you
         <br />
         will be proud to own

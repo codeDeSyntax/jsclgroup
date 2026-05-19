@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroStats() {
   return (
-    <div className="mt-6 lg:mt-8">
+    <div className="mt-6 lg:mt-8 hidden sm:flex">
       <div className="flex flex-col sm:flex-row items-start gap-4">
         {/* Summary */}
         <div className="w-full sm:w-36 flex-shrink-0">

@@ -10,7 +10,7 @@ export default function HeroSectionSwitcher() {
 
   const heroes = [
     { id: 0, component: HeroSection1, label: "Property" },
-    { id: 1, component: HeroSection2, label: "Electrical Gadgets" },
+    // { id: 1, component: HeroSection2, label: "Electrical Gadgets" },
   ];
 
   const handleNext = () => {

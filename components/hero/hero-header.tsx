@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { AlignCenter, Menu, X } from "lucide-react";
 import { useMobileMenu } from "@/contexts/mobile-menu-context";
 
 interface HeroHeaderProps {
@@ -10,7 +10,10 @@ interface HeroHeaderProps {
   isActiveRoute: (href: string) => boolean;
 }
 
-export default function HeroHeader({ navLinks, isActiveRoute }: HeroHeaderProps) {
+export default function HeroHeader({
+  navLinks,
+  isActiveRoute,
+}: HeroHeaderProps) {
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
 
   return (
@@ -39,7 +42,7 @@ export default function HeroHeader({ navLinks, isActiveRoute }: HeroHeaderProps)
           aria-label="Toggle mobile menu"
           type="button"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={24} /> : <AlignCenter size={24} />}
         </button>
       </div>
 
