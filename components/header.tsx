@@ -136,6 +136,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
     ) : (
       <MessageCircle size={16} className="text-white" />
     );
+  const webmailHref = "https://server381.web-hosting.com/webmail";
 
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
@@ -256,10 +257,20 @@ export default function Header({ variant = "default" }: HeaderProps) {
           </div>
 
           <a
+            href={webmailHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 hidden font-[cursive]  italic  shrink-0 items-center justify-center rounded-xl  text-sm font-thin text-white transition hover:bg-white/15 sm:flex underline"
+            aria-label="Open webmail"
+          >
+            Webmail
+          </a>
+
+          <a
             href={ctaHref}
             target={ctaMode === "whatsapp" ? "_blank" : undefined}
             rel={ctaMode === "whatsapp" ? "noopener noreferrer" : undefined}
-            className={`group ml-4 hidden h-11  shrink-0 items-center justify-center gap-2 overflow-hidden rounded-xl px-4 text-sm font-medium text-white shadow-md ring-2 ring-white/20 transition-all duration-500 hover:scale-105 hover:shadow-lg sm:flex ${ctaButtonClass}`}
+            className={`group ml-4 hidden h-8  shrink-0 items-center justify-center gap-2 overflow-hidden rounded-xl px-2 text-sm font-medium text-white shadow-md ring-2 ring-white/20 transition-all duration-500 hover:scale-105 hover:shadow-lg sm:flex ${ctaButtonClass}`}
             aria-label={ctaAriaLabel}
           >
             <span className="flex h-7 w-7 shrink-0 items-center justify-center transition-transform duration-500 ease-in-out group-hover:scale-110">
@@ -375,6 +386,14 @@ export default function Header({ variant = "default" }: HeaderProps) {
             >
               <Mail size={16} />
               <span>Mail</span>
+            </a>
+            <a
+              href={webmailHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 py-4 transition hover:bg-white/5"
+            >
+              <span className="text-sm font-semibold">Webmail</span>
             </a>
           </div>
         </div>

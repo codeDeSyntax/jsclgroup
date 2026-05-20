@@ -20,7 +20,7 @@ const desktopHeroImages = [
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide1_zu4ir8.jpg",
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide3_zurc6j.jpg",
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide4_tibcil.jpg",
-  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide2_evnnt6.jpg"
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide2_evnnt6.jpg",
 ];
 
 const mobileHeroImages = [
@@ -37,6 +37,8 @@ const heroImageCount = Math.max(
 export default function HeroSection1() {
   const dispatch = useDispatch<AppDispatch>();
   const pathname = usePathname();
+  const backgroundVideoUrl =
+    "https://res.cloudinary.com/dlhyawc5e/video/upload/v1779283268/projectvideo_bnftd9.mp4";
 
   const { activeImage, ctaMode } = useSelector(
     (state: RootState) => state.hero,
@@ -118,23 +120,51 @@ export default function HeroSection1() {
 
       {/* Hero Section Content */}
       <main className="relative z-20 w-full h-full">
-        <section className="relative mx-auto flex h-full w-full max-w-[74rem] items-start sm:items-center overflow-visible bg-transparent px-3 py-0 text-brand-navy sm:px-4 sm:py-4">
+        <section className="relative mx-auto flex h-full w-full max-w-[78rem] items-start sm:items-center overflow-visible bg-transparent px-3 py-0 text-brand-navy sm:px-4 sm:py-4">
           <div className="grid h-full w-full grid-cols-1 items-stretch gap-4 lg:grid-cols-[0.7fr_0.3fr]">
             {/* Left Column: Content (full height) */}
-            <div className="-mx-3 flex h-full flex-col justify-between overflow-visible rounded-b-3xl rounded-t-none bg-jcl-primary p-4 pb-8 sm:pb-0 sm:mx-0 sm:overflow-hidden sm:rounded-3xl sm:p-6 lg:p-10">
-              {/* Header with logo and nav */}
-              <HeroHeader navLinks={navLinks} isActiveRoute={isActiveRoute} />
-
-              {/* Main content */}
-              <div>
-                <HeroContent />
-
-                {/* Mobile-only hero image */}
-                <HeroImage heroImages={mobileHeroImages} />
+            <div className="relative -mx-3 flex h-full flex-col justify-between overflow-visible rounded-b-3xl rounded-t-none bg-jcl-primary p-4 pb-8 sm:pb-0 sm:mx-0 sm:overflow-hidden sm:rounded-3xl sm:p-6 lg:p-10">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-b-3xl rounded-t-none sm:rounded-3xl">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(7,13,75,0.58)_0%,rgba(7,13,75,0.38)_18%,rgba(7,13,75,0.2)_36%,rgba(7,13,75,0)_70%)]" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-jcl-primary via-jcl-primary/95 to-jcl-primary/80" />
+                <div className="absolute inset-0 bg-gradient-to-l from-jcl-primary/95 via-jcl-primary/72 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-jcl-primary/42" />
+                <div
+                  className="absolute inset-0 opacity-40 saturate-125 brightness-105 contrast-110"
+                  style={{
+                    WebkitMaskImage:
+                      "radial-gradient(circle at 86% 80%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.98) 20%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.22) 66%, rgba(0,0,0,0) 86%)",
+                    maskImage:
+                      "radial-gradient(circle at 86% 80%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.98) 20%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.22) 66%, rgba(0,0,0,0) 86%)",
+                  }}
+                >
+                  <video
+                    src={backgroundVideoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
               </div>
 
-              {/* Stats */}
-              <HeroStats />
+              <div className="relative z-10 flex h-full flex-col">
+                {/* Header with logo and nav */}
+                <HeroHeader navLinks={navLinks} isActiveRoute={isActiveRoute} />
+
+                {/* Main content */}
+                <div>
+                  <HeroContent />
+
+                  {/* Mobile-only hero image */}
+                  <HeroImage heroImages={mobileHeroImages} />
+                </div>
+
+                {/* Stats */}
+                <HeroStats />
+              </div>
             </div>
 
             {/* Right Column */}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroStats() {
   return (
-    <div className="mt-6 lg:mt-8 hidden sm:flex">
+    <div className="mt-6 lg:mt-8 hidden sm:flex ">
       <div className="flex flex-col sm:flex-row items-start gap-4">
         {/* Summary */}
         <div className="w-full sm:w-36 flex-shrink-0">
@@ -22,7 +22,7 @@ export default function HeroStats() {
         {/* Bar-style Chart (more readable) */}
         <div className="flex-1">
           <div className="ml-0 sm:ml-8">
-            <div className="flex items-end gap-3 sm:gap-4 h-24 sm:h-28">
+            <div className="flex items-end gap-3 sm:gap-4 h-24 sm:h-32">
               {(() => {
                 const data = [2, 3, 5, 6, 4, 3, 2, 5, 6, 4, 3, 2];
                 const max = Math.max(...data, 6);
@@ -30,7 +30,7 @@ export default function HeroStats() {
                   return (
                     <div
                       key={i}
-                      className="flex flex-col items-center w-3 sm:w-4 relative group"
+                      className="flex flex-col items-center w-3 sm:w-8 relative group"
                     >
                       {/* tooltip shown on hover */}
                       <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-150">
@@ -44,7 +44,7 @@ export default function HeroStats() {
 
                       <div className="w-full h-full flex items-end">
                         <motion.div
-                          className="w-full flex flex-col items-center justify-end overflow-hidden"
+                          className="w-full flex items-end justify-center overflow-hidden"
                           initial={{ scaleY: 0 }}
                           whileInView={{ scaleY: 1 }}
                           viewport={{ once: true, amount: 0.6 }}
@@ -57,18 +57,14 @@ export default function HeroStats() {
                           style={{ transformOrigin: "bottom" }}
                           aria-hidden
                         >
-                          <div className="flex flex-col-reverse items-center">
-                            {Array.from({ length: v }).map((_, j) => (
-                              <div
-                                key={j}
-                                className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full mb-1 sm:mb-1.5"
-                                style={{
-                                  backgroundColor: "var(--jcl-accent, #f97316)",
-                                }}
-                                aria-label={`Bubble ${j + 1}`}
-                              />
-                            ))}
-                          </div>
+                          <div
+                            className="w-full rounded-full"
+                            style={{
+                              width: "8rem",
+                              height: `${Math.max(28, v * 24)}px`,
+                              backgroundColor: "var(--jcl-accent, #e5e5e5)",
+                            }}
+                          />
                         </motion.div>
                       </div>
                       <div className="mt-2 text-[10px] text-white/60 text-center">

@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function HeroContent() {
   return (
     <div>
-      <p className="text-jcl-accent font-extrabold text-sm sm:text-base">
+      <p className="text-jcl-accent font-extrabold pt-6 text-sm sm:text-base">
         Welcome to JCL Royal Group Limited
       </p>
 
-      <h1 className="max-w-2xl text-balance text-3xl pt-3 sm:text-4xl md:text-4xl lg:text-5xl font-black leading-[1] tracking-[-0.06em] text-white">
+      <h1 className="max-w-2xl text-balance text-3xl pt3 sm:text-4xl md:text-4xl lg:text-5xl font-black leading-[1] tracking-[-0.06em] text-white">
         Find a property you
         <br />
         will be proud to own
