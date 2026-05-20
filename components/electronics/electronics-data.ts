@@ -50,6 +50,24 @@ export const electronicsSlides: ElectronicsSlide[] = [
     cta: "Learn more",
   },
   {
+    eyebrow: "Kitchen",
+    title: "Blend faster with high-speed performance",
+    description:
+      "A powerful blender made for smooth results, quick prep, and everyday kitchen use.",
+    image:
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779255429/High_Speed_Blender2_dzg58s.jpg",
+    cta: "Shop kitchen",
+  },
+  {
+    eyebrow: "Home",
+    title: "Heat water in seconds with modern convenience",
+    description:
+      "A reliable electric kettle designed for fast boiling, simple use, and daily comfort.",
+    image:
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779255486/ElectricKettle1.5L_cllrzv.jpg",
+    cta: "View appliance",
+  },
+  {
     eyebrow: "Audio",
     title: "Sound that feels bigger than the room",
     description:
@@ -125,7 +143,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
   {
     slug: "standing-cooling-fan",
     name: "Standing Cooling Fan",
-    description: "Adjustable-height tower fan with powerful airflow for bedrooms and offices.",
+    description:
+      "Adjustable-height tower fan with powerful airflow for bedrooms and offices.",
     summary:
       "A quiet home cooling fan with easy angle control, timer presets, and smooth airflow for daily comfort.",
     price: "$129.99",
@@ -152,7 +171,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
   {
     slug: "4k-flatscreen-tv",
     name: "4K Flatscreen TV",
-    description: "Ultra-clear 4K display with vivid color and smart entertainment apps built in.",
+    description:
+      "Ultra-clear 4K display with vivid color and smart entertainment apps built in.",
     summary:
       "A cinema-style smart TV with punchy contrast, smooth motion, and built-in streaming for the living room.",
     price: "$699.00",
@@ -179,7 +199,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
   {
     slug: "metallic-power-blender",
     name: "Metallic Power Blender",
-    description: "Durable high-speed blender for smoothies, sauces, and everyday kitchen prep.",
+    description:
+      "Durable high-speed blender for smoothies, sauces, and everyday kitchen prep.",
     summary:
       "A high-torque blender built for thick smoothies, fine purees, and fast prep with dependable results.",
     price: "$189.50",
@@ -206,7 +227,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
   {
     slug: "ash-smart-refrigerator",
     name: "Ash Smart Refrigerator",
-    description: "Spacious family-size fridge with efficient cooling and modern door storage.",
+    description:
+      "Spacious family-size fridge with efficient cooling and modern door storage.",
     summary:
       "A roomy smart refrigerator with efficient cooling zones, practical shelving, and reliable freshness control.",
     price: "$1,249.00",

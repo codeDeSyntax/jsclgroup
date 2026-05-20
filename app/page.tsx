@@ -57,26 +57,33 @@ export default function HomePage() {
                   />
                 </div>
 
-                <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
-                  <div className="max-w-[18rem]">
-                    <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Verified Property & Product Experts:
+                <div className="flex min-h-[140px] items-center justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
+                  <div className="max-w-xl text-center">
+                    <h3 className="text-2xl font-black leading-[1.05] tracking-[-0.02em] text-brand-navy sm:text-3xl lg:text-4xl">
+                      Real Estate, Building & Construction Expertise
                     </h3>
-                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70  sm:leading-6">
-                      We work with trusted property professionals and product
-                      sourcing partners to keep every recommendation reliable.
+                    <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
+                      From property sourcing and site appraisal to project
+                      management and final handover, our construction and
+                      real-estate teams coordinate every step. We manage
+                      contractors, ensure compliance with local building
+                      standards, and provide inspections and aftercare so your
+                      investment is protected.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex min-h-[140px] items-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
-                  <div className="max-w-[18rem]">
-                    <h3 className="text-lg font-black leading-[1.05] tracking-[-0.04em] text-brand-navy sm:text-xl lg:text-[1.7rem]">
-                      Personal Service, Start to Finish:
+                <div className="flex min-h-[140px] items-center justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
+                  <div className="max-w-xl text-center">
+                    <h3 className="text-2xl font-black leading-[1.05] tracking-[-0.02em] text-brand-navy sm:text-3xl lg:text-4xl">
+                      Gadgets & Electronics — Supply, Install, Support
                     </h3>
-                    <p className="mt-3 max-w-[15rem]  leading-5 text-brand-navy/70 sm:leading-6">
-                      From first inquiry to final handover, we guide you with
-                      clear communication and dependable support.
+                    <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
+                      We curate and supply trusted electronics, manage seamless
+                      procurement and installation, and provide warranty and
+                      technical support. Our team handles logistics and offers
+                      ongoing after-sales assistance so your technology keeps
+                      working for you.
                     </p>
                   </div>
                 </div>
@@ -85,17 +92,6 @@ export default function HomePage() {
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
                     alt="Electrical gadgets and home appliances"
-                    width={1080}
-                    height={836}
-                    className="h-full w-full object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-
-                <div className="overflow-hidden rounded-[20px] bg-[#eef1ec] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
-                  <Image
-                    src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
-                    alt="Home and electrical product showcase"
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -199,36 +195,36 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
-                  name: "Tunde O",
+                  name: "Wilhelmina T. Lartey",
                   content:
                     "We found a home that matched our budget and move-in timeline. The process was clear, fast, and handled professionally from the first call to the final paperwork.",
                   image:
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+                    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223266/WILHELMINA_T._LARTEY_sjzlr4.png",
                   bgColor: "bg-brand-navy/5",
                   quoteColor: "text-brand-navy/30",
                   rotation: "-rotate-3",
                 },
                 {
-                  name: "Chinelo A",
+                  name: "Lydia Narh",
                   content:
                     "JCL Group helped us secure the right property and gave practical advice every step of the way. The service felt personal and genuinely reliable.",
                   image:
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+                    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223261/LYDIA_NARH_xf8cll.jpg",
                   bgColor: "bg-white",
                   quoteColor: "text-gray-300",
                   rotation: "rotate-0",
                 },
                 {
-                  name: "Idris B.",
+                  name: "Abdul-Razak Mustapha",
                   content:
                     "I ordered electrical gadgets for my home and the recommendations were spot on. Good value, great support, and delivery was handled without stress.",
                   image:
-                    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-                  bgColor: "bg-brand-orange/5",
-                  quoteColor: "text-brand-orange/40",
+                    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223265/ABDUL-RAZAK_MUSTAPHA_nzlqyn.png",
+                  bgColor: "bg-brand-navy/5",
+                  quoteColor: "text-brand-navy/40",
                   rotation: "rotate-2",
                 },
               ].map((testimonial, index) => (
@@ -242,26 +238,28 @@ export default function HomePage() {
                   <div
                     className={`${testimonial.bgColor} ${testimonial.rotation} rounded-3xl sm:rounded-3xl p-6 sm:p-8  hover:shadow-lg sm:hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 relative`}
                   >
-                    {/* Avatar and Name at Top */}
-                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden ring-2 ring-white shadow-md flex-shrink-0">
+                    {/* Image floated left on wider screens so text wraps around it */}
+                    <div className="mb-4 sm:mb-6">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl overflow-hidden float-left sm:float-left mr-4 sm:mr-6 mb-3 sm:mb-0">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 640px) 40px, 48px"
+                          width={128}
+                          height={128}
+                          className="object-cover w-full h-full"
                         />
                       </div>
+
                       <p className="font-bold text-gray-900 text-sm sm:text-base">
                         {testimonial.name}
                       </p>
-                    </div>
 
-                    {/* Content */}
-                    <p className="text-gray-700 leading-relaxed text-sm sm:text-[15px] mb-3 sm:mb-4">
-                      {testimonial.content}
-                    </p>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-[15px] mt-2">
+                        {testimonial.content}
+                      </p>
+
+                      <div className="clear-both" />
+                    </div>
 
                     {/* Quote Icon at Bottom Right */}
                     <div className={`${testimonial.quoteColor} ml-auto w-fit`}>

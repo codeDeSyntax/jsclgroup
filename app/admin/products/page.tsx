@@ -22,8 +22,10 @@ import {
   DollarSign,
   Loader,
   Star,
+  Layers,
 } from "lucide-react";
 import AdminEmpty from "@/components/admin/admin-empty";
+import CategoryManagementModal from "@/components/admin/category-management-modal";
 
 interface Product {
   id: string;
@@ -51,6 +53,7 @@ export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [error, setError] = useState("");
+  const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
 
   useEffect(() => {
     if (!token) return;
@@ -119,8 +122,8 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="space-y-6 relative h-full">
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+    <div className="space-y- relative h-full pb-24">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between py-6">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 text-gray-400" size={20} />
           <input
@@ -181,24 +184,29 @@ export default function ProductsPage() {
           ctaText="Create First Product"
         />
       ) : (
-        <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-6">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative rounded-xl border border-transparent bg-black/[0.04] p-2 transition hover:border-jcl-accent/40 sm:p-3"
+              className="group relative rounded-xl border border-black/5 p-2 transition hover:border-jcl-accent/40 sm:p-3"
             >
-              <div className="flex flex-col gap-2 md:grid md:grid-cols-[112px_1fr] md:items-start md:gap-3">
-                <div className="relative flex h-24 items-center justify-center overflow-hidden rounded-lg bg-black/5 p-1.5 sm:h-28 md:h-full">
+              <div className="flex flex-col gap-2 md:grid md:grid-cols-1 md:items-start ">
+                <div className="relative flex h-24 items-center justify-center overflow-hidden rounded-lg  p-1.5 sm:h-28 md:h-full">
                   {product.image ? (
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="h-full w-full object-contain"
+                      className="h-full w-full object-fit"
                     />
                   ) : (
                     <div className="h-20 w-full bg-black/[0.02]" />
                   )}
                 </div>
+
+                {/*
+                  Product details intentionally hidden per request.
+                  The image is kept visible; the name, description, price
+                  and rating blocks below are commented out on purpose.
 
                 <div className="flex flex-col">
                   <p className="line-clamp-2 min-h-[2rem] text-[12px] font-medium leading-4 text-black/85 sm:text-sm sm:leading-5">
@@ -247,6 +255,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
                 </div>
+                */}
               </div>
 
               <div className="absolute right-1.5 top-1.5 z-10 flex flex-col items-end gap-1 opacity-0 translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-150">
@@ -286,6 +295,25 @@ export default function ProductsPage() {
           ))}
         </div>
       )}
+
+      {/* Floating Category Button */}
+      <button
+        onClick={() => setIsCategoryModalOpen(true)}
+        className="fixed bottom-6 right-6 z-40 flex items-center justify-center h-14 w-14 rounded-full bg-jcl-accent text-white shadow-lg hover:bg-jcl-accent/90 transition hover:scale-110"
+        title="Manage categories"
+      >
+        <Layers className="h-6 w-6" />
+      </button>
+
+      {/* Category Management Modal */}
+      <CategoryManagementModal
+        isOpen={isCategoryModalOpen}
+        onClose={() => setIsCategoryModalOpen(false)}
+        token={token}
+        onCategoryAdded={() => {
+          fetchProducts();
+        }}
+      />
     </div>
   );
 }

@@ -49,7 +49,7 @@ const services: Service[] = [
     description:
       "Work with a responsive team that helps you move smoothly from inquiry to delivery and after-sales support.",
     imageUrl:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778682833/applc2_q3svit.png",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779222097/download_4_g6bclv.jpg",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function ServicesSection() {
             {services.map((service, index) => (
               <article
                 key={service.id}
-                className={`group relative min-h-[340px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden rounded-2xl bg-jcl-white shadow-[0_18px_36px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-1 ${
+                className={`group relative min-h-[340px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden rounded-2xl bg-jcl-white shadow-[0_18px_36px_rgba(0,0,0,0.12)] transition-transform duration-300 ${
                   index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
                 }`}
               >

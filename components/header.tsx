@@ -5,15 +5,7 @@ import { useMobileMenu } from "@/contexts/mobile-menu-context";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MessageCircle,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Linkedin, Mail, MessageCircle, Phone } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { BACKEND_URL } from "@/lib/auth";
@@ -51,6 +43,9 @@ export default function Header({ variant = "default" }: HeaderProps) {
   // Styling variables for consistent theming
   const isHero = variant === "hero";
   const isRealestate = variant === "realestate";
+  const isShoppingPage =
+    pathname.startsWith("/products/electronics") ||
+    pathname.startsWith("/cart");
 
   // Background colors
   const headerBgClass = isRealestate
@@ -178,8 +173,12 @@ export default function Header({ variant = "default" }: HeaderProps) {
           <Link href="/" className="mr-8 flex items-center gap-3">
             <div className="relative h-8 w-8 overflow-hidden rounded-xl bg-white/95 shadow-md ring-2 ring-white/20 backdrop-blur-sm">
               <Image
-                src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778910277/logo_wrfy8c.png"
-                alt="JCL Group Logo"
+                src={
+                  isShoppingPage
+                    ? "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779269670/tonefologo_bhbe1s.png"
+                    : "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg"
+                }
+                alt={isShoppingPage ? "Tonefo Logo" : "JCL Group Logo"}
                 fill
                 className="h-full w-full object-fill p-1"
                 priority
@@ -188,7 +187,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
             <span
               className={`hidden text-base font-extrabold tracking-tighter sm:inline ${logoTextClass}`}
             >
-              JCL Group
+              {isShoppingPage ? "Tonefo" : "JCL Royal Group Ltd"}
             </span>
           </Link>
 
@@ -212,33 +211,6 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
           <div className="ml-6 hidden items-center gap-2 lg:flex">
             <a
-              href="https://web.facebook.com/profile.php?id=61580477670825"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
-            >
-              <Facebook size={16} />
-            </a>
-            <a
-              href="https://www.instagram.com/rsgroupghana/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
-            >
-              <Instagram size={16} />
-            </a>
-            <a
-              href="https://x.com/Jclgroup3"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
-            >
-              <Twitter size={16} />
-            </a>
-            <a
               href={`tel:${contactInfo.phone}`}
               aria-label="Call us"
               className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
@@ -246,13 +218,26 @@ export default function Header({ variant = "default" }: HeaderProps) {
               <Phone size={16} />
             </a>
             <a
-              href="https://www.linkedin.com/company/rs-group-of-companies-limited/"
+              href="https://www.linkedin.com/in/jclroyalgh"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
             >
               <Linkedin size={16} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@tonefo2"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
+            >
+              <img
+                src="https://www.tiktok.com/favicon.ico"
+                alt="TikTok"
+                className="h-4 w-4 object-contain"
+              />
             </a>
           </div>
 
@@ -303,8 +288,12 @@ export default function Header({ variant = "default" }: HeaderProps) {
             >
               <div className="relative h-9 w-9 overflow-hidden rounded-lg bg-white/95 ring-1 ring-white/20">
                 <Image
-                  src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778910277/logo_wrfy8c.png"
-                  alt="JCL Group Logo"
+                  src={
+                    isShoppingPage
+                      ? "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779269670/tonefologo_bhbe1s.png"
+                      : "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778910277/logo_wrfy8c.png"
+                  }
+                  alt={isShoppingPage ? "Tonefo Logo" : "JCL Group Logo"}
                   fill
                   className="object-fill p-1.5"
                   priority
@@ -349,15 +338,31 @@ export default function Header({ variant = "default" }: HeaderProps) {
               ))}
 
               <a
-                href={`https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`}
+                href="https://www.linkedin.com/in/jclroyalgh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-2xl border border-white/10 bg-white/5 px-1 py-1 transition-all duration-200 hover:bg-white/10"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="flex items-center gap-3 text-[clamp(1.2rem,5vw,1.9rem)] font-semibold tracking-[-0.03em] text-white">
-                  <MessageCircle size={18} />
-                  <span>WhatsApp</span>
+                  <Linkedin size={18} />
+                  <span>LinkedIn</span>
+                </span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@tonefo2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl border border-white/10 bg-white/5 px-1 py-1 transition-all duration-200 hover:bg-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="flex items-center gap-3 text-[clamp(1.2rem,5vw,1.9rem)] font-semibold tracking-[-0.03em] text-white">
+                  <img
+                    src="https://www.tiktok.com/favicon.ico"
+                    alt="TikTok"
+                    className="h-4 w-4"
+                  />
+                  <span>TikTok</span>
                 </span>
               </a>
             </div>

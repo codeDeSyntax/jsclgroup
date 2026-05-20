@@ -31,7 +31,7 @@ export default function HeroHeader({
             />
           </div>
           <span className="hidden text-lg font-extrabold tracking-tighter text-white sm:inline">
-            JCL Group
+            JCL Royal Group Ltd
           </span>
         </Link>
 

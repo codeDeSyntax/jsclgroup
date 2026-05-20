@@ -59,6 +59,9 @@ const strategyItems = [
   "Institutional banking partnerships with seamless financial liquidity and multi-currency (GHS/USD) compliance.",
   "Turnkey delivery for mining firms, multinational corporations, and state institutions.",
   "Integrated infrastructure and IT backbones that reduce reliance on multiple third-party vendors.",
+  "A complete corporate governance and policy framework for scalable operations.",
+  "Detailed sector playbooks for construction, IT, and real estate execution.",
+  "A structured 5-year business plan spanning real estate, mining logistics, and hospitality.",
 ];
 
 export default function AboutPage() {
@@ -102,7 +105,7 @@ export default function AboutPage() {
             <div className="relative flex justify-start lg:justify-end">
               <div className="relative w-full max-w-[520px] overflow-hidden rounded-[28px] ring-4 ring-jcl-accent/60 ring-offset-4 ring-offset-white shadow-[0_20px_60px_rgba(7,13,75,0.12)]">
                 <Image
-                  src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg"
+                  src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101275/realestatefly1_rasnfc.jpg"
                   alt="JCL Royal Group"
                   width={900}
                   height={620}
@@ -114,118 +117,94 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-12 sm:py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              <div className="rounded-[28px] border border-jcl-primary/10 bg-white p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
-                <h2 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                  Our Vision
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-jcl-primary/80">
-                  To be the premier multi-sector conglomerate in West Africa,
-                  recognized for driving sustainable industrialization, digital
-                  transformation, and infrastructural excellence.
-                </p>
-              </div>
-
-              <div className="rounded-[28px] border border-jcl-primary/10 bg-white p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
-                <h2 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                  Our Mission
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-jcl-primary/80">
-                  To deliver world-class services across infrastructure,
-                  technology, and real estate through engineering excellence,
-                  project discipline, and sustainable practices.
-                </p>
-              </div>
-
-              <div className="rounded-[28px] border border-jcl-primary/10 bg-white p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)] md:col-span-2 xl:col-span-1">
-                <h2 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                  Core Values: I.N.S.P.I.R.E.
-                </h2>
-                <ul className="mt-3 space-y-2 text-sm leading-7 text-jcl-primary/80">
-                  {coreValues.map(([label, description]) => (
-                    <li key={label}>
-                      <span className="font-semibold text-jcl-primary">
-                        {label}:
-                      </span>{" "}
-                      {description}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-8 sm:py-10">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 lg:grid-cols-2">
-              {sectorCards.map((card) => (
-                <article
-                  key={card.title}
-                  className="rounded-[28px] border border-jcl-primary/10 bg-white p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)]"
-                >
-                  <h3 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                    {card.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-jcl-primary/80">
-                    {card.body}
-                  </p>
-                  <ul className="mt-5 space-y-3 text-sm leading-7 text-jcl-primary/80">
-                    {card.points.map((point) => (
-                      <li key={point} className="flex gap-3">
-                        <span className="mt-2 h-2.5 w-2.5 rounded-full bg-jcl-accent" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-8 sm:py-10">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-              <div className="rounded-[28px] border border-jcl-primary/10 bg-white p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
-                <h3 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                  Strategic Growth & B2B Engagement
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-jcl-primary/80">
-                  JCL Royal Group operates on a collaborative growth model,
-                  forming institutional partnerships with premier banking and
-                  corporate stakeholders while ensuring financial liquidity and
-                  international compliance.
-                </p>
-                <div className="mt-5 space-y-3 text-sm leading-7 text-jcl-primary/80">
-                  {strategyItems.map((item) => (
-                    <div key={item} className="flex gap-3">
-                      <span className="mt-2 h-2.5 w-2.5 rounded-full bg-jcl-primary" />
-                      <span>{item}</span>
+            <h2 className="text-3xl font-black tracking-[-0.04em] text-jcl-primary mb-10">
+              Core Values: I.N.S.P.I.R.E.
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left Card */}
+              <div className="rounded-[28px] border border-jcl-primary/10 bg-white p-8 sm:p-10 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
+                <div className="space-y-6">
+                  {coreValues.slice(0, 4).map(([label, description]) => (
+                    <div key={label}>
+                      <h3 className="font-black text-lg text-jcl-primary">
+                        {label}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-jcl-primary/75">
+                        {description}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="rounded-[28px] border border-jcl-primary/10 bg-jcl-blue-50 p-6 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
-                <h3 className="text-2xl font-black tracking-[-0.04em] text-jcl-primary">
-                  What We Can Deliver
-                </h3>
-                <ol className="mt-4 space-y-3 text-sm leading-7 text-jcl-primary/80 list-decimal pl-5">
-                  <li>A Complete Corporate Governance & Policy Manual.</li>
-                  <li>
-                    Detailed Sector Playbooks for Construction, IT, and Real
-                    Estate.
-                  </li>
-                  <li>
-                    A Comprehensive 5-Year Strategic Business Plan covering
-                    Ghanaian real estate, mining logistics, and hospitality.
-                  </li>
-                </ol>
+              {/* Right Card */}
+              <div className="rounded-[28px] border border-jcl-primary/10 bg-jcl-blue-50 p-8 sm:p-10 shadow-[0_18px_50px_rgba(7,13,75,0.06)]">
+                <div className="space-y-6">
+                  {coreValues.slice(4).map(([label, description]) => (
+                    <div key={label}>
+                      <h3 className="font-black text-lg text-jcl-primary">
+                        {label}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-jcl-primary/75">
+                        {description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-12 sm:py-16 border-t border-jcl-primary/10">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="space-y-12">
+              {sectorCards.map((card, idx) => (
+                <div key={card.title}>
+                  <h3 className="text-3xl font-black tracking-[-0.04em] text-jcl-primary">
+                    {card.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-7 text-jcl-primary/80 max-w-3xl">
+                    {card.body}
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm leading-6 text-jcl-primary/75 max-w-3xl">
+                    {card.points.map((point) => (
+                      <li key={point} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-jcl-accent flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {idx < sectorCards.length - 1 && (
+                    <div className="mt-12 border-t border-jcl-primary/10" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12 sm:py-16 border-t border-jcl-primary/10">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h3 className="text-3xl font-black tracking-[-0.04em] text-jcl-primary">
+              Strategic Growth & Delivery Model
+            </h3>
+            <p className="mt-4 text-base leading-7 text-jcl-primary/80 max-w-3xl">
+              JCL Royal Group operates on a collaborative growth model, forming
+              institutional partnerships with premier banking and corporate
+              stakeholders while ensuring financial liquidity, global
+              compliance, and measurable long-term execution.
+            </p>
+            <ul className="mt-8 space-y-4 text-sm leading-6 text-jcl-primary/75 max-w-3xl">
+              {strategyItems.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-1.5 h-2 w-2 rounded-full bg-jcl-primary flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>

@@ -117,34 +117,26 @@ export default async function ProjectsPage() {
       <Header variant="hero" />
 
       <main className="flex-1 pt-24">
-        <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <section className="mx-auto max-w-6xl  px-3 py-2 sm:px-6 lg:px-12">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-black/[0.04] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black/55">
+            <div className="max-w-6xl mx-auto b-[#d3e6ea] border-y border-jcl-primary/10  p-6 sm:p-4">
+              <div className="inline-flex hidden items-center gap-2 rounded-full bg-black/[0.04] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black/55">
                 <Building2 className="h-3.5 w-3.5" />
                 Our projects
               </div>
-              <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.06em] text-jcl-primary sm:text-5xl lg:text-[3.9rem] lg:leading-[0.95]">
+              <h1 className="mt-4 max-w-5xl text-4xl font-black tracking-[-0.06em] text-jcl-primary sm:text-5xl lg:text-[3.9rem] lg:leading-[0.95]">
                 Handcrafted project profiles and collaborative case studies.
               </h1>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-black/55 sm:text-base">
+              <p className="mt-4 max-w-5xl text-sm leading-6 text-black/55 sm:text-base">
                 A soft horizontal rail for exploring selected developments,
                 project details, and progress snapshots.
               </p>
             </div>
-
-            <Link
-              href="#projects-rail"
-              className="inline-flex items-center gap-2 self-start rounded-full bg-black px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-black/90"
-            >
-              View all
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
 
-          <div className="mt-8 h-px w-full bg-black/5" />
+          {/* <div className="mt-8 h-px w-full bg-black/5" /> */}
 
-          <div id="projects-rail" className="mt-8">
+          <div id="projects-rail" className="mt-8 p-3">
             <div className="mt-10 sm:hidden">
               {projects.length === 0 ? (
                 <div className="rounded-[2rem] border border-black/10 bg-white p-8 text-sm text-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.04)]">

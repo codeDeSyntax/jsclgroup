@@ -3,18 +3,18 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function FooterCtaCard() {
   const ctaBgImage =
-    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744195/luxury-modern-house-with-blue-sky-backgroundconcept-real-estate-property_51530-5843_ke7rxj.jpg";
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png";
 
   return (
     <div
-      className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-t-3xl rounded-br-3xl shadow-[0_28px_90px_rgba(7,13,75,0.14)] sm:rounded-3xl"
+      className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-t-3xl rounded-br-3xl  sm:rounded-3xl"
       style={{
         backgroundImage: `url(${ctaBgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(230,230,230,1)_0%,rgba(230,230,230,1)_70%,rgba(255,255,255,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_0%,rgba(230,230,230,1)_70%,rgba(255,255,255,0.28)_100%)]" />
 
       <div className="relative z-10 min-h-[10.5rem]">
         <div className="relative flex min-h-[10.5rem] flex-col justify-center px-4 py-5 text-jcl-primary sm:px-6 lg:px-8">

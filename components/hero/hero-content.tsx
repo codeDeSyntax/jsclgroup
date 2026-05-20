@@ -5,13 +5,17 @@ import Link from "next/link";
 export default function HeroContent() {
   return (
     <div>
-      <h1 className="max-w-2xl text-balance text-4xl pt-8 sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-[-0.04em] text-white">
+      <p className="text-jcl-accent font-extrabold text-sm sm:text-base">
+        Welcome to JCL Royal Group Limited
+      </p>
+
+      <h1 className="max-w-2xl text-balance text-3xl pt-3 sm:text-4xl md:text-4xl lg:text-5xl font-black leading-[1] tracking-[-0.06em] text-white">
         Find a property you
         <br />
         will be proud to own
       </h1>
 
-      <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-6 text-white/85 max-w-xl">
+      <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-6 text-white/85 max-w-xl">
         Discover homes, land, and investment opportunities that fit the way you
         want to live and grow.
       </p>

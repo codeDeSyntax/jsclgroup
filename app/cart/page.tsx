@@ -19,7 +19,8 @@ export default function CartPage() {
     buildWhatsAppMessage,
   } = useCart();
 
-  const [contactPhone, setContactPhone] = useState("2335578609299");
+  // Fallback local number (will be replaced by backend setting if available)
+  const [contactPhone, setContactPhone] = useState("0557860299");
   const [showConfirm, setShowConfirm] = useState(false);
 
   // Fetch phone number from settings

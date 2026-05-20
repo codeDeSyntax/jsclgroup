@@ -5,15 +5,8 @@ import { toast } from "@/hooks/use-toast";
 import { useRouter, useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useAuth } from "@/components/auth-provider";
 import { BACKEND_URL } from "@/lib/auth";
+import { useAuth } from "@/components/auth-provider";
 import { adminInputClass } from "@/lib/admin-form-styles";
 import { SingleImageUpload } from "@/components/admin/single-image-upload";
 import {
@@ -67,12 +60,34 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
   const [featureInput, setFeatureInput] = useState("");
   const [specLabel, setSpecLabel] = useState("");
   const [specValue, setSpecValue] = useState("");
+  const [categories, setCategories] = useState<
+    { id: string; name: string; slug: string }[]
+  >([]);
 
   useEffect(() => {
     if (isEdit && params.id && token) {
       fetchProduct();
     }
   }, [isEdit, params.id, token]);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchCats = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/public/categories`);
+        if (!res.ok) throw new Error("Failed to fetch categories");
+        const data = await res.json();
+        if (!mounted) return;
+        setCategories(Array.isArray(data.data) ? data.data : []);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    void fetchCats();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const fetchProduct = async () => {
     try {
@@ -222,22 +237,54 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
               </AdminFormField>
 
               <AdminFormField label="Category" required>
-                <Select
-                  value={formData.category}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, category: value })
-                  }
-                >
-                  <SelectTrigger className="h-11 rounded-xl border-transparent bg-black/[0.04] hover:bg-black/[0.06] focus:ring-jcl-black">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="electronics">Electronics</SelectItem>
-                    <SelectItem value="gadgets">Gadgets</SelectItem>
-                    <SelectItem value="phones">Phones</SelectItem>
-                    <SelectItem value="laptops">Laptops</SelectItem>
-                  </SelectContent>
-                </Select>
+                <div className="space-y-3">
+                  {/* Tag Selection */}
+                  <div className="flex flex-wrap gap-2">
+                    {categories && categories.length > 0 ? (
+                      categories.map((c) => {
+                        const isSelected =
+                          String(formData.category || "").toLowerCase() ===
+                          String(c.slug || c.name || "").toLowerCase();
+                        return (
+                          <button
+                            key={c.id}
+                            type="button"
+                            onClick={() =>
+                              setFormData({ ...formData, category: c.slug })
+                            }
+                            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm transition ${
+                              isSelected
+                                ? "bg-jcl-accent text-white"
+                                : "border border-black/10 bg-white hover:bg-black/5"
+                            }`}
+                          >
+                            {c.name}
+                          </button>
+                        );
+                      })
+                    ) : (
+                      <div className="text-sm text-black/60">Loading…</div>
+                    )}
+                  </div>
+
+                  {/* Manual Entry */}
+                  <div className="pt-2 border-t border-black/10">
+                    <p className="text-xs text-black/55 mb-2">
+                      Category:
+                    </p>
+                    <Input
+                      className={adminInputClass}
+                      value={formData.category}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          category: e.target.value.trim(),
+                        })
+                      }
+                      placeholder="e.g., smartphone, tablet, headphones"
+                    />
+                  </div>
+                </div>
               </AdminFormField>
 
               <AdminFormField label="Summary">

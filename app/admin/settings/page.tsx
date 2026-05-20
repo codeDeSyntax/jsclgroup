@@ -109,7 +109,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Contact Phone Section */}
-        <div className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_18px_36px_rgba(0,0,0,0.04)] sm:p-8">
+        <div className="rounded-3xl border border-transparent bg-black/[0.03] p-6 sm:p-8">
           <div className="mb-6">
             <h2 className="text-xl font-black tracking-[-0.03em] text-jcl-primary">
               Contact Phone Number
@@ -134,8 +134,8 @@ export default function SettingsPage() {
                 type="tel"
                 value={contactPhone}
                 onChange={(e) => setContactPhone(e.target.value)}
-                placeholder="e.g., 2335578609299"
-                className="w-full max-w-md border-black/15 bg-white text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
+                placeholder="e.g., 0557860299"
+                className="w-full max-w-md border border-transparent bg-black/[0.04] text-black placeholder:text-black/35 hover:bg-black/[0.06] focus-visible:ring-2 focus-visible:ring-jcl-black"
               />
               <p className="mt-1 text-xs text-black/50">
                 Include country code (e.g., +233 or 233)
@@ -143,7 +143,7 @@ export default function SettingsPage() {
             </div>
 
             {/* Info Box */}
-            <div className="mt-4 flex items-start gap-3 rounded-2xl bg-jcl-accent/10 p-4 ring-1 ring-jcl-blue-100">
+            <div className="mt-4 flex items-start gap-3 rounded-2xl bg-jcl-accent/10 p-4">
               <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-jcl-primary" />
               <div className="text-sm text-jcl-primary">
                 <p className="font-medium">Where this is used:</p>
@@ -180,7 +180,7 @@ export default function SettingsPage() {
                 <Button
                   onClick={handleReset}
                   variant="outline"
-                  className="rounded-full border-black/20 hover:bg-black/5"
+                  className="rounded-full border-transparent bg-black/[0.06] hover:bg-black/[0.1]"
                 >
                   Reset
                 </Button>

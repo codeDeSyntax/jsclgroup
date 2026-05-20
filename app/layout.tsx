@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     images: [socialPreviewImage],
   },
   icons: {
-    icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
+    icon: "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
     shortcut:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
     apple:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778940328/jcllogo_s5lnq6.png",
+      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg",
   },
 };
 

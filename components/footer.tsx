@@ -1,18 +1,60 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import FooterCtaCard from "@/components/footer-cta-card";
 import { contactInfo } from "@/lib/contact";
+import { BACKEND_URL } from "@/lib/auth";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [subscriberEmail, setSubscriberEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null);
+  const [subscribeError, setSubscribeError] = useState<string | null>(null);
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubscribeStatus(null);
+    setSubscribeError(null);
+
+    const email = subscriberEmail.trim().toLowerCase();
+    if (!email) {
+      setSubscribeError("Please enter your email address");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(`${BACKEND_URL}/newsletter/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to subscribe");
+      }
+
+      setSubscribeStatus(data.message || "Subscribed successfully");
+      setSubscriberEmail("");
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Could not subscribe right now";
+      setSubscribeError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Footer-specific contact lines (as provided)
+  const footerPhones = ["025 646 6565", "+233 53 110 1123", "0245118310"];
 
   const quickLinks = [
     { href: "/", label: "Home" },
@@ -25,32 +67,22 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      href: "https://web.facebook.com/profile.php?id=61580477670825",
-      label: "Facebook",
-      icon: Facebook,
-    },
-    {
-      href: "https://www.instagram.com/rsgroupghana/",
-      label: "Instagram",
-      icon: Instagram,
-    },
-    {
-      href: "https://x.com/rsgroupgh?s=09",
-      label: "X",
-      icon: Twitter,
-    },
-    {
-      href: "https://www.linkedin.com/company/rs-group-of-companies-limited/",
+      href: "https://www.linkedin.com/in/jclroyalgh",
       label: "LinkedIn",
       icon: Linkedin,
+    },
+    {
+      href: "https://www.tiktok.com/@tonefo2",
+      label: "TikTok",
+      icon: null,
     },
   ];
 
   return (
-    <footer className="relative mt-32 w-full rounded-t-3xl bg-jcl-primary text-white sm:mt-32">
+    <footer className="relative mt-52 w-full rounded-t-3xl bg-jcl-primary text-white sm:mt-80">
       <div className="w-full">
-        <div className="pointer-events-none absolute left-0 right-0 -top-28 z-20 px-4 sm:-top-28 sm:px-6 lg:px-8">
-          <div className="pointer-events-auto mx-auto flex max-w-6xl justify-center">
+        <div className="pointer-events-none absolute left-0 right-0 -top-40 z-20 px-4 sm:-top-36 sm:px-0 w-full lg:px-0">
+          <div className="pointer-events-auto mx-auto flex w-full justify-center">
             <FooterCtaCard />
           </div>
         </div>
@@ -81,15 +113,17 @@ export default function Footer() {
                   Contact &amp; Legal
                 </h3>
                 <ul className="mt-6 space-y-3 text-sm text-white/75">
-                  <li className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-jcl-orange-400" />
-                    <a
-                      href={`tel:${contactInfo.phone}`}
-                      className="transition hover:text-white"
-                    >
-                      {contactInfo.phoneDisplay}
-                    </a>
-                  </li>
+                  {footerPhones.map((p) => {
+                    const href = `tel:${p.replace(/\s+/g, "")}`;
+                    return (
+                      <li key={p} className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-jcl-orange-400" />
+                        <a href={href} className="transition hover:text-white">
+                          {p}
+                        </a>
+                      </li>
+                    );
+                  })}
                   <li className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-jcl-orange-400" />
                     <a
@@ -130,22 +164,19 @@ export default function Footer() {
                         title={label}
                         className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-jcl-primary transition hover:-translate-y-0.5 hover:bg-jcl-orange-500 hover:text-white"
                       >
-                        <Icon className="h-4 w-4" />
+                        {Icon ? (
+                          <Icon className="h-4 w-4" />
+                        ) : (
+                          <img
+                            src="https://www.tiktok.com/favicon.ico"
+                            alt="TikTok"
+                            className="h-4 w-4"
+                          />
+                        )}
                       </a>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 w-full max-w-[220px]">
-                  <div className="relative h-40 sm:h-56 rounded-lg overflow-hidden">
-                    <Image
-                      src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101287/realestatefly3_djlm5i.jpg"
-                      alt="Featured real estate"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -154,7 +185,7 @@ export default function Footer() {
                 Get updates on fresh properties, offers, and gadget drops.
               </p>
 
-              <form className="space-y-3">
+              <form className="space-y-3" onSubmit={handleSubscribe}>
                 <label
                   htmlFor="footer-email"
                   className="text-sm font-medium text-white/75"
@@ -165,16 +196,30 @@ export default function Footer() {
                   <input
                     id="footer-email"
                     type="email"
+                    value={subscriberEmail}
+                    onChange={(e) => {
+                      setSubscriberEmail(e.target.value);
+                      if (subscribeError) setSubscribeError(null);
+                    }}
+                    disabled={isSubmitting}
+                    required
                     placeholder="Enter your email"
-                    className="h-12 w-full rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white placeholder:text-white/55 outline-none ring-0 transition focus:border-jcl-orange-400"
+                    className="h-12 w-full rounded-full border border-white/20 bg-white/10 px-5 text-sm text-white placeholder:text-white/55 outline-none ring-0 transition focus:border-jcl-orange-400 disabled:opacity-60"
                   />
                   <button
                     type="submit"
-                    className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-jcl-orange-500 px-8 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-jcl-orange-600"
+                    disabled={isSubmitting}
+                    className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-jcl-orange-500 px-8 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-jcl-orange-600 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Stay Updated
+                    {isSubmitting ? "Submitting..." : "Stay Updated"}
                   </button>
                 </div>
+                {subscribeStatus ? (
+                  <p className="text-xs text-green-300">{subscribeStatus}</p>
+                ) : null}
+                {subscribeError ? (
+                  <p className="text-xs text-red-300">{subscribeError}</p>
+                ) : null}
               </form>
             </div>
 

@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import ElectronicsCategoryStrip from "./electronics-category-strip";
-import { electronicsSlides } from "./electronics-data";
+import { electronicsSlides, electronicsBestSellers } from "./electronics-data";
+import HeroBackgroundArt from "../hero-background-art";
+import HeroMeshPattern from "../hero-mesh-pattern";
 
 type HeroCardSlide = {
   eyebrow: string;
@@ -31,7 +34,9 @@ function HeroCard({ slide, index }: { slide: HeroCardSlide; index: number }) {
       style={
         isMiddleCard
           ? { backgroundColor: "#ffffff" }
-          : { backgroundImage: `linear-gradient(to bottom right, ${from}, ${to})` }
+          : {
+              backgroundImage: `linear-gradient(to bottom right, ${from}, ${to})`,
+            }
       }
     >
       <div className="flex h-full min-h-0 flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -72,13 +77,13 @@ function HeroCard({ slide, index }: { slide: HeroCardSlide; index: number }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center px-5 pb-5 sm:px-8 sm:pb-8 lg:px-10 lg:py-10">
+        <div className="flex items-center justify-center px-3 pb-3 sm:px-8 sm:pb-8 lg:px-10 lg:py-10 min-h-[280px] sm:min-h-0">
           <Image
             src={slide.image}
             alt={slide.title}
             width={680}
             height={520}
-            className="h-auto max-h-36 w-full max-w-[280px] object-contain sm:max-h-40 sm:max-w-[320px] lg:max-h-full lg:max-w-[500px]"
+            className="h-auto max-h-none w-full sm:max-h-40 sm:max-w-[320px] lg:max-h-full lg:max-w-[500px] object-contain"
             priority
           />
         </div>
@@ -87,111 +92,172 @@ function HeroCard({ slide, index }: { slide: HeroCardSlide; index: number }) {
   );
 }
 
-function ElectronicsCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "center",
-    containScroll: "trimSnaps",
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const autoplayMs = 25000; // 25 seconds
-  const autoplayRef = useRef<number | null>(null);
-  const isPausedRef = useRef(false);
-
-  const stopAutoplay = () => {
-    if (autoplayRef.current) {
-      window.clearInterval(autoplayRef.current);
-      autoplayRef.current = null;
-    }
-  };
-
-  const startAutoplay = () => {
-    stopAutoplay();
-    if (!emblaApi) return;
-    autoplayRef.current = window.setInterval(() => {
-      if (!emblaApi) return;
-      if (!isPausedRef.current) emblaApi.scrollNext();
-    }, autoplayMs);
-  };
+function RightSlidingPair({ images }: { images: string[] }) {
+  const [topIndex, setTopIndex] = useState(0);
+  const [bottomIndex, setBottomIndex] = useState(1);
+  const slotToggle = useRef(0); // 0 -> replace top next, 1 -> replace bottom next
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-
-    emblaApi.on("select", onSelect);
-    // start autoplay when embla is ready
-    startAutoplay();
+    // auto-advance every 3.2s
+    timerRef.current = window.setInterval(() => {
+      const nextIndex = (Math.max(topIndex, bottomIndex) + 1) % images.length;
+      if (slotToggle.current === 0) {
+        setTopIndex(nextIndex);
+      } else {
+        setBottomIndex(nextIndex);
+      }
+      slotToggle.current = 1 - slotToggle.current;
+    }, 3200);
 
     return () => {
-      emblaApi.off("select", onSelect);
-      stopAutoplay();
+      if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, [emblaApi]);
+  }, [topIndex, bottomIndex, images.length]);
 
-  const scrollTo = (index: number) => {
-    if (!emblaApi) return;
-    emblaApi.scrollTo(index);
-    // restart autoplay after manual navigation
-    isPausedRef.current = false;
-    startAutoplay();
-  };
+  // allow hover to pause
+  const pauseRef = useRef(false);
+
+  const renderSlot = (index: number) => (
+    <AnimatePresence initial={false} mode="wait">
+      <motion.div
+        key={index}
+        initial={{ x: 60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -60, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <Image
+          src={images[index]}
+          alt={`hero-${index}`}
+          width={800}
+          height={600}
+          className="h-full w-full object-cover"
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div
-        className="overflow-hidden"
-        ref={emblaRef}
-        onPointerEnter={() => {
-          isPausedRef.current = true;
-        }}
-        onPointerLeave={() => {
-          isPausedRef.current = false;
-        }}
-        onPointerDown={() => {
-          isPausedRef.current = true;
-        }}
-        onPointerUp={() => {
-          isPausedRef.current = false;
-        }}
-      >
-        <div className="flex gap-0 sm:gap-4">
-          {electronicsSlides.map((slide, index) => (
-            <div
-              key={slide.title}
-              className="min-w-0 flex-[0_0_100%] sm:flex-[0_0_88%] md:flex-[0_0_calc(50%-1rem)] lg:flex-[0_0_calc(60%-1rem)]"
-              style={{ scrollSnapAlign: "center" }}
-            >
-              <HeroCard slide={slide} index={index} />
-            </div>
-          ))}
-        </div>
+    <div
+      className="flex w-full flex-col  gap-4 sm:flex-row"
+      onMouseEnter={() => {
+        pauseRef.current = true;
+        if (timerRef.current) window.clearInterval(timerRef.current);
+      }}
+      onMouseLeave={() => {
+        pauseRef.current = false;
+        // restart timer
+        if (timerRef.current) window.clearInterval(timerRef.current);
+        timerRef.current = window.setInterval(() => {
+          const nextIndex =
+            (Math.max(topIndex, bottomIndex) + 1) % images.length;
+          if (slotToggle.current === 0) setTopIndex(nextIndex);
+          else setBottomIndex(nextIndex);
+          slotToggle.current = 1 - slotToggle.current;
+        }, 3200);
+      }}
+    >
+      <div className="relative w-full h-[360px] overflow-hidden rounded-2xl bg-transparent sm:w-1/2 sm:aspect-auto sm:h-[320px]">
+        {renderSlot(topIndex)}
       </div>
-
-      {/* Pagination Dots */}
-      <div className="mt-5 flex justify-center gap-2">
-        {electronicsSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollTo(index)}
-            className={`h-2 rounded-full transition-all ${
-              selectedIndex === index
-                ? "w-8 bg-jcl-primary"
-                : "w-2 bg-gray-300 hover:bg-gray-400"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      <div className="relative w-full h-[360px] overflow-hidden rounded-2xl bg-transparent sm:w-1/2 sm:aspect-auto sm:h-[320px]">
+        {renderSlot(bottomIndex)}
       </div>
     </div>
   );
 }
 
-export default function ElectronicsHero() {
+export default function ElectronicsHero({
+  categories,
+  availableCategories,
+  onSelectCategory,
+}: {
+  categories?: string[];
+  availableCategories?: string[];
+  onSelectCategory?: (value: string) => void;
+}) {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const images = [
+    ...electronicsSlides.map((s) => s.image),
+    ...electronicsBestSellers.map((p) => p.image),
+  ].filter(Boolean);
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = searchTerm.trim()
+      ? `?search=${encodeURIComponent(searchTerm.trim())}`
+      : "";
+    router.push(`/products/electronics${query}`);
+  };
+
   return (
-    <section className="bg-jcl-white pb-6 pt-[70px]">
-      <div className="">
-        <ElectronicsCategoryStrip />
-        <ElectronicsCarousel />
+    <section className="bg-jcl-white pb-6 pt-[70px] relative">
+      {/* <HeroBackgroundArt className="absolute inset-0 opacity-100" colorClass="text-jcl-primary/5" /> */}
+      <HeroMeshPattern
+        className="absolute inset-0 opacity-100"
+        colorClass="text-jcl-primary"
+      />
+      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <ElectronicsCategoryStrip
+          categories={categories}
+          onSelect={onSelectCategory}
+          // pass availability down to strip so it can indicate which tags have items
+          // `availableCategories` contains lowercased slugs from the products list
+          availableCategories={availableCategories}
+        />
+
+        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Column: copy */}
+          <div className="lg:col-span-6">
+            <p className="text-jcl-accent font-semibold text-sm sm:text-base">
+              Welcome to JCL Royal Group Limited
+            </p>
+            <h2 className="mt-2 max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight text-slate-900">
+              Latest Gadget &
+              <br />
+              Home Appliances
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm text-slate-600">
+              Discover our carefully curated collection of cutting-edge
+              technology products and smart home solutions.
+            </p>
+
+            <form
+              onSubmit={handleSearchSubmit}
+              className="mt-6 rounded-3xl border border-black/5 bg-white p-2 shadow-[0_18px_50px_rgba(7,13,75,0.06)] sm:rounded-full"
+            >
+              <div className="flex w-full items-center justify-between gap-4 ">
+                <label className="relative flex-1 block min-w-0">
+                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-black/35" />
+                  <input
+                    type="search"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    placeholder="Search gadgets and appliances"
+                    className="h-12 w-full rounded-2xl border-0 bg-black/[0.03] px-11 text-sm text-black placeholder:text-#975252/40 outline-none ring-0 transition focus:bg-black/[0.02] focus:ring-2 focus:ring-jcl-black/10 sm:rounded-full sm:bg-transparent"
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-jcl-accent px-5 text-sm font-semibold text-white shadow-md transition hover:bg-jcl-accent/90 sm:rounded-full"
+                >
+                  Search
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Right Column: two sliding image cards */}
+          <div className="lg:col-span-6">
+            <RightSlidingPair images={images} />
+          </div>
+        </div>
       </div>
     </section>
   );

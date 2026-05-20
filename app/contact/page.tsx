@@ -1,19 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { BACKEND_URL } from "@/lib/auth";
 import {
-  Facebook,
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
   MessageSquare,
   Phone,
   Send,
-  Twitter,
 } from "lucide-react";
 import { contactInfo } from "@/lib/contact";
 
@@ -24,38 +21,53 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const [contactPhone, setContactPhone] = useState(contactInfo.phoneDisplay);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Fetch phone number from settings
-  useEffect(() => {
-    const fetchPhone = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
-        if (res.ok) {
-          const data = await res.json();
-          setContactPhone(data.data.value);
-        }
-      } catch (error) {
-        console.error("Failed to fetch phone number:", error);
-      }
-    };
-    fetchPhone();
-  }, []);
+  const footerPhones = ["025 646 6565", "053 110 1123", "0245118310"];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${BACKEND_URL}/email/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send email");
+      }
+
+      setSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Failed to send email. Please try again.";
+      setError(errorMessage);
+      console.error("Error sending contact email:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactBlocks = [
@@ -74,7 +86,7 @@ export default function ContactPage() {
     {
       title: "Call us",
       description: "Mon-Fri from 8am to 5pm.",
-      value: contactPhone,
+      value: footerPhones,
       icon: Phone,
     },
   ];
@@ -110,9 +122,23 @@ export default function ContactPage() {
                             <p className="mt-0.5 text-sm text-jcl-primary/75">
                               {item.description}
                             </p>
-                            <p className="mt-2 text-base font-semibold text-jcl-primary">
-                              {item.value}
-                            </p>
+                            {Array.isArray(item.value) ? (
+                              <div className="mt-2 space-y-1">
+                                {item.value.map((phone) => (
+                                  <a
+                                    key={phone}
+                                    href={`tel:${phone.replace(/\s+/g, "")}`}
+                                    className="block text-base font-semibold text-jcl-primary hover:underline"
+                                  >
+                                    {phone}
+                                  </a>
+                                ))}
+                              </div>
+                            ) : (
+                              <p className="mt-2 text-base font-semibold text-jcl-primary">
+                                {item.value}
+                              </p>
+                            )}
                           </div>
                         </div>
                       );
@@ -120,23 +146,35 @@ export default function ContactPage() {
                   </div>
 
                   <div className="mt-10 flex items-center gap-2.5">
-                    {[Facebook, Twitter, Linkedin, Instagram].map(
-                      (Icon, index) => (
-                        <a
-                          key={index}
-                          href="#"
-                          className="flex h-9 w-9 items-center justify-center rounded-md border border-jcl-primary/15 bg-white text-jcl-primary transition hover:bg-jcl-primary hover:text-white"
-                          aria-label="Social media"
-                        >
-                          <Icon className="h-4 w-4" />
-                        </a>
-                      ),
-                    )}
+                    {/* LinkedIn */}
+                    <a
+                      href="https://www.linkedin.com/in/jclroyalgh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-md border border-jcl-primary/15 bg-white text-jcl-primary transition hover:bg-jcl-primary hover:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                    {/* TikTok */}
+                    <a
+                      href="https://www.tiktok.com/@tonefo2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-md border border-jcl-primary/15 bg-white transition hover:bg-jcl-primary"
+                      aria-label="TikTok"
+                    >
+                      <img
+                        src="https://www.tiktok.com/favicon.ico"
+                        alt="TikTok"
+                        className="h-4 w-4"
+                      />
+                    </a>
                   </div>
                 </aside>
 
                 <div className="order-1 rounded-[24px] border border-jcl-primary/10 bg-white px-5 py-6 shadow-[0_20px_60px_rgba(7,13,75,0.06)] relative overflow-hidden sm:px-8 sm:py-8 lg:order-2 lg:px-10 lg:py-10">
-                  <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-brand-orange/10 via-brand-orange/5 to-transparent" />
+                  <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-brand-navy/10 via-brand-navy/5 to-transparent" />
                   {submitted ? (
                     <div className="relative z-10 rounded-xl border border-jcl-primary/15 bg-white/80 p-8 text-center">
                       <p className="text-4xl font-black text-jcl-primary">✓</p>
@@ -157,6 +195,12 @@ export default function ContactPage() {
                         building.
                       </p>
 
+                      {error && (
+                        <div className="mt-4 rounded-lg border border-red-500/20 bg-red-50 p-4">
+                          <p className="text-sm text-red-700">{error}</p>
+                        </div>
+                      )}
+
                       <div className="mt-8 space-y-5">
                         <div>
                           <label
@@ -170,9 +214,10 @@ export default function ContactPage() {
                             name="name"
                             type="text"
                             required
+                            disabled={loading}
                             value={formData.name}
                             onChange={handleChange}
-                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange disabled:opacity-50"
                             placeholder="Your full name"
                           />
                         </div>
@@ -189,9 +234,10 @@ export default function ContactPage() {
                             name="email"
                             type="email"
                             required
+                            disabled={loading}
                             value={formData.email}
                             onChange={handleChange}
-                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            className="mt-2 w-full border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange disabled:opacity-50"
                             placeholder="name@yourdomain.com"
                           />
                         </div>
@@ -207,10 +253,11 @@ export default function ContactPage() {
                             id="message"
                             name="message"
                             required
+                            disabled={loading}
                             rows={3}
                             value={formData.message}
                             onChange={handleChange}
-                            className="mt-2 w-full resize-none border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange"
+                            className="mt-2 w-full resize-none border-0 border-b border-jcl-primary/45 bg-transparent pb-2 text-jcl-primary placeholder:text-jcl-primary/55 outline-none focus:border-brand-orange disabled:opacity-50"
                             placeholder="Tell us what you have in mind"
                           />
                         </div>
@@ -220,9 +267,10 @@ export default function ContactPage() {
 
                       <button
                         type="submit"
-                        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-jcl-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-jcl-blue-900"
+                        disabled={loading}
+                        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-jcl-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-jcl-blue-900 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Let&apos;s get started
+                        {loading ? "Sending..." : "Let's get started"}
                         <Send className="h-4 w-4" />
                       </button>
                     </form>

@@ -19,69 +19,73 @@ export default function HeroStats() {
           </div>
         </div>
 
-        {/* Box Grid Chart */}
+        {/* Bar-style Chart (more readable) */}
         <div className="flex-1">
-          <div className="relative">
-            {/* y-axis labels (hidden on small screens) */}
-            <div className="hidden sm:absolute sm:left-0 sm:top-0 sm:bottom-6 sm:flex sm:flex-col sm:justify-between text-xs text-white/60">
-              <span>6</span>
-              <span>4</span>
-              <span>2</span>
-              <span>0</span>
+          <div className="ml-0 sm:ml-8">
+            <div className="flex items-end gap-3 sm:gap-4 h-24 sm:h-28">
+              {(() => {
+                const data = [2, 3, 5, 6, 4, 3, 2, 5, 6, 4, 3, 2];
+                const max = Math.max(...data, 6);
+                return data.map((v, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className="flex flex-col items-center w-3 sm:w-4 relative group"
+                    >
+                      {/* tooltip shown on hover */}
+                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-150">
+                        <div className="bg-white text-slate-900 px-2 py-1 rounded-md text-xs font-medium shadow-md w-max text-center">
+                          <div>{v} listings</div>
+                          <div className="text-[10px] text-slate-500">
+                            Period {i + 1}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="w-full h-full flex items-end">
+                        <motion.div
+                          className="w-full flex flex-col items-center justify-end overflow-hidden"
+                          initial={{ scaleY: 0 }}
+                          whileInView={{ scaleY: 1 }}
+                          viewport={{ once: true, amount: 0.6 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 120,
+                            damping: 14,
+                            delay: i * 0.06,
+                          }}
+                          style={{ transformOrigin: "bottom" }}
+                          aria-hidden
+                        >
+                          <div className="flex flex-col-reverse items-center">
+                            {Array.from({ length: v }).map((_, j) => (
+                              <div
+                                key={j}
+                                className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full mb-1 sm:mb-1.5"
+                                style={{
+                                  backgroundColor: "var(--jcl-accent, #f97316)",
+                                }}
+                                aria-label={`Bubble ${j + 1}`}
+                              />
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                      <div className="mt-2 text-[10px] text-white/60 text-center">
+                        {i % 2 === 0 ? i + 1 : ""}
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
             </div>
 
-            {/* grid of boxes: rows x cols */}
-            <div className="ml-0 sm:ml-8 overflow-x-auto">
-              <div className="grid grid-rows-6 grid-cols-12 gap-1">
-                {/** weekly activity columns (0..6 scale) */}
-                {(() => {
-                  const cols = 12;
-                  const rows = 6;
-                  const data = [2, 3, 5, 6, 4, 3, 2, 5, 6, 4, 3, 2];
-                  const cells: any[] = [];
-                  for (let r = rows - 1; r >= 0; r--) {
-                    for (let c = 0; c < cols; c++) {
-                      const filled = data[c] > r;
-                      if (filled) {
-                        cells.push(
-                          <motion.div
-                            key={`${r}-${c}`}
-                            className="h-3 w-3 sm:h-4 sm:w-4 rounded-sm"
-                            animate={{ y: [4, -3, 4] }}
-                            transition={{
-                              duration: 2.2,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                              delay: c * 0.06 + (rows - r) * 0.02,
-                            }}
-                            style={{
-                              backgroundColor:
-                                "var(--jcl-accent, #f97316)",
-                            }}
-                          />,
-                        );
-                      } else {
-                        cells.push(
-                          <div
-                            key={`${r}-${c}`}
-                            className="h-3 w-3 sm:h-4 sm:w-4 rounded-sm bg-white/6"
-                          />,
-                        );
-                      }
-                    }
-                  }
-                  return cells;
-                })()}
+            {/* Legend / axis summary */}
+            <div className="mt-3 flex items-center gap-4 text-xs text-white/70">
+              <div className="flex-1 text-sm sm:text-base font-black text-white">
+                1.2K
               </div>
-
-              {/* x-axis labels */}
-              <div className="mt-2 flex items-center justify-between text-xs text-white/60">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <div key={i} className="w-3 sm:w-4 text-center text-[10px]">
-                    {i % 2 === 0 ? i + 1 : ""}
-                  </div>
-                ))}
-              </div>
+              <div className="text-white/60">Listings over past 12 periods</div>
             </div>
           </div>
         </div>

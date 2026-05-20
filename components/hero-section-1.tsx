@@ -17,6 +17,10 @@ import type { RootState, AppDispatch } from "@/store";
 const desktopHeroImages = [
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png",
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide1_zu4ir8.jpg",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide3_zurc6j.jpg",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide4_tibcil.jpg",
+  "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide2_evnnt6.jpg"
 ];
 
 const mobileHeroImages = [
@@ -114,7 +118,7 @@ export default function HeroSection1() {
 
       {/* Hero Section Content */}
       <main className="relative z-20 w-full h-full">
-        <section className="relative mx-auto flex h-full w-full max-w-[73rem] items-start sm:items-center overflow-visible bg-transparent px-3 py-0 text-brand-navy sm:px-4 sm:py-4">
+        <section className="relative mx-auto flex h-full w-full max-w-[74rem] items-start sm:items-center overflow-visible bg-transparent px-3 py-0 text-brand-navy sm:px-4 sm:py-4">
           <div className="grid h-full w-full grid-cols-1 items-stretch gap-4 lg:grid-cols-[0.7fr_0.3fr]">
             {/* Left Column: Content (full height) */}
             <div className="-mx-3 flex h-full flex-col justify-between overflow-visible rounded-b-3xl rounded-t-none bg-jcl-primary p-4 pb-8 sm:pb-0 sm:mx-0 sm:overflow-hidden sm:rounded-3xl sm:p-6 lg:p-10">
