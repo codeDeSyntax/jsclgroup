@@ -54,13 +54,13 @@ export default function HeroRightColumn({ heroImages }: HeroRightColumnProps) {
     heroImages[activeImage % heroImages.length] ?? heroImages[0];
 
   return (
-    <div className="grid h-full min-h-0 gap-4 lg:grid-rows-[3fr_1fr]">
+    <div className="grid h-full min-h-0 gap-2 lg:grid-rows-[3fr_1fr]">
       {/* Hero Image */}
-      <div className="hidden sm:block relative order-first lg:order-none min-h-[11rem] sm:min-h-[14rem] md:min-h-[18rem] lg:min-h-0 overflow-hidden rounded-3xl">
+      <div className="hidden  sm:block relative order-first lg:order-none min-h-[11rem] sm:min-h-[14rem] md:min-h-[18rem] lg:min-h-0 overflow-hidden rounded-2xl bg-white ">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeImage}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat m-2 rounded-2xl"
             style={{
               backgroundImage: `url(${currentImage})`,
             }}

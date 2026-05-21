@@ -28,7 +28,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
-    { label: "About", href: "/about" },
+    { label: "About us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 

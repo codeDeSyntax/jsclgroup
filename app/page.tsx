@@ -5,6 +5,7 @@ import FloatingShowcaseCards from "@/components/floating-showcase-cards";
 import HeroSectionSwitcher from "@/components/hero-section-switcher";
 import HeroWatermarkSection from "@/components/hero-watermark-section";
 import ScrollAwareHeader from "@/components/scroll-aware-header";
+import FlyerCarousel from "@/components/flyer-carousel";
 import {
   Star,
   Search,
@@ -45,8 +46,8 @@ export default function HomePage() {
                 </h2>
               </div>
 
-              <div className="relative z-10 grid gap-3 sm:gap-4 md:grid-cols-2">
-                <div className="overflow-hidden rounded-[20px] bg-[#d9c7b2] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
+              <div className="relative z-10 flex flex-col gap-3 sm:gap-4 md:grid md:grid-cols-2">
+                <div className="overflow-hidden rounded-[20px] bg-jcl-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px] grid-cols-2">
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg"
                     alt="Property and home essentials display"
@@ -73,7 +74,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex min-h-[140px] items-center justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
+                <div className="flex min-h-[140px] items-center grid-cols-3 justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-xl text-center">
                     <h3 className="text-2xl font-black leading-[1.05] tracking-[-0.02em] text-brand-navy sm:text-3xl lg:text-4xl">
                       Gadgets & Electronics — Supply, Install, Support
@@ -88,7 +89,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="overflow-hidden rounded-[20px] bg-[#d7c2a8] shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px]">
+                <div className="overflow-hidden rounded-[20px]  shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px] ">
                   <Image
                     src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
                     alt="Electrical gadgets and home appliances"
@@ -99,30 +100,7 @@ export default function HomePage() {
                   />
                 </div>
 
-                <div className="grid h-56 sm:h-48 md:h-44 grid-cols-2 gap-2 overflow-hidden rounded-[20px] bg-jcl-white p-2 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:gap-3 sm:p-3">
-                  <div className="relative overflow-hidden rounded-[14px]">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101289/tonefosales1_hwwbvj.jpg"
-                        alt="Real estate sales promotion"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                      />
-                    </div>
-                  </div>
-                  <div className="relative overflow-hidden rounded-[14px]">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779101297/tonefosales2_z3irlm.jpg"
-                        alt="Property offer campaign visual"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <FlyerCarousel />
               </div>
             </div>
           </div>

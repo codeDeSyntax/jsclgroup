@@ -14,7 +14,7 @@ export default function HeroWatermarkSection() {
           </p>
         </div>
 
-        <div className="absolute -left-10 top-1/2 h-px w-[140%] -translate-y-1/2 bg-gradient-to-r from-transparent via-jcl-primary/10 to-transparent" />
+        {/* <div className="absolute -left-10 top-1/2 h-px w-[140%] -translate-y-1/2 bg-gradient-to-r from-transparent via-jcl-primary/10 to-transparent" /> */}
       </div>
     </div>
   );

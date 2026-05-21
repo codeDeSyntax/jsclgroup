@@ -54,7 +54,7 @@ export default function Footer() {
   };
 
   // Footer-specific contact lines (as provided)
-  const footerPhones = ["025 646 6565", "+233 53 110 1123", "0245118310"];
+  const footerPhones = ["025 646 6565", "053 110 1123", "0245118310"];
 
   const quickLinks = [
     { href: "/", label: "Home" },
