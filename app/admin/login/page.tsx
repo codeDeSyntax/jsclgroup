@@ -17,8 +17,8 @@ import Image from "next/image";
 export default function AdminLoginPage() {
   const router = useRouter();
   const { setToken, isAuthenticated, isLoading: authLoading } = useAuth();
-  const [email, setEmail] = useState("webkat49@gmail.com");
-  const [password, setPassword] = useState("developer123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -92,7 +92,11 @@ export default function AdminLoginPage() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            className="space-y-4"
+          >
             <div className="space-y-2">
               <label
                 htmlFor="email"
@@ -103,11 +107,13 @@ export default function AdminLoginPage() {
               </label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="admin@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="off"
                 disabled={isLoading}
                 className="h-12 rounded-2xl border-black/10 bg-white/90 text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
               />
@@ -123,11 +129,13 @@ export default function AdminLoginPage() {
               </label>
               <Input
                 id="password"
+                name="password"
                 type="password"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="new-password"
                 disabled={isLoading}
                 className="h-12 rounded-2xl border-black/10 bg-white/90 text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
               />
