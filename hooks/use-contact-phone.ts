@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { BACKEND_URL } from "@/lib/auth";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
 import { contactInfo } from "@/lib/contact";
 
 /**
@@ -9,35 +10,15 @@ import { contactInfo } from "@/lib/contact";
  * Falls back to the hardcoded contactInfo.phone if fetching fails.
  */
 export function useContactPhone() {
-  const [contactPhone, setContactPhone] = useState(contactInfo.phone);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const hero = useSelector((state: RootState) => state.hero);
 
-  useEffect(() => {
-    const fetchPhone = async () => {
-      try {
-        setIsLoading(true);
-        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
-        if (res.ok) {
-          const data = await res.json();
-          setContactPhone(String(data.data.value));
-          setError(null);
-        } else {
-          console.warn("Failed to fetch phone: non-OK response");
-          setContactPhone(contactInfo.phone);
-        }
-      } catch (err) {
-        console.error("Failed to fetch contact phone:", err);
-        setError(err instanceof Error ? err : new Error("Unknown error"));
-        // Fall back to hardcoded phone
-        setContactPhone(contactInfo.phone);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const contactPhone = useMemo(
+    () => hero.contactPhone || contactInfo.phone,
+    [hero.contactPhone],
+  );
 
-    fetchPhone();
-  }, []);
+  const isLoading = hero.status === "loading";
+  const error = hero.error ? new Error(hero.error) : null;
 
   return { contactPhone, isLoading, error };
 }

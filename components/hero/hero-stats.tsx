@@ -22,7 +22,7 @@ export default function HeroStats() {
         {/* Bar-style Chart (more readable) */}
         <div className="flex-1">
           <div className="ml-0 sm:ml-8">
-            <div className="flex items-end gap-3 sm:gap-4 h-24 sm:h-32">
+            <div className="flex items-end gap-3 sm:gap-4 h-24 sm:h-24">
               {(() => {
                 const data = [2, 3, 5, 6, 4, 3, 2, 5, 6, 4, 3, 2];
                 const max = Math.max(...data, 6);

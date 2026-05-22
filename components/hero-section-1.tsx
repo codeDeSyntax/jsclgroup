@@ -9,9 +9,7 @@ import HeroContent from "./hero/hero-content";
 import HeroImage from "./hero/hero-image";
 import HeroStats from "./hero/hero-stats";
 import HeroRightColumn from "./hero/hero-right-column";
-import { BACKEND_URL } from "@/lib/auth";
-import { contactInfo } from "@/lib/contact";
-import { setActiveImage, setCtaMode, setContactPhone } from "@/store/heroSlice";
+import { setActiveImage, setCtaMode } from "@/store/heroSlice";
 import type { RootState, AppDispatch } from "@/store";
 
 const desktopHeroImages = [
@@ -44,26 +42,7 @@ export default function HeroSection1() {
     (state: RootState) => state.hero,
   );
 
-  useEffect(() => {
-    const fetchContactPhone = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
-        if (!res.ok) return;
-
-        const data = await res.json();
-        if (data?.data?.value) {
-          dispatch(setContactPhone(String(data.data.value)));
-        } else {
-          dispatch(setContactPhone(contactInfo.phone));
-        }
-      } catch (error) {
-        console.error("Failed to fetch contact phone:", error);
-        dispatch(setContactPhone(contactInfo.phone));
-      }
-    };
-
-    fetchContactPhone();
-  }, [dispatch]);
+  // contact phone is fetched centrally by the Redux provider
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -86,7 +65,7 @@ export default function HeroSection1() {
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
-    { label: "About", href: "/about" },
+    { label: "About us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 

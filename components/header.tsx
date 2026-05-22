@@ -8,7 +8,8 @@ import { usePathname } from "next/navigation";
 import { Linkedin, Mail, MessageCircle, Phone } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
-import { BACKEND_URL } from "@/lib/auth";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
 import { contactInfo } from "@/lib/contact";
 
 type HeaderProps = {
@@ -19,7 +20,10 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const { totalCount } = useCart();
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
   const [ctaMode, setCtaMode] = useState<"whatsapp" | "contact">("whatsapp");
-  const [contactPhone, setContactPhone] = useState(contactInfo.phone);
+  // centralized phone stored in Redux (populated by the provider)
+  const contactPhone =
+    useSelector((state: RootState) => state.hero.contactPhone) ||
+    contactInfo.phone;
   const pathname = usePathname();
 
   const navLinks = [
@@ -89,24 +93,6 @@ export default function Header({ variant = "default" }: HeaderProps) {
     }, 9000);
 
     return () => window.clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    const fetchContactPhone = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
-        if (!res.ok) return;
-
-        const data = await res.json();
-        if (data?.data?.value) {
-          setContactPhone(String(data.data.value));
-        }
-      } catch (error) {
-        console.error("Failed to fetch contact phone:", error);
-      }
-    };
-
-    fetchContactPhone();
   }, []);
 
   const normalizedPhone = contactPhone.replace(/\D/g, "");
@@ -212,7 +198,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
           <div className="ml-6 hidden items-center gap-2 lg:flex">
             <a
-              href={`tel:${contactInfo.phone}`}
+              href={`tel:${contactPhone}`}
               aria-label="Call us"
               className={`rounded-lg p-1.5 transition-all duration-200 hover:scale-110 ${iconClass}`}
             >
@@ -326,7 +312,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
             </button>
           </div>
 
-          <div className="mt-16 flex flex-1 flex-col justify-start">
+          <div className="mt-4 flex flex-1 flex-col justify-start">
             <div className="space-y-3">
               {navLinks.map((item) => (
                 <Link
@@ -348,34 +334,55 @@ export default function Header({ variant = "default" }: HeaderProps) {
                 </Link>
               ))}
 
-              <a
-                href="https://www.linkedin.com/in/jclroyalgh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl border border-white/10 bg-white/5 px-1 py-1 transition-all duration-200 hover:bg-white/10"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="flex items-center gap-3 text-[clamp(1.2rem,5vw,1.9rem)] font-semibold tracking-[-0.03em] text-white">
-                  <Linkedin size={18} />
-                  <span>LinkedIn</span>
-                </span>
-              </a>
-              <a
-                href="https://www.tiktok.com/@tonefo2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl border border-white/10 bg-white/5 px-1 py-1 transition-all duration-200 hover:bg-white/10"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="flex items-center gap-3 text-[clamp(1.2rem,5vw,1.9rem)] font-semibold tracking-[-0.03em] text-white">
+              <div className="mt-6 flex items-center justify-start gap-6 py-4">
+                <a
+                  href="https://www.linkedin.com/in/jclroyalgh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="LinkedIn"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition"
+                >
+                  <Linkedin size={20} />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://www.tiktok.com/@tonefo2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="TikTok"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition"
+                >
                   <img
                     src="https://www.tiktok.com/favicon.ico"
                     alt="TikTok"
-                    className="h-4 w-4"
+                    className="h-full w-full object-cover rounded-full"
                   />
-                  <span>TikTok</span>
-                </span>
-              </a>
+                  <span className="sr-only">TikTok</span>
+                </a>
+
+                <a
+                  href={ctaHref}
+                  target={"_blank"}
+                  rel={
+                    ctaMode === "whatsapp" ? "noopener noreferrer" : undefined
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="WhatsApp"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-500 hover:bg-green-600 transition"
+                >
+                  <Image
+                    src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778935166/pngtree-whatsapp-icon-new-png-image_6315990_lhujqg.png"
+                    alt="WhatsApp"
+                    width={18}
+                    height={18}
+                    className="h-full w-full object-cover rounded-full"
+                  />
+                  <span className="sr-only">WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
 

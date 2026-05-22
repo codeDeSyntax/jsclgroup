@@ -8,6 +8,43 @@ export default function HeroSectionSwitcher() {
   const [activeHero, setActiveHero] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  // Expose active hero index on the document body so other UI (header)
+  // can react when a specific hero is active (e.g., always show navbar
+  // for hero 2). This avoids introducing global state for a small UI
+  // coordination need.
+  useEffect(() => {
+    try {
+      // store as string for dataset
+      document.body.dataset.activeHero = String(activeHero);
+      // notify listeners that the active hero changed so other UI
+      // (e.g., headers) can react immediately without needing a scroll.
+      try {
+        window.dispatchEvent(
+          new CustomEvent("activeHeroChanged", { detail: activeHero }),
+        );
+      } catch (e) {
+        /* ignore */
+      }
+    } catch (e) {
+      // ignore when document is not available
+    }
+
+    return () => {
+      try {
+        delete document.body.dataset.activeHero;
+        try {
+          window.dispatchEvent(
+            new CustomEvent("activeHeroChanged", { detail: null }),
+          );
+        } catch (e) {
+          /* ignore */
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+  }, [activeHero]);
+
   const heroes = [
     { id: 0, component: HeroSection1, label: "Property" },
     { id: 1, component: HeroSection2, label: "Electrical Gadgets" },

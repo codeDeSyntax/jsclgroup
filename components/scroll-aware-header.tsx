@@ -7,6 +7,7 @@ import { useMobileMenu } from "@/contexts/mobile-menu-context";
 export default function ScrollAwareHeader() {
   const [isVisible, setIsVisible] = useState(false);
   const { mobileMenuOpen } = useMobileMenu();
+  const [heroForcesShow, setHeroForcesShow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +22,26 @@ export default function ScrollAwareHeader() {
   }, []);
 
   // Make the header visible if we've scrolled past the hero OR the mobile menu is open.
-  const shouldShow = isVisible || mobileMenuOpen;
+  // Also ensure the header is visible when hero-section-2 is active.
+  // Listen for the `activeHeroChanged` custom event emitted by the
+  // switcher so we react immediately when the hero switches.
+  useEffect(() => {
+    const handler = () => {
+      try {
+        setHeroForcesShow(document?.body?.dataset?.activeHero === "1");
+      } catch (e) {
+        setHeroForcesShow(false);
+      }
+    };
+
+    // initialize from existing dataset (SSR-safe)
+    handler();
+
+    window.addEventListener("activeHeroChanged", handler);
+    return () => window.removeEventListener("activeHeroChanged", handler);
+  }, []);
+
+  const shouldShow = isVisible || mobileMenuOpen || heroForcesShow;
 
   return (
     <div

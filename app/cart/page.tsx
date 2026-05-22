@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, X } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { useCart } from "@/hooks/use-cart";
-import { BACKEND_URL } from "@/lib/auth";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
+import { contactInfo } from "@/lib/contact";
 
 export default function CartPage() {
   const {
@@ -19,25 +21,11 @@ export default function CartPage() {
     buildWhatsAppMessage,
   } = useCart();
 
-  // Fallback local number (will be replaced by backend setting if available)
-  const [contactPhone, setContactPhone] = useState("0557860299");
+  // Use centralized contact phone from Redux; fall back to contactInfo.phone
+  const contactPhone =
+    useSelector((state: RootState) => state.hero.contactPhone) ||
+    contactInfo.phone;
   const [showConfirm, setShowConfirm] = useState(false);
-
-  // Fetch phone number from settings
-  useEffect(() => {
-    const fetchPhone = async () => {
-      try {
-        const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
-        if (res.ok) {
-          const data = await res.json();
-          setContactPhone(data.data.value);
-        }
-      } catch (error) {
-        console.error("Failed to fetch phone number:", error);
-      }
-    };
-    fetchPhone();
-  }, []);
 
   const handlePurchase = () => {
     if (items.length === 0) return;
@@ -46,7 +34,10 @@ export default function CartPage() {
 
   const confirmPurchase = () => {
     const message = buildWhatsAppMessage();
-    const url = `https://wa.me/${contactPhone}?text=${encodeURIComponent(message)}`;
+    const normalized = contactPhone.replace(/\D/g, "");
+    const url = `https://wa.me/${normalized}?text=${encodeURIComponent(
+      message,
+    )}`;
     window.open(url, "_blank");
     setShowConfirm(false);
   };

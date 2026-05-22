@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setContactPhone } from "@/store/heroSlice";
 import { useAuth } from "@/components/auth-provider";
 import { BACKEND_URL } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
@@ -11,6 +13,7 @@ import { Loader2, Check, AlertCircle } from "lucide-react";
 export default function SettingsPage() {
   const { token } = useAuth();
   const { toast } = useToast();
+  const dispatch = useDispatch();
   const [contactPhone, setContactPhone] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +63,13 @@ export default function SettingsPage() {
       if (res.ok) {
         const data = await res.json();
         setSavedPhone(data.data.value);
+        // Update centralized Redux value immediately so the rest of the app
+        // reflects the new phone without requiring a full reload.
+        try {
+          dispatch(setContactPhone(String(data.data.value)));
+        } catch (e) {
+          // ignore if dispatch not available for some reason
+        }
         toast({
           title: "Success",
           description: "Phone number updated successfully",
