@@ -20,26 +20,16 @@ export interface AuthUser {
   email: string;
 }
 
-// Get stored tokens from localStorage
 export function getStoredTokens(): AuthToken | null {
-  if (typeof window === "undefined") return null;
-  const stored = localStorage.getItem("auth_tokens");
-  return stored ? JSON.parse(stored) : null;
+  return null;
 }
 
-// Store tokens in localStorage
 export function storeTokens(tokens: AuthToken): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem("auth_tokens", JSON.stringify(tokens));
+  void tokens;
 }
 
-// Clear stored tokens
-export function clearTokens(): void {
-  if (typeof window === "undefined") return;
-  localStorage.removeItem("auth_tokens");
-}
+export function clearTokens(): void {}
 
-// Login user with email and password
 export async function loginAdmin(
   email: string,
   password: string,
@@ -47,6 +37,7 @@ export async function loginAdmin(
   try {
     const response = await fetch(`${BACKEND_URL}/auth/login`, {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
@@ -70,7 +61,6 @@ export async function loginAdmin(
       };
     }
 
-    storeTokens(tokens);
     return { success: true, tokens };
   } catch (error) {
     return {
@@ -80,14 +70,22 @@ export async function loginAdmin(
   }
 }
 
-// Verify current token and get user info
-export async function verifyToken(
-  token: string,
-): Promise<{ success: boolean; user?: AuthUser; error?: string }> {
+export async function verifyToken(token?: string): Promise<{
+  success: boolean;
+  user?: AuthUser;
+  session?: AuthToken;
+  error?: string;
+}> {
   try {
+    const headers: Record<string, string> = {};
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+
     const response = await fetch(`${BACKEND_URL}/auth/me`, {
       method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
+      credentials: "include",
+      headers,
     });
 
     if (!response.ok) {
@@ -95,7 +93,11 @@ export async function verifyToken(
     }
 
     const data = await response.json();
-    return { success: true, user: data.user };
+    return {
+      success: true,
+      user: data.user,
+      session: data.session,
+    };
   } catch (error) {
     return {
       success: false,
@@ -104,7 +106,9 @@ export async function verifyToken(
   }
 }
 
-// Logout user
 export function logout(): void {
-  clearTokens();
+  void fetch(`${BACKEND_URL}/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+  }).catch(() => undefined);
 }

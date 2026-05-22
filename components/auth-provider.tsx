@@ -4,8 +4,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   AuthToken,
   AuthUser,
-  getStoredTokens,
-  storeTokens,
   verifyToken,
   logout as logoutAuth,
 } from "@/lib/auth";
@@ -30,17 +28,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        const tokens = getStoredTokens();
-        if (tokens && tokens.access_token) {
-          const { success, user: verifiedUser } = await verifyToken(
-            tokens.access_token
-          );
-          if (success && verifiedUser) {
-            setTokenState(tokens.access_token);
-            setUser(verifiedUser);
-          } else {
-            logoutAuth();
-          }
+        const { success, user: verifiedUser, session } = await verifyToken();
+        if (success && verifiedUser) {
+          setTokenState(session?.access_token ?? null);
+          setUser(verifiedUser);
+        } else {
+          logoutAuth();
         }
       } catch (error) {
         console.error("Failed to initialize auth:", error);
@@ -56,10 +49,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const handleSetToken = async (tokens: AuthToken) => {
     try {
       setTokenState(tokens.access_token);
-      storeTokens(tokens);
 
       const { success, user: verifiedUser } = await verifyToken(
-        tokens.access_token
+        tokens.access_token,
       );
       if (success && verifiedUser) {
         setUser(verifiedUser);

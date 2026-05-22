@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { LockKeyhole, Mail } from "lucide-react";
+import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 
 import { loginAdmin } from "@/lib/auth";
 import { useAuth } from "@/components/auth-provider";
@@ -19,6 +19,7 @@ export default function AdminLoginPage() {
   const { setToken, isAuthenticated, isLoading: authLoading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -92,11 +93,7 @@ export default function AdminLoginPage() {
             </p>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            autoComplete="off"
-            className="space-y-4"
-          >
+          <form onSubmit={handleSubmit} autoComplete="on" className="space-y-4">
             <div className="space-y-2">
               <label
                 htmlFor="email"
@@ -113,7 +110,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                autoComplete="off"
+                autoComplete="username"
                 disabled={isLoading}
                 className="h-12 rounded-2xl border-black/10 bg-white/90 text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
               />
@@ -127,18 +124,32 @@ export default function AdminLoginPage() {
                 <LockKeyhole className="h-4 w-4 text-black/45" />
                 Password
               </label>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="new-password"
-                disabled={isLoading}
-                className="h-12 rounded-2xl border-black/10 bg-white/90 text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
-              />
+              <div className="relative">
+                <Input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                  disabled={isLoading}
+                  className="h-12 rounded-2xl border-black/10 bg-white/90 pr-12 text-black placeholder:text-black/35 focus-visible:ring-jcl-primary"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((current) => !current)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-black/45 transition hover:bg-black/5 hover:text-black/70"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
             </div>
 
             <Button

@@ -9,12 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Check, AlertCircle } from "lucide-react";
+import type { AppDispatch } from "@/store";
 
 export default function SettingsPage() {
   const { token } = useAuth();
   const { toast } = useToast();
-  const dispatch = useDispatch();
-  const [contactPhone, setContactPhone] = useState("");
+  const dispatch = useDispatch<AppDispatch>();
+  const [contactPhone, setContactPhoneInput] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [savedPhone, setSavedPhone] = useState("");
@@ -26,7 +27,7 @@ export default function SettingsPage() {
         const res = await fetch(`${BACKEND_URL}/settings/contact_phone`);
         if (res.ok) {
           const data = await res.json();
-          setContactPhone(data.data.value);
+          setContactPhoneInput(data.data.value);
           setSavedPhone(data.data.value);
         }
       } catch (error) {
@@ -94,7 +95,7 @@ export default function SettingsPage() {
   };
 
   const handleReset = () => {
-    setContactPhone(savedPhone);
+    setContactPhoneInput(savedPhone);
   };
 
   if (isLoading) {
@@ -143,7 +144,7 @@ export default function SettingsPage() {
                 id="phone"
                 type="tel"
                 value={contactPhone}
-                onChange={(e) => setContactPhone(e.target.value)}
+                onChange={(e) => setContactPhoneInput(e.target.value)}
                 placeholder="e.g., 0557860299"
                 className="w-full max-w-md border border-transparent bg-black/[0.04] text-black placeholder:text-black/35 hover:bg-black/[0.06] focus-visible:ring-2 focus-visible:ring-jcl-black"
               />
