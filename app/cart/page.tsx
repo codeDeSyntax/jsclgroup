@@ -121,7 +121,7 @@ export default function CartPage() {
                   {/* Price and remove */}
                   <div className="flex flex-col items-end">
                     <p className="font-black text-jcl-primary">
-                      ${it.price.toFixed(2)}
+                      ₵{it.price.toFixed(2)}
                     </p>
                     <button
                       onClick={() => removeItem(it.id)}
@@ -151,9 +151,9 @@ export default function CartPage() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-black/60">
-                      Tax (estimated for the United States (US))
+                      Tax (estimated for Ghana)
                     </span>
-                    <span className="font-semibold">$0</span>
+                    <span className="font-semibold">₵0.00</span>
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ export default function CartPage() {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-black/60">Subtotal</span>
                     <span className="font-semibold">
-                      ${totalPrice.toFixed(2)}
+                      ₵{totalPrice.toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function CartPage() {
                       Total
                     </span>
                     <span className="text-2xl font-black text-jcl-primary">
-                      ${totalPrice.toFixed(2)}
+                      ₵{totalPrice.toFixed(2)}
                     </span>
                   </div>
                 </div>

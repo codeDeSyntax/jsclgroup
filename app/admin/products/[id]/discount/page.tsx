@@ -210,7 +210,7 @@ export default function ProductDiscountPage() {
                 <label className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/70">
                   {discountType === "percent"
                     ? "Percentage (%)"
-                    : "Amount (USD)"}
+                    : "Amount (GHS)"}
                 </label>
                 <div className="flex gap-2">
                   <Input
@@ -226,7 +226,7 @@ export default function ProductDiscountPage() {
                     className={`${adminInputClass} h-11 bg-white/5 text-white placeholder:text-white/35`}
                   />
                   <span className="flex min-w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-sm font-medium text-white/70">
-                    {discountType === "percent" ? "%" : "$"}
+                    {discountType === "percent" ? "%" : "₵"}
                   </span>
                 </div>
               </div>

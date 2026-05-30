@@ -159,12 +159,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     lines.push("Order from JCL Group\n");
     lines.push("*Order summary:*\n");
     items.forEach((it, idx) => {
-      const line = `${idx + 1}. ${it.name} - $${it.price.toFixed(2)} x ${it.quantity} = $${(
+      const line = `${idx + 1}. ${it.name} - ₵${it.price.toFixed(2)} x ${it.quantity} = ₵${(
         it.price * it.quantity
       ).toFixed(2)}`;
       lines.push(line);
     });
-    lines.push(`\n*Total:* $${totalPrice.toFixed(2)}`);
+    lines.push(`\n*Total:* ₵${totalPrice.toFixed(2)}`);
     lines.push("\nPlease include your delivery address and contact details.");
     return lines.join("\n");
   };

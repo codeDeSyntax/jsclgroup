@@ -76,7 +76,7 @@ const SearchFilters = () => (
           </div>
           <div className="relative">
             <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-sm text-gray-400 font-medium">
-              $
+              ₵
             </span>
             <input
               type="number"
@@ -183,7 +183,7 @@ const page = () => {
       id: 1,
       name: "Smart Home Hub Pro",
       category: "Smart Home",
-      price: "$299.99",
+      price: "₵299.99",
       rating: 4.9,
       reviews: 234,
       description: "Central control system for all smart devices",
@@ -194,7 +194,7 @@ const page = () => {
       id: 2,
       name: "Wireless Earbuds Elite",
       category: "Audio",
-      price: "$199.99",
+      price: "₵199.99",
       rating: 4.7,
       reviews: 512,
       description: "Premium sound quality with noise cancellation",
@@ -204,7 +204,7 @@ const page = () => {
       id: 3,
       name: "Smart Security Camera",
       category: "Security",
-      price: "$149.99",
+      price: "₵149.99",
       rating: 4.8,
       reviews: 89,
       description: "4K security monitoring with AI detection",
@@ -214,7 +214,7 @@ const page = () => {
       id: 4,
       name: "Climate Control System",
       category: "Climate Control",
-      price: "$399.99",
+      price: "₵399.99",
       rating: 4.6,
       reviews: 167,
       description: "Smart thermostat with learning capabilities",
@@ -224,7 +224,7 @@ const page = () => {
       id: 5,
       name: "Portable Projector X1",
       category: "Display",
-      price: "$449.99",
+      price: "₵449.99",
       rating: 4.8,
       reviews: 127,
       description: "Compact 4K portable projection system",
@@ -234,7 +234,7 @@ const page = () => {
       id: 6,
       name: "Smart Lighting Kit",
       category: "Lighting",
-      price: "$129.99",
+      price: "₵129.99",
       rating: 4.5,
       reviews: 405,
       description: "RGB programmable smart lighting system",

@@ -147,8 +147,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
       "Adjustable-height tower fan with powerful airflow for bedrooms and offices.",
     summary:
       "A quiet home cooling fan with easy angle control, timer presets, and smooth airflow for daily comfort.",
-    price: "$129.99",
-    oldPrice: "$159.99",
+    price: "₵129.99",
+    oldPrice: "₵159.99",
     rating: 4.7,
     reviews: 112,
     tag: "Popular",
@@ -175,8 +175,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
       "Ultra-clear 4K display with vivid color and smart entertainment apps built in.",
     summary:
       "A cinema-style smart TV with punchy contrast, smooth motion, and built-in streaming for the living room.",
-    price: "$699.00",
-    oldPrice: "$849.00",
+    price: "₵699.00",
+    oldPrice: "₵849.00",
     rating: 4.8,
     reviews: 86,
     tag: "Best Value",
@@ -203,8 +203,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
       "Durable high-speed blender for smoothies, sauces, and everyday kitchen prep.",
     summary:
       "A high-torque blender built for thick smoothies, fine purees, and fast prep with dependable results.",
-    price: "$189.50",
-    oldPrice: "$229.99",
+    price: "₵189.50",
+    oldPrice: "₵229.99",
     rating: 4.6,
     reviews: 74,
     tag: "Kitchen Pick",
@@ -231,8 +231,8 @@ export const electronicsBestSellers: ElectronicsProduct[] = [
       "Spacious family-size fridge with efficient cooling and modern door storage.",
     summary:
       "A roomy smart refrigerator with efficient cooling zones, practical shelving, and reliable freshness control.",
-    price: "$1,249.00",
-    oldPrice: "$1,399.00",
+    price: "₵1,249.00",
+    oldPrice: "₵1,399.00",
     rating: 4.7,
     reviews: 58,
     tag: "Top Rated",

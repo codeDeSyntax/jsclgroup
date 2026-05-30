@@ -222,16 +222,22 @@ export default function ProductsPage() {
                       {product.oldPrice ? (
                         <p className="text-[10px] text-black/45 line-through sm:text-[11px]">
                           {typeof product.oldPrice === "number"
-                            ? `$${Number(product.oldPrice).toFixed(2)}`
-                            : product.oldPrice}
+                            ? `₵${Number(product.oldPrice).toFixed(2)}`
+                            : String(product.oldPrice)
+                                .replace(/^GHS\s+/, "₵")
+                                .replace(/^GHS/, "₵")
+                                .replace(/^\$/, "₵")}
                         </p>
                       ) : null}
 
                       <div className="flex items-center gap-3">
                         <p className="text-sm font-black tracking-[-0.02em] text-jcl-accent sm:text-base">
                           {typeof product.price === "number"
-                            ? `$${Number(product.price).toFixed(2)}`
-                            : product.price}
+                            ? `₵${Number(product.price).toFixed(2)}`
+                            : String(product.price)
+                                .replace(/^GHS\s+/, "₵")
+                                .replace(/^GHS/, "₵")
+                                .replace(/^\$/, "₵")}
                         </p>
 
                         {typeof product.rating === "number" ? (
@@ -309,7 +315,7 @@ export default function ProductsPage() {
       <CategoryManagementModal
         isOpen={isCategoryModalOpen}
         onClose={() => setIsCategoryModalOpen(false)}
-        token={token}
+        token={token ?? undefined}
         onCategoryAdded={() => {
           fetchProducts();
         }}

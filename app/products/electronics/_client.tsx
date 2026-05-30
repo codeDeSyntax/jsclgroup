@@ -238,7 +238,7 @@ export default function ElectronicsPageClient() {
           )}
 
           {!loading && filteredProducts.length > 0 && (
-            <div className="mx-auto grid w-full  grid-cols-2 gap-3 md:grid-cols-3 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mx-auto grid w-full  grid-cols-2 gap-3 md:grid-cols-3 sm:gap-3 lg:grid-cols-3 ">
               {filteredProducts.map((p) => (
                 <Link
                   key={p.id}
@@ -246,14 +246,14 @@ export default function ElectronicsPageClient() {
                   aria-label={`View details for ${p.name}`}
                   className="group rounded-xl border border-black/10 bg-white p-2 transition hover:border-jcl-accent/50 sm:p-2.5"
                 >
-                  <div className="flex flex-col gap-3 md:grid md:grid-cols-[112px_1fr] md:items-start">
-                    <div className="relative flex h-24 items-center justify-center overflow-hidden rounded-lg bg-black/[0.02] p-1.5 sm:h-32 sm:p-2 md:h-full md:min-h-[152px]">
+                  <div className="flex flex-col gap-3 md:grid md:grid-cols-[140px_1fr] md:items-start">
+                    <div className="relative flex h-22 items-center justify-center overflow-hidden rounded-lg bg-black/[0.02] p-1.5 sm:h-32 sm:p-2 md:h-full md:min-h-[152px]">
                       {p.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={p.image}
                           alt={p.name}
-                          className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
+                          className="h-full w-full object-fit transition duration-300 group-hover:scale-105"
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center text-gray-400">
@@ -288,8 +288,18 @@ export default function ElectronicsPageClient() {
                           <p className="text-base font-black tracking-[-0.02em] text-jcl-primary">
                             {p.price
                               ? typeof p.price === "number"
-                                ? `$${p.price}`
-                                : p.price
+                                ? `₵${p.price.toFixed(2)}`
+                                : String(p.price).trim().startsWith("₵")
+                                  ? String(p.price).trim()
+                                  : String(p.price).trim().startsWith("GHS")
+                                    ? String(p.price)
+                                        .trim()
+                                        .replace(/^GHS\s*/, "₵")
+                                    : String(p.price).trim().startsWith("$")
+                                      ? String(p.price)
+                                          .trim()
+                                          .replace(/^\$/, "₵")
+                                      : `₵${String(p.price).trim()}`
                               : "—"}
                           </p>
                         </div>

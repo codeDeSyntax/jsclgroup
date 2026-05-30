@@ -310,7 +310,7 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
               </AdminFormField>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <AdminFormField label="Price" required>
+                <AdminFormField label="Price (GHS)" required>
                   <Input
                     type="number"
                     step="0.01"
@@ -322,13 +322,13 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
                         price: parseFloat(e.target.value) || 0,
                       })
                     }
-                    placeholder="$175"
+                    placeholder="₵175"
                     required
                   />
                 </AdminFormField>
 
                 <AdminFormField
-                  label="Original Price"
+                  label="Original Price (GHS)"
                   hint="Optional, for sales."
                 >
                   <Input
@@ -344,7 +344,7 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
                           : undefined,
                       })
                     }
-                    placeholder="$210"
+                    placeholder="₵210"
                   />
                 </AdminFormField>
               </div>

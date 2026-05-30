@@ -202,7 +202,7 @@ export default function PropertyForm({ isEdit }: PropertyFormProps) {
 
         <AdminFormSection title="Pricing & details">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
-            <AdminFormField label="Price (USD)" required>
+            <AdminFormField label="Price (GHS)" required>
               <Input
                 type="number"
                 className={adminInputClass}

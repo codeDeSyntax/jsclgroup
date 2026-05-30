@@ -277,7 +277,7 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
               </div>
 
               <div className="mt-3 rounded-xl border border-black/10 bg-white p-3 text-xs text-black/65 sm:text-sm">
-                Free delivery for eligible orders above $100 and easy 14-day return support.
+                Free delivery for eligible orders above ₵100 and easy 14-day return support.
               </div>
             </div>
           </div>

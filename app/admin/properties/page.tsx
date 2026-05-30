@@ -154,7 +154,7 @@ export default function PropertiesPage() {
                   <div>
                     <p className="text-gray-600">Price</p>
                     <p className="font-semibold text-gray-900">
-                      ${property.price.toLocaleString()}
+                      ₵{property.price.toLocaleString()}
                     </p>
                   </div>
                   <div>

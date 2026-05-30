@@ -27,8 +27,11 @@ function toNumber(price: unknown) {
 
 function formatPrice(price: unknown) {
   if (price === null || price === undefined || price === "") return "—";
-  if (typeof price === "number") return `$${price.toFixed(2)}`;
-  return String(price).startsWith("$") ? String(price) : `$${price}`;
+  if (typeof price === "number") return `₵${price.toFixed(2)}`;
+  const value = String(price);
+  if (value.startsWith("₵")) return value;
+  if (value.startsWith("GHS")) return value.replace(/^GHS\s*/, "₵");
+  return value.startsWith("$") ? value.replace(/^\$/, "₵") : `₵${value}`;
 }
 
 export default async function ProductDetailsPage({ params }: ProductPageProps) {
