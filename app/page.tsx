@@ -41,7 +41,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden  bg-transparent p-0">
               <div className="relative  z-10 mb-6 sm:mb-8 lg:mb-10">
-                <h2 className=" text-4xl font-black leading-[0.95] tracking-[-0.08em] text-jcl-primary sm:text-6xl ">
+                <h2 className="max-w-4xl text-[clamp(3.25rem,8vw,7.4rem)] font-thin leading-[0.86] tracking-[-0.085em] text-jcl-primary">
                   The JCL Difference
                 </h2>
               </div>
@@ -60,7 +60,7 @@ export default function HomePage() {
 
                 <div className="flex min-h-[140px] items-center justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-xl text-center">
-                    <h3 className="text-2xl font-black leading-[1.05] tracking-[-0.02em] text-brand-navy sm:text-3xl lg:text-4xl">
+                    <h3 className="text-3xl font-thin leading-[0.95] tracking-[-0.06em] text-brand-navy sm:text-4xl lg:text-5xl">
                       Real Estate, Building & Construction Expertise
                     </h3>
                     <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
@@ -76,7 +76,7 @@ export default function HomePage() {
 
                 <div className="flex min-h-[140px] items-center grid-cols-3 justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-xl text-center">
-                    <h3 className="text-2xl font-black leading-[1.05] tracking-[-0.02em] text-brand-navy sm:text-3xl lg:text-4xl">
+                    <h3 className="text-3xl font-thin leading-[0.95] tracking-[-0.06em] text-brand-navy sm:text-4xl lg:text-5xl">
                       Gadgets & Electronics — Supply, Install, Support
                     </h3>
                     <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
@@ -113,11 +113,11 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               {/* Left: Text */}
               <div className="order-1 lg:order-1">
-                <div className="text-sm font-medium text-brand-navy/70 mb-3">
+                <div className="mb-3 text-sm font-medium italic text-brand-navy/45">
                   Mr Eric Kwaw - CEO / Founder
                 </div>
 
-                <h2 className="text-5xl sm:text-6xl font-extrabold leading-[0.95] tracking-tight text-black mb-4">
+                <h2 className="mb-4 text-[clamp(4rem,8vw,7.25rem)] font-thin leading-[0.86] tracking-[-0.085em] text-jcl-primary">
                   JCL's
                   <br />
                   Honcho.
@@ -164,11 +164,11 @@ export default function HomePage() {
             <div className="mb-12 sm:mb-16 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-navy rounded-full mb-4 sm:mb-6">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-white fill-white" />
-                <span className="text-xs sm:text-sm font-semibold text-white tracking-wide">
+                <span className="text-xs font-medium uppercase tracking-[0.22em] text-white sm:text-sm">
                   Client Stories
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-brand-navy tracking-tight">
+              <h2 className="max-w-5xl text-[clamp(3.1rem,7vw,6.5rem)] font-thin leading-[0.88] tracking-[-0.08em] text-brand-navy">
                 Real experiences from property buyers and gadget customers.
               </h2>
             </div>
