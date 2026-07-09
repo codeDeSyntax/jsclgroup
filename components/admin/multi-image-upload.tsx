@@ -11,11 +11,7 @@ import {
   validateImageFile,
   type UploadFolder,
 } from "@/lib/upload";
-import {
-  adminInputClass,
-  adminPrimaryButtonClass,
-  adminGhostButtonClass,
-} from "@/lib/admin-form-styles";
+import { adminGhostButtonClass } from "@/lib/admin-form-styles";
 
 interface MultiImageUploadProps {
   label: string;

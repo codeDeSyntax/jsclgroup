@@ -14,9 +14,10 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/components/auth-provider";
 import { BACKEND_URL } from "@/lib/auth";
-import { adminInputClass, adminTextareaClass } from "@/lib/admin-form-styles";
+import { adminInputClass, adminTextareaClass, adminPrimaryButtonClass } from "@/lib/admin-form-styles";
 import { SingleImageUpload } from "@/components/admin/single-image-upload";
 import { MultiImageUpload } from "@/components/admin/multi-image-upload";
+import { cn } from "@/lib/utils";
 import {
   AdminFormActions,
   AdminFormField,
@@ -301,7 +302,7 @@ export default function ProjectForm({ isEdit }: ProjectFormProps) {
                 <Button
                   type="button"
                   onClick={handleAddTimeline}
-                  className="w-full rounded-full bg-jcl-black text-white hover:bg-jcl-black/90"
+                  className={cn("w-full", adminPrimaryButtonClass)}
                 >
                   Add milestone
                 </Button>

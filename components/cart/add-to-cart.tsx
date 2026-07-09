@@ -14,9 +14,10 @@ type Props = {
     image?: string | null;
   };
   quantity?: number;
+  className?: string;
 };
 
-export default function AddToCart({ product, quantity = 1 }: Props) {
+export default function AddToCart({ product, quantity = 1, className }: Props) {
   const { addItem } = useCart();
 
   const priceNum =
@@ -86,7 +87,10 @@ export default function AddToCart({ product, quantity = 1 }: Props) {
       type="button"
       onClick={handleAdd}
       aria-label={`Add ${product.name} to cart`}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-jcl-black text-white transition hover:opacity-90"
+      className={
+        className ||
+        "inline-flex h-8 w-8 items-center justify-center rounded-full bg-jcl-accent text-white transition-all duration-300 hover:bg-jcl-primary hover:scale-105 active:scale-95 shadow-sm hover:shadow"
+      }
     >
       <ShoppingCart className="h-3.5 w-3.5" />
     </button>

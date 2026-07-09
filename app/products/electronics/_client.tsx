@@ -182,7 +182,7 @@ export default function ElectronicsPageClient() {
             <img
               src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1779269670/tonefologo_bhbe1s.png"
               alt="Tonefo"
-              className="h-28 w-28 object-contain"
+              className="h-28 w-28 object-contain animate-pulse"
             />
           </div>
         </div>
@@ -192,6 +192,7 @@ export default function ElectronicsPageClient() {
           categories={heroCategories}
           availableCategories={availableCategorySlugs}
           onSelectCategory={updateCategory}
+          activeCategory={selectedCategory}
         />
 
         <section className="mx-auto max-w-6xl px-4 py-8 sm:px-8">
@@ -230,7 +231,7 @@ export default function ElectronicsPageClient() {
           </div>
 
           {loading && (
-            <div className="mx-auto grid w-full  grid-cols-1 gap-3 md:grid-cols-3 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mx-auto grid w-full grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
               {Array.from({ length: 8 }).map((_, index) => (
                 <ProductCardSkeleton key={`skeleton-${index}`} />
               ))}
@@ -238,80 +239,95 @@ export default function ElectronicsPageClient() {
           )}
 
           {!loading && filteredProducts.length > 0 && (
-            <div className="mx-auto grid w-full  grid-cols-2 gap-3 md:grid-cols-3 sm:gap-3 lg:grid-cols-3 ">
+            <div className="mx-auto grid w-full grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
               {filteredProducts.map((p) => (
                 <Link
                   key={p.id}
                   href={`/products/${p.id}`}
                   aria-label={`View details for ${p.name}`}
-                  className="group rounded-xl border border-black/10 bg-white p-2 transition hover:border-jcl-accent/50 sm:p-2.5"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-jcl-accent/30 hover:shadow-md"
                 >
-                  <div className="flex flex-col gap-3 md:grid md:grid-cols-[140px_1fr] md:items-start">
-                    <div className="relative flex h-22 items-center justify-center overflow-hidden rounded-lg bg-black/[0.02] p-1.5 sm:h-32 sm:p-2 md:h-full md:min-h-[152px]">
+                  <div>
+                    {/* Image container */}
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-50 p-4 flex items-center justify-center">
+                      {p.tag && (
+                        <span className="absolute left-2.5 top-2.5 z-10 rounded-md bg-jcl-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm">
+                          {p.tag}
+                        </span>
+                      )}
                       {p.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={p.image}
                           alt={p.name}
-                          className="h-full w-full object-fit transition duration-300 group-hover:scale-105"
+                          className="h-full max-h-[160px] w-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="flex h-full items-center justify-center text-gray-400">
+                        <div className="flex h-full items-center justify-center text-slate-400 text-xs">
                           No image
                         </div>
                       )}
                     </div>
 
-                    <div className="flex h-full flex-col">
-                      <p className="line-clamp-2 min-h-[2rem] text-[12px] font-medium leading-4 text-black/80 sm:text-[13px] sm:leading-5">
-                        {p.name}
-                      </p>
-
-                      {p.category ? (
-                        <span className="mt-1 inline-flex w-fit rounded-full bg-black/[0.06] px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-black/60">
+                    {/* Details */}
+                    <div className="mt-3.5 flex flex-col">
+                      {p.category && (
+                        <span className="text-[9px] font-bold uppercase tracking-wider text-jcl-accent/80">
                           {String(p.category).trim().replace(/[-_]+/g, " ")}
                         </span>
-                      ) : null}
+                      )}
+                      
+                      <h3 className="mt-1 line-clamp-1 text-sm font-bold text-slate-900 group-hover:text-jcl-primary transition-colors duration-200">
+                        {p.name}
+                      </h3>
 
-                      <p className="mt-1 line-clamp-2 min-h-[2rem] text-[11px] leading-4 text-black/55 sm:min-h-[2.25rem] sm:text-xs">
+                      <p className="mt-1 line-clamp-2 text-xs text-slate-500 leading-normal">
                         {p.description || p.summary || ""}
                       </p>
 
-                      {p.tag ? (
-                        <span className="mt-2 inline-flex w-fit rounded-md bg-jcl-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-jcl-accent">
-                          {p.tag}
-                        </span>
-                      ) : null}
-
-                      <div className="mt-auto flex items-end justify-between gap-2 pt-2">
-                        <div>
-                          <p className="text-base font-black tracking-[-0.02em] text-jcl-primary">
-                            {p.price
-                              ? typeof p.price === "number"
-                                ? `₵${p.price.toFixed(2)}`
-                                : String(p.price).trim().startsWith("₵")
-                                  ? String(p.price).trim()
-                                  : String(p.price).trim().startsWith("GHS")
-                                    ? String(p.price)
-                                        .trim()
-                                        .replace(/^GHS\s*/, "₵")
-                                    : String(p.price).trim().startsWith("$")
-                                      ? String(p.price)
-                                          .trim()
-                                          .replace(/^\$/, "₵")
-                                      : `₵${String(p.price).trim()}`
-                              : "—"}
-                          </p>
+                      {/* Dynamic Rating if available */}
+                      {p.rating && (
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-bold text-amber-500">
+                          <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+                          <span>{Number(p.rating).toFixed(1)}</span>
+                          <span className="text-slate-400 font-normal">({p.reviews || 0})</span>
                         </div>
-                        <AddToCart
-                          product={{
-                            id: p.id,
-                            name: p.name,
-                            price: p.price,
-                            image: p.image,
-                          }}
-                        />
-                      </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Price & Action Footer */}
+                  <div className="mt-5 flex items-center justify-between border-t border-slate-50 pt-3">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Price</span>
+                      <span className="text-base font-black tracking-tight text-jcl-primary">
+                        {p.price
+                          ? typeof p.price === "number"
+                            ? `₵${p.price.toFixed(2)}`
+                            : String(p.price).trim().startsWith("₵")
+                              ? String(p.price).trim()
+                              : String(p.price).trim().startsWith("GHS")
+                                ? String(p.price)
+                                    .trim()
+                                    .replace(/^GHS\s*/, "₵")
+                                : String(p.price).trim().startsWith("$")
+                                  ? String(p.price)
+                                      .trim()
+                                      .replace(/^\$/, "₵")
+                                  : `₵${String(p.price).trim()}`
+                          : "—"}
+                      </span>
+                    </div>
+
+                    <div className="transition-transform duration-200 hover:scale-105 active:scale-95">
+                      <AddToCart
+                        product={{
+                          id: p.id,
+                          name: p.name,
+                          price: p.price,
+                          image: p.image,
+                        }}
+                      />
                     </div>
                   </div>
                 </Link>

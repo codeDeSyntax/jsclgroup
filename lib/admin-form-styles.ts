@@ -1,4 +1,4 @@
-/** Shared class names for admin forms — neutral black theme with soft contrast. */
+/** Shared class names for admin forms — black typography, jcl-accent on actions only. */
 export const adminInputClass =
   "h-11 rounded-xl border border-transparent bg-black/[0.04] px-4 text-sm text-jcl-black shadow-sm transition placeholder:text-black/40 hover:bg-black/[0.06] focus-visible:border-jcl-black focus-visible:ring-2 focus-visible:ring-jcl-black focus-visible:ring-offset-0";
 
@@ -14,8 +14,21 @@ export const adminSectionClass =
 export const adminChipClass =
   "flex flex-col gap-3 rounded-xl border border-black/[0.03] bg-black/[0.01] p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4";
 
+/** Primary actions — save, publish, add (filled). */
 export const adminPrimaryButtonClass =
-  "rounded-full bg-jcl-black px-6 text-white shadow-sm hover:bg-black/90";
+  "rounded-full bg-jcl-accent px-6 text-white shadow-sm hover:bg-jcl-accent/90";
 
+/** Secondary actions — cancel, outline. */
 export const adminGhostButtonClass =
-  "rounded-full border border-black/10 text-jcl-black hover:bg-black/[0.04]";
+  "rounded-full border border-black/10 bg-white text-jcl-black hover:bg-black/[0.04]";
+
+/** Tertiary / inline add — outline only, black text. */
+export const adminSecondaryButtonClass =
+  "rounded-full border border-black/10 bg-white text-jcl-black hover:bg-black/[0.04]";
+
+/** Selected chip / tag toggle (button, not label text). */
+export const adminChipActiveClass =
+  "bg-jcl-accent text-white";
+
+export const adminChipInactiveClass =
+  "border border-black/10 bg-white text-jcl-black hover:bg-black/[0.04]";

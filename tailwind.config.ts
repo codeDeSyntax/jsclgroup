@@ -17,7 +17,7 @@ const config: Config = {
           DEFAULT: "#12376f",
           primary: "#070d4b",
           accent: "#f85506",
-          white: "#e8e8e8",
+          white: "#ffffff",
           black: "#000000",
           blue: {
             50: "#eef6ff",

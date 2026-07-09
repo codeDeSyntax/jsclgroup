@@ -63,12 +63,10 @@ export function AdminFormLayout({
           {title}
         </h1>
         {description ? (
-          <p className="mt- max-w-xl text-sm leading-relaxed text-jcl-black/65 sm:text-base">
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-jcl-black/65 sm:text-base">
             {description}
           </p>
-        ) : (
-          ""
-        )}
+        ) : null}
       </header>
 
       {error ? (

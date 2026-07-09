@@ -14,9 +14,9 @@ import AddToCartWithQty from "@/components/cart/add-to-cart-with-qty";
 import { getBackendUrl } from "@/lib/server-config";
 
 type ProductPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 function toNumber(price: unknown) {
@@ -36,13 +36,7 @@ function formatPrice(price: unknown) {
 
 export default async function ProductDetailsPage({ params }: ProductPageProps) {
   const BACKEND_URL = getBackendUrl();
-  // `params` can be a Promise in some Next.js setups; await if needed.
-  // This makes the route resilient to both Promise and plain object forms.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const resolvedParams =
-    typeof (params as any)?.then === "function"
-      ? await (params as any)
-      : params;
+  const resolvedParams = await params;
   const id = resolvedParams?.id;
 
   const response = await fetch(`${BACKEND_URL}/public/products/${id}`, {
@@ -224,7 +218,6 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
 
               <div className="mt-6 grid gap-2 sm:grid-cols-[auto_1fr_1fr]">
                 <div className="inline-flex h-11 items-center rounded-xl border border-black/15 bg-white px-2">
-                  {/* Quantity controls are handled in cart page; default add-to-cart uses qty=1 */}
                   <span className="px-2 text-sm font-semibold">1</span>
                 </div>
                 <div>

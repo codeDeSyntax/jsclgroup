@@ -60,7 +60,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const navBarBgClass = isRealestate
     ? "bg-transparent shadow-none"
     : isHero
-      ? "bg-jcl-primary shadow-lg rounded-full"
+      ? "bg-jcl-primary shadow-lg rounded-none"
       : "bg-jcl-primary shadow-none rounded-none";
 
   // Text and icon colors - ensure proper contrast on black backgrounds
@@ -127,7 +127,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
       <nav
-        className={`mx-auto ${isRealestate ? "max-w-5xl bg-jcl-white" : isHero ? "py-3 px-2 md:px-0 max-w-6xl" : "py- w-full"}`}
+        className={`mx-auto ${isRealestate ? "max-w-5xl bg-jcl-white" : isHero ? "py-0 rounded-none px-2 md:px-0 w-full" : "py- w-full"}`}
       >
         <div
           className={`flex h-14 items-center justify-between px-4 sm:px-6 ${navBarBgClass}`}

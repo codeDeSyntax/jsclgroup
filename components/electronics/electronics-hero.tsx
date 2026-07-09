@@ -2,168 +2,121 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Search, Sparkles } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import ElectronicsCategoryStrip from "./electronics-category-strip";
-import { electronicsSlides, electronicsBestSellers } from "./electronics-data";
-import HeroBackgroundArt from "../hero-background-art";
+import { electronicsSlides } from "./electronics-data";
 import HeroMeshPattern from "../hero-mesh-pattern";
 
-type HeroCardSlide = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  image: string;
-  cta: string;
-};
-
-function HeroCard({ slide, index }: { slide: HeroCardSlide; index: number }) {
-  const isMiddleCard = index === 1;
-  const gradientColors = [
-    { from: "#e8002d", to: "#ff6b35" },
-    { from: "#1a1a2e", to: "#16213e" },
-    { from: "#0f3460", to: "#533483" },
-  ];
-  const { from, to } = gradientColors[index % 3];
-
-  return (
-    <div
-      className="overflow-hidden rounded-3xl border border-black/10 md:h-[320px]"
-      style={
-        isMiddleCard
-          ? { backgroundColor: "#ffffff" }
-          : {
-              backgroundImage: `linear-gradient(to bottom right, ${from}, ${to})`,
-            }
-      }
-    >
-      <div className="flex h-full min-h-0 flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div
-          className={`flex h-full min-h-0 flex-col justify-start px-5 pb-3 pt-5 sm:px-8 sm:pb-4 sm:pt-6 lg:justify-center lg:px-10 lg:py-10 ${
-            isMiddleCard ? "text-gray-900" : "text-white"
-          }`}
-        >
-          <p
-            className={`mb-3 text-xs font-semibold uppercase tracking-[0.2em] ${
-              isMiddleCard ? "text-gray-600" : "text-white/80"
-            }`}
-          >
-            {slide.eyebrow}
-          </p>
-          <h1 className="max-w-md text-2xl font-extrabold leading-tight sm:text-3xl lg:text-3xl">
-            {slide.title}
-          </h1>
-          <p
-            className={`mt-2 max-w-md text-sm leading-5 sm:mt-3 sm:text-base ${
-              isMiddleCard ? "text-gray-700" : "text-white/90"
-            }`}
-          >
-            {slide.description}
-          </p>
-          <div className="mt-4 sm:mt-5 lg:mt-6">
-            <Link
-              href="/products/electronics"
-              className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition ${
-                isMiddleCard
-                  ? "bg-gray-900 text-white hover:bg-gray-800"
-                  : "bg-black text-white hover:bg-black/85"
-              }`}
-            >
-              {slide.cta}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center px-3 pb-3 sm:px-8 sm:pb-8 lg:px-10 lg:py-10 min-h-[280px] sm:min-h-0">
-          <Image
-            src={slide.image}
-            alt={slide.title}
-            width={680}
-            height={520}
-            className="h-auto max-h-none w-full sm:max-h-40 sm:max-w-[320px] lg:max-h-full lg:max-w-[500px] object-contain"
-            priority
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function RightSlidingPair({ images }: { images: string[] }) {
-  const [topIndex, setTopIndex] = useState(0);
-  const [bottomIndex, setBottomIndex] = useState(1);
-  const slotToggle = useRef(0); // 0 -> replace top next, 1 -> replace bottom next
+function FeaturedShowcase() {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const timerRef = useRef<number | null>(null);
 
+  const slides = electronicsSlides;
+
+  const nextSlide = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const jumpToSlide = (targetIndex: number) => {
+    setDirection(targetIndex > index ? 1 : -1);
+    setIndex(targetIndex);
+  };
+
   useEffect(() => {
-    // auto-advance every 3.2s
     timerRef.current = window.setInterval(() => {
-      const nextIndex = (Math.max(topIndex, bottomIndex) + 1) % images.length;
-      if (slotToggle.current === 0) {
-        setTopIndex(nextIndex);
-      } else {
-        setBottomIndex(nextIndex);
-      }
-      slotToggle.current = 1 - slotToggle.current;
-    }, 3200);
+      nextSlide();
+    }, 5000);
 
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, [topIndex, bottomIndex, images.length]);
+  }, [index]);
 
-  // allow hover to pause
-  const pauseRef = useRef(false);
-
-  const renderSlot = (index: number) => (
-    <AnimatePresence initial={false} mode="wait">
-      <motion.div
-        key={index}
-        initial={{ x: 60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -60, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 120, damping: 20 }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <Image
-          src={images[index]}
-          alt={`hero-${index}`}
-          width={800}
-          height={600}
-          className="h-full w-full object-cover"
-        />
-      </motion.div>
-    </AnimatePresence>
-  );
+  const slide = slides[index];
 
   return (
-    <div
-      className="flex w-full flex-col  gap-4 sm:flex-row"
+    <div 
+      className="relative w-full h-[320px] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-jcl-primary to-slate-950 text-white shadow-xl shadow-jcl-primary/10 border border-slate-800/80 group"
       onMouseEnter={() => {
-        pauseRef.current = true;
         if (timerRef.current) window.clearInterval(timerRef.current);
       }}
       onMouseLeave={() => {
-        pauseRef.current = false;
-        // restart timer
         if (timerRef.current) window.clearInterval(timerRef.current);
         timerRef.current = window.setInterval(() => {
-          const nextIndex =
-            (Math.max(topIndex, bottomIndex) + 1) % images.length;
-          if (slotToggle.current === 0) setTopIndex(nextIndex);
-          else setBottomIndex(nextIndex);
-          slotToggle.current = 1 - slotToggle.current;
-        }, 3200);
+          nextSlide();
+        }, 5000);
       }}
     >
-      <div className="relative w-full h-[360px] overflow-hidden rounded-2xl bg-transparent sm:w-1/2 sm:aspect-auto sm:h-[320px]">
-        {renderSlot(topIndex)}
-      </div>
-      <div className="relative w-full h-[360px] overflow-hidden rounded-2xl bg-transparent sm:w-1/2 sm:aspect-auto sm:h-[320px]">
-        {renderSlot(bottomIndex)}
+      <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-jcl-accent/15 blur-3xl transition-all duration-700 group-hover:bg-jcl-accent/25" />
+      <div className="absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
+
+      <AnimatePresence initial={false} mode="wait">
+        <motion.div
+          key={index}
+          initial={{ x: direction * 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -direction * 50, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          className="absolute inset-0 grid grid-cols-[1.25fr_0.75fr] items-center px-6 sm:px-8 py-5"
+        >
+          <div className="flex flex-col justify-center min-w-0 pr-2">
+            <span className="inline-flex w-fit items-center gap-1 text-[10px] font-extrabold uppercase tracking-widest text-jcl-accent bg-jcl-accent/10 px-2.5 py-0.5 rounded-full mb-3 shadow-sm border border-jcl-accent/20">
+              <Sparkles className="h-2.5 w-2.5" />
+              {slide.eyebrow}
+            </span>
+            <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl md:text-2xl leading-tight text-white line-clamp-2">
+              {slide.title}
+            </h3>
+            <p className="text-xs text-slate-300/90 leading-relaxed mt-2.5 line-clamp-3 font-normal max-w-sm">
+              {slide.description}
+            </p>
+            <div className="mt-4">
+              <Link
+                href="/products/electronics"
+                className="inline-flex items-center gap-1.5 bg-white text-slate-900 hover:bg-jcl-accent hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 shadow-sm hover:scale-105 active:scale-95"
+              >
+                {slide.cta}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative flex items-center justify-center h-full w-full">
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative flex items-center justify-center w-full aspect-square"
+            >
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                width={280}
+                height={280}
+                className="h-full max-h-[160px] w-full object-contain filter drop-shadow-[0_12px_24px_rgba(255,255,255,0.15)]"
+                priority
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="absolute bottom-4 left-6 sm:left-8 flex gap-1.5 z-20">
+        {slides.map((_, dotIdx) => (
+          <button
+            key={dotIdx}
+            type="button"
+            onClick={() => jumpToSlide(dotIdx)}
+            aria-label={`Jump to slide ${dotIdx + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              dotIdx === index ? "w-4 bg-jcl-accent" : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -173,18 +126,15 @@ export default function ElectronicsHero({
   categories,
   availableCategories,
   onSelectCategory,
+  activeCategory = "all",
 }: {
   categories?: string[];
   availableCategories?: string[];
   onSelectCategory?: (value: string) => void;
+  activeCategory?: string;
 }) {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
-
-  const images = [
-    ...electronicsSlides.map((s) => s.image),
-    ...electronicsBestSellers.map((p) => p.image),
-  ].filter(Boolean);
 
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -195,67 +145,68 @@ export default function ElectronicsHero({
   };
 
   return (
-    <section className="bg-jcl-white pb-6 pt-[70px] relative">
-      {/* <HeroBackgroundArt className="absolute inset-0 opacity-100" colorClass="text-jcl-primary/5" /> */}
+    <section className="bg-jcl-white pb-6 pt-[70px] relative overflow-hidden">
       <HeroMeshPattern
-        className="absolute inset-0 opacity-100"
-        colorClass="text-jcl-primary"
+        className="absolute inset-0 opacity-100 pointer-events-none"
+        colorClass="text-slate-100"
       />
-      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      
+      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
         <ElectronicsCategoryStrip
           categories={categories}
           onSelect={onSelectCategory}
-          // pass availability down to strip so it can indicate which tags have items
-          // `availableCategories` contains lowercased slugs from the products list
           availableCategories={availableCategories}
+          activeCategory={activeCategory}
         />
 
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Left Column: copy */}
-          <div className="lg:col-span-6">
-            <p className="text-jcl-accent font-semibold text-sm sm:text-base">
-              Welcome to JCL Royal Group Limited
-            </p>
-            <h2 className="mt-2 max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight text-slate-900">
-              Latest Gadget &
-              <br />
-              Home Appliances
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm text-slate-600">
-              Discover our carefully curated collection of cutting-edge
-              technology products and smart home solutions.
-            </p>
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-6 flex flex-col gap-4">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-jcl-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-jcl-accent border border-jcl-accent/20">
+                <span className="h-1.5 w-1.5 rounded-full bg-jcl-accent animate-pulse" />
+                JCL Royal Group
+              </span>
+              
+              <h2 className="mt-3.5 text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-[-0.03em] text-slate-900">
+                Latest Gadget &<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcl-accent to-orange-500">
+                  Home Appliances
+                </span>
+              </h2>
+              
+              <p className="mt-4 max-w-lg text-sm text-slate-500 leading-relaxed font-normal">
+                Discover our carefully curated collection of cutting-edge
+                technology products and smart home solutions. Crafted for premium performance.
+              </p>
+            </div>
 
             <form
               onSubmit={handleSearchSubmit}
-              className="mt-6 rounded-3xl border border-black/5 bg-white p-2 shadow-[0_18px_50px_rgba(7,13,75,0.06)] sm:rounded-full"
+              className="mt-2 relative flex w-full flex-col sm:flex-row items-stretch gap-2 p-1.5 rounded-2xl sm:rounded-full bg-white border border-slate-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.03)] focus-within:border-jcl-accent/40 focus-within:shadow-[0_10px_35px_rgba(248,85,6,0.05)] transition-all duration-300"
             >
-              <div className="flex w-full items-center justify-between gap-4 ">
-                <label className="relative flex-1 block min-w-0">
-                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-black/35" />
-                  <input
-                    type="search"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                    placeholder="Search gadgets and appliances"
-                    className="h-12 w-full rounded-2xl border-0 bg-black/[0.03] px-11 text-sm text-black placeholder:text-#975252/40 outline-none ring-0 transition focus:bg-black/[0.02] focus:ring-2 focus:ring-jcl-black/10 sm:rounded-full sm:bg-transparent"
-                  />
-                </label>
-
-                <button
-                  type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-jcl-accent px-5 text-sm font-semibold text-white shadow-md transition hover:bg-jcl-accent/90 sm:rounded-full"
-                >
-                  Search
-                  <ArrowRight className="h-4 w-4" />
-                </button>
+              <div className="relative flex-1 min-w-0">
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="search"
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  placeholder="Search gadgets and appliances..."
+                  className="h-11 w-full bg-transparent pl-11 pr-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none border-none focus:ring-0"
+                />
               </div>
+
+              <button
+                type="submit"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl sm:rounded-full bg-jcl-accent text-white px-6 text-sm font-semibold transition hover:bg-jcl-accent/90 shadow-md shadow-jcl-accent/25 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 shrink-0"
+              >
+                Search
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </form>
           </div>
 
-          {/* Right Column: two sliding image cards */}
-          <div className="lg:col-span-6">
-            <RightSlidingPair images={images} />
+          <div className="lg:col-span-6 w-full">
+            <FeaturedShowcase />
           </div>
         </div>
       </div>

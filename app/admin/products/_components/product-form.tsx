@@ -7,10 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BACKEND_URL } from "@/lib/auth";
 import { useAuth } from "@/components/auth-provider";
-import { adminInputClass } from "@/lib/admin-form-styles";
+import { cn } from "@/lib/utils";
+import {
+  adminInputClass,
+  adminPrimaryButtonClass,
+  adminSecondaryButtonClass,
+  adminChipActiveClass,
+  adminChipInactiveClass,
+} from "@/lib/admin-form-styles";
 import { SingleImageUpload } from "@/components/admin/single-image-upload";
 import {
   AdminFormField,
+  AdminFormActions,
   AdminFormLayout,
   AdminFormLoading,
   AdminFormSection,
@@ -254,8 +262,8 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
                             }
                             className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm transition ${
                               isSelected
-                                ? "bg-jcl-accent text-white"
-                                : "border border-black/10 bg-white hover:bg-black/5"
+                                ? adminChipActiveClass
+                                : adminChipInactiveClass
                             }`}
                           >
                             {c.name}
@@ -380,7 +388,7 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
               <Button
                 type="button"
                 onClick={handleAddFeature}
-                className="h-11 shrink-0 rounded-full bg-jcl-black px-6 text-white hover:bg-black/90"
+                className={cn("h-11 shrink-0", adminPrimaryButtonClass)}
               >
                 Add
               </Button>
@@ -424,7 +432,7 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
             <Button
               type="button"
               onClick={handleAddSpec}
-              className="mt-3 h-10 rounded-full border border-black/10 bg-white text-jcl-black hover:bg-black/[0.04]"
+              className={cn("mt-3 h-10", adminSecondaryButtonClass)}
             >
               Add specification
             </Button>
@@ -449,19 +457,13 @@ export default function ProductForm({ isEdit }: ProductFormProps) {
           </AdminFormSection>
         </div>
 
-        <div className="flex justify-end pt-2">
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="h-11 rounded-full bg-jcl-black px-8 text-white shadow-sm hover:bg-black/90"
-          >
-            {isSubmitting
-              ? "Saving…"
-              : isEdit
-                ? "Update Product"
-                : "Publish Product"}
-          </Button>
-        </div>
+        <AdminFormActions
+          isSubmitting={isSubmitting}
+          submitLabel={
+            isEdit ? "Update product" : "Publish product"
+          }
+          cancelHref="/admin/products"
+        />
       </form>
     </AdminFormLayout>
   );

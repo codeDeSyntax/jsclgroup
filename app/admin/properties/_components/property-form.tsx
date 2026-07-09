@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/components/auth-provider";
 import { BACKEND_URL } from "@/lib/auth";
-import { adminInputClass } from "@/lib/admin-form-styles";
+import { cn } from "@/lib/utils";
+import { adminInputClass, adminGhostButtonClass } from "@/lib/admin-form-styles";
 import { MultiImageUpload } from "@/components/admin/multi-image-upload";
 import {
   AdminFormActions,
@@ -179,7 +180,7 @@ export default function PropertyForm({ isEdit }: PropertyFormProps) {
                     type="button"
                     variant="outline"
                     onClick={handleGenerateSlug}
-                    className="h-11 shrink-0 rounded-full border-jcl-blue-100 px-4"
+                    className={cn("h-11 shrink-0", adminGhostButtonClass)}
                   >
                     Auto
                   </Button>
