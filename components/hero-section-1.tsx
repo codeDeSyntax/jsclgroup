@@ -110,7 +110,7 @@ export default function HeroSection1() {
   const whatsappHref = `https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`;
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-jcl-white px- pb-10 pt- text-jcl-primary sm:px-3 sm:py-3">
+    <section className="relative min-h-screen overflow-hidden bg-jcl-white px-2 pb-10 pt-2 m text-jcl-primary sm:px-3 sm:py-3">
       <div className="pointer-events-none absolute left-6 top-7 hidden text-jcl-primary/10 sm:block">
         <Sparkles className="h-10 w-10 fill-jcl-primary/10 stroke-[3]" />
       </div>
@@ -184,7 +184,7 @@ export default function HeroSection1() {
                   <br />
                   <span className="font-normal">evolution of</span> home
                 </h1>
-                <div className="mt-3 max-w-[260px] text-xs leading-5 text-white/70">
+                <div className="mt-3 max-w-[320px] text-sm leading-6 text-white/70">
                   Experience the perfect blend of property care, construction
                   support, and trusted electronics sourcing.
                   <Link

@@ -124,7 +124,7 @@ export default function ServicesSection() {
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-0 sm:pb-20 lg:pb-24">
-      <div className="relative mx-auto max-w-6xl  px-0 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[94rem] px-0 sm:px-6 lg:px-8">
         <div className="rounded-[32px]   px-5 py-6  sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.75fr)] lg:items-end">
             <div className="max-w-3xl">

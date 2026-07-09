@@ -60,7 +60,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const navBarBgClass = isRealestate
     ? "bg-transparent shadow-none"
     : isHero
-      ? "bg-jcl-primary shadow-lg rounded-none"
+      ? "bg-jcl-primary shadow-lg rounded-full sm:rounded-none"
       : "bg-jcl-primary shadow-none rounded-none";
 
   // Text and icon colors - ensure proper contrast on black backgrounds
@@ -127,7 +127,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
       <nav
-        className={`mx-auto ${isRealestate ? "max-w-5xl bg-jcl-white" : isHero ? "py-0 rounded-none px-2 md:px-0 w-full" : "py- w-full"}`}
+        className={`mx-auto ${isRealestate ? "max-w-5xl bg-jcl-white" : isHero ? "py-2 sm:py-0 sm:rounded-none rounded-full px-2 md:px-0 w-full " : "py- w-full rounded-full"}`}
       >
         <div
           className={`flex h-14 items-center justify-between px-4 sm:px-6 ${navBarBgClass}`}
@@ -157,7 +157,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
             </button>
           </div>
 
-          <Link href="/" className="mr-8 flex items-center gap-3">
+          <Link href="/" className=" flex items-center gap-3">
             <div className="relative h-8 w-8 overflow-hidden rounded-xl bg-white/95 shadow-md ring-2 ring-white/20 backdrop-blur-sm">
               <Image
                 src={
