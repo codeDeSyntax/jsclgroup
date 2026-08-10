@@ -12,13 +12,14 @@ import {
   Home,
   Menu,
   MessageCircle,
-  Sparkles,
   X,
 } from "lucide-react";
 import { setActiveImage, setCtaMode } from "@/store/heroSlice";
 import type { RootState, AppDispatch } from "@/store";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useMobileMenu } from "@/contexts/mobile-menu-context";
 import { contactInfo } from "@/lib/contact";
+import { useLandingContent } from "@/hooks/use-landing-content";
 
 const desktopHeroImages = [
   "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png",
@@ -41,17 +42,30 @@ const heroImageCount = Math.max(
 );
 
 export default function HeroSection1() {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const pathname = usePathname();
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
-  const backgroundVideoUrl =
-    "https://res.cloudinary.com/dlhyawc5e/video/upload/v1779283268/projectvideo_bnftd9.mp4";
-
-  const { activeImage, ctaMode, contactPhone } = useSelector(
+  const { activeImage, ctaMode, contactPhone } = useAppSelector(
     (state: RootState) => state.hero,
   );
 
-  // contact phone is fetched centrally by the Redux provider
+  const { hero1, navbar } = useLandingContent();
+
+  const backgroundVideoUrl = hero1.backgroundVideoUrl || "https://res.cloudinary.com/dlhyawc5e/video/upload/v1779283268/projectvideo_bnftd9.mp4";
+  const desktopHeroImages = hero1.desktopImages && hero1.desktopImages.length > 0 ? hero1.desktopImages : [
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779141605/image_mo2c4a.png",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide1_zu4ir8.jpg",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide3_zurc6j.jpg",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide4_tibcil.jpg",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779220660/heroslide2_evnnt6.jpg",
+  ];
+  const mobileHeroImages = hero1.mobileImages && hero1.mobileImages.length > 0 ? hero1.mobileImages : [
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779094334/h14_ydoyxe.png",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779089309/h13_aegefd.png",
+    "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779095349/h15_k5hyga.png",
+  ];
+  const heroImageCount = desktopHeroImages.length;
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -59,7 +73,7 @@ export default function HeroSection1() {
     }, 6800);
 
     return () => window.clearInterval(intervalId);
-  }, [activeImage, dispatch]);
+  }, [activeImage, dispatch, heroImageCount]);
 
   useEffect(() => {
     const ctaIntervalId = window.setInterval(() => {
@@ -69,7 +83,7 @@ export default function HeroSection1() {
     return () => window.clearInterval(ctaIntervalId);
   }, [ctaMode, dispatch]);
 
-  const navLinks = [
+  const navLinks = navbar.navLinks && navbar.navLinks.length > 0 ? navbar.navLinks.slice(1, 7) : [
     { label: "Tonefo", href: "/products/electronics" },
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
@@ -100,26 +114,23 @@ export default function HeroSection1() {
   const mobileImageTwo =
     mobileHeroImages[(activeImage + 1) % mobileHeroImages.length] ??
     mobileHeroImages[1];
-  const ctaHref = ctaMode === "whatsapp" ? "/contact" : "/services";
+  const ctaHref = ctaMode === "whatsapp" ? (hero1.ctaHref1 || "/contact") : (hero1.ctaHref2 || "/services");
   const ctaLabel =
-    ctaMode === "whatsapp" ? "Request services" : "Explore services";
-  const normalizedPhone = (contactPhone || contactInfo.phone).replace(
+    ctaMode === "whatsapp" ? (hero1.ctaLabel1 || "Request services") : (hero1.ctaLabel2 || "Explore services");
+  const normalizedPhone = (contactPhone || navbar.contactPhone || contactInfo.phone).replace(
     /\D/g,
     "",
   );
-  const whatsappHref = `https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`;
+  const whatsappHref = `https://wa.me/${navbar.whatsappNumber || normalizedPhone}?text=Hello%20JCL%20Group`;
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-jcl-white px-2 pb-10 pt-2 m text-jcl-primary sm:px-3 sm:py-3">
-      <div className="pointer-events-none absolute left-6 top-7 hidden text-jcl-primary/10 sm:block">
-        <Sparkles className="h-10 w-10 fill-jcl-primary/10 stroke-[3]" />
-      </div>
+    <section className="relative min-h-screen overflow-hidden bg-jcl-white px-2 pb-10 pt-2 sm:pt-0 text-jcl-primary sm:px-0 sm:py-0">
 
       {/* Desktop editorial canvas */}
-      <div className="relative mx-auto hidden min-h-[calc(100vh-1.5rem)] w-full max-w-[94rem] items-stretch sm:grid">
-        <div className="flex min-h-[calc(100vh-1.5rem)] flex-col rounded-[28px] border border-black/5 bg-slate-950 p-3 relative overflow-hidden text-white shadow-xl">
-          {/* Background Video inside the inner rounded canvas parent */}
-          <div className="absolute inset-0 z-0 rounded-[28px] overflow-hidden">
+      <div className="relative mx-auto hidden min-h-screen w-full max-w-none items-stretch sm:grid">
+        <div className="flex min-h-screen flex-col rounded-none border-0 bg-slate-950 px-5 py-3 relative overflow-hidden text-white">
+          {/* Background Video — full bleed behind all content */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
             <video
               src={backgroundVideoUrl}
               autoPlay
@@ -152,7 +163,7 @@ export default function HeroSection1() {
             </div>
 
             <nav className="flex items-center rounded-full bg-white/5 backdrop-blur-md px-2 py-1 border border-white/5">
-              {navLinks.slice(0, 5).map((link) => (
+              {navLinks.slice(0, 5).map((link: { label: string; href: string }) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -176,82 +187,87 @@ export default function HeroSection1() {
             </Link>
           </div>
 
-          <div className="mt-12 grid flex-1 grid-cols-[minmax(0,1fr)_clamp(150px,16vw,260px)] gap-5 z-10 relative">
-            <div>
-              <div className="flex items-start gap-4">
-                <h1 className="max-w-[74rem] text-[clamp(4.25rem,8.6vw,9.2rem)] font-thin leading-[0.84] tracking-[-0.085em] text-white">
-                  We bring new
+          {/* Content: 2-column split — headline left, main cards right */}
+          <div className="mt-8 flex flex-1 gap-5 z-10 relative">
+            {/* LEFT — headline + description */}
+            <div className="flex flex-1 flex-col justify-between">
+              <div>
+                <h1 className="text-[clamp(4rem,8.2vw,9rem)] font-thin leading-[0.84] tracking-[-0.085em] text-white">
+                  {hero1.headlineLine1 || "We bring new"}
                   <br />
-                  <span className="font-normal">evolution of</span> home
+                  <span className="font-normal">{hero1.headlineLine2 || "evolution of"}</span> {hero1.headlineLine3 || "home"}
                 </h1>
-                <div className="mt-3 max-w-[320px] text-sm leading-6 text-white/70">
-                  Experience the perfect blend of property care, construction
-                  support, and trusted electronics sourcing.
-                  <Link
-                    href={ctaHref}
-                    className="ml-2 inline-flex items-center gap-1 rounded-full bg-jcl-accent px-3 py-1 text-white hover:bg-jcl-accent/90 transition shadow-md shadow-jcl-accent/20"
-                  >
-                    {ctaLabel}
-                    <ArrowUpRight className="h-3 w-3" />
-                  </Link>
+                <div className="mt-5 max-w-[280px] text-xs leading-5 text-white/60">
+                  {hero1.subtext || "Experience the perfect blend of property care, construction support, and trusted electronics sourcing."}
                 </div>
+                <Link
+                  href={ctaHref}
+                  className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-jcl-accent px-4 py-2 text-xs font-semibold text-white hover:bg-jcl-accent/90 transition shadow-md shadow-jcl-accent/20"
+                >
+                  {ctaLabel}
+                  <ArrowUpRight className="h-3 w-3" />
+                </Link>
+              </div>
+
+              {/* Bottom info card */}
+              <div className="flex h-[clamp(160px,22vh,240px)] flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
+                <p className="text-2xl font-light leading-tight text-white">
+                  {hero1.bottomCardLine1 || "Available now in Ghana."}
+                </p>
+                <p className="mt-1.5 text-lg font-thin leading-tight text-white/60">
+                  {hero1.bottomCardLine2 || "Property, construction, and electronics support from one team."}
+                </p>
               </div>
             </div>
 
-            <Link
-              href="/services"
-              className="group relative flex min-h-[clamp(132px,18vh,210px)] flex-col justify-end overflow-hidden rounded-xl bg-jcl-primary p-5 text-white shadow-lg"
-            >
-              <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              <p className="max-w-[12rem] text-2xl font-light leading-tight">
-                A room of infinite possibilities
-              </p>
-            </Link>
-          </div>
+            {/* RIGHT — side card + tall image showcase stacked */}
+            <div className="flex w-[clamp(220px,28vw,420px)] shrink-0 flex-col gap-3">
+              <Link
+                href="/services"
+                className="group relative flex h-[clamp(80px,12vh,140px)] shrink-0 flex-col justify-end overflow-hidden rounded-2xl bg-jcl-primary p-5 text-white"
+              >
+                <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <p className="text-xl font-light leading-tight">
+                  {hero1.sideCardText || "A room of infinite possibilities"}
+                </p>
+              </Link>
 
-          <div className="mt-5 grid grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] gap-3 z-10 relative">
-            <div className="flex h-[clamp(220px,32vh,360px)] flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-jcl-primary backdrop-blur-md p-6">
-              <p className="text-3xl font-light leading-tight text-white">
-                Available now in Ghana.
-              </p>
-              <p className="mt-2 text-2xl font-thin leading-tight text-white/70">
-                Property, construction, and electronics support from one team.
-              </p>
-            </div>
-
-            <div className="relative grid h-[clamp(220px,32vh,360px)] grid-cols-2 gap-2 overflow-hidden rounded-xl bg-white border border-white/10 p-2 backdrop-blur-sm">
-              {[desktopImage, desktopImageTwo].map((image, index) => (
-                <div
-                  key={`${image}-hero-pair-${index}`}
-                  className="relative flex h-full min-w-0 items-center justify-center overflow-hidden rounded-lg bg-white backdrop-blur-md border border-white/5"
-                >
-                  <Image
-                    src={image}
-                    alt={`JCL featured property ${index + 1}`}
-                    width={720}
-                    height={520}
-                    priority={index === 0}
-                    className="h-full max-h-full w-full object-contain filter drop-shadow-md"
-                  />
+              {/* Image showcase — tall panel */}
+              <div className="relative flex-1 grid grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-white p-2">
+                {[desktopImage, desktopImageTwo].map((image, index) => (
+                  <div
+                    key={`${image}-hero-pair-${index}`}
+                    className="relative flex h-full min-w-0 items-center justify-center overflow-hidden rounded-xl bg-white border border-black/5"
+                  >
+                    <Image
+                      src={image}
+                      alt={`JCL featured property ${index + 1}`}
+                      width={720}
+                      height={520}
+                      priority={index === 0}
+                      className="h-full max-h-full w-full object-contain filter drop-shadow-md"
+                    />
+                  </div>
+                ))}
+                {/* Preview strip */}
+                <div className="absolute bottom-3 right-3 flex rounded-full bg-black/40 backdrop-blur-md p-1 shadow-lg border border-white/10">
+                  {[desktopImage, desktopImageTwo, desktopImageThree].map(
+                    (image, index) => (
+                      <span
+                        key={`${image}-${index}`}
+                        className="-ml-2 first:ml-0 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-jcl-white"
+                      >
+                        <Image
+                          src={image}
+                          alt={`JCL preview ${index + 1}`}
+                          width={40}
+                          height={40}
+                          className="h-full w-full object-contain"
+                        />
+                      </span>
+                    ),
+                  )}
                 </div>
-              ))}
-              <div className="absolute bottom-4 right-4 flex rounded-full bg-black/40 backdrop-blur-md p-1 shadow-lg border border-white/10">
-                {[desktopImage, desktopImageTwo, desktopImageThree].map(
-                  (image, index) => (
-                    <span
-                      key={`${image}-${index}`}
-                      className="-ml-2 first:ml-0 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-jcl-white"
-                    >
-                      <Image
-                        src={image}
-                        alt={`JCL preview ${index + 1}`}
-                        width={48}
-                        height={48}
-                        className="h-full w-full object-contain"
-                      />
-                    </span>
-                  ),
-                )}
               </div>
             </div>
           </div>

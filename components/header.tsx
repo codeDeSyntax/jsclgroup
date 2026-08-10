@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/store";
 import { contactInfo } from "@/lib/contact";
 
+import { useLandingContent } from "@/hooks/use-landing-content";
+
 type HeaderProps = {
   variant?: "default" | "hero" | "realestate";
 };
@@ -20,13 +22,17 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const { totalCount } = useCart();
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
   const [ctaMode, setCtaMode] = useState<"whatsapp" | "contact">("whatsapp");
-  // centralized phone stored in Redux (populated by the provider)
+
+  const { navbar } = useLandingContent();
+
+  // centralized phone stored in Redux or navbar config
   const contactPhone =
     useSelector((state: RootState) => state.hero.contactPhone) ||
+    navbar.contactPhone ||
     contactInfo.phone;
   const pathname = usePathname();
 
-  const navLinks = [
+  const navLinks = navbar.navLinks && navbar.navLinks.length > 0 ? navbar.navLinks : [
     { label: "Home", href: "/" },
     { label: "Tonefo", href: "/products/electronics" },
     { label: "Projects", href: "/projects" },
@@ -97,9 +103,10 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
   const normalizedPhone = contactPhone.replace(/\D/g, "");
 
+  const whatsappNum = navbar.whatsappNumber || normalizedPhone;
   const ctaHref =
     ctaMode === "whatsapp"
-      ? `https://wa.me/${normalizedPhone}?text=Hello%20JCL%20Group`
+      ? `https://wa.me/${whatsappNum}?text=Hello%20JCL%20Group`
       : "/contact";
   const ctaLabel = ctaMode === "whatsapp" ? "WhatsApp" : "Contact";
   const ctaAriaLabel =
@@ -122,7 +129,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
     ) : (
       <MessageCircle size={16} className="text-white" />
     );
-  const webmailHref = "https://server381.web-hosting.com/webmail";
+  const webmailHref = navbar.webmailUrl || "https://server381.web-hosting.com/webmail";
 
   return (
     <header className={`fixed left-0 right-0 top-0 z-50 ${headerBgClass}`}>
@@ -162,8 +169,8 @@ export default function Header({ variant = "default" }: HeaderProps) {
               <Image
                 src={
                   isShoppingPage
-                    ? "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779269670/tonefologo_bhbe1s.png"
-                    : "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg"
+                    ? navbar.tonefoLogoUrl || "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779269670/tonefologo_bhbe1s.png"
+                    : navbar.logoUrl || "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779121165/jcllogo_rj8hvw_jcvnvb.jpg"
                 }
                 alt={isShoppingPage ? "Tonefo Logo" : "JCL Group Logo"}
                 fill
@@ -174,7 +181,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
             <span
               className={`hidden text-base font-extrabold tracking-tighter sm:inline ${logoTextClass}`}
             >
-              {isShoppingPage ? "Tonefo" : "JCL Royal Group Ltd"}
+              {isShoppingPage ? "Tonefo" : (navbar.brandName || "JCL Royal Group Ltd")}
             </span>
           </Link>
 

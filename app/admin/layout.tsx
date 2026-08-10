@@ -17,6 +17,7 @@ import {
   Settings,
   Images,
   Mail,
+  Globe,
 } from "lucide-react";
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/components/auth-provider";
@@ -49,6 +50,7 @@ export default function AdminLayout({
 
   const navItems = [
     { href: "/admin", label: "Dashboard", icon: Home },
+    { href: "/admin/landing", label: "Landing Page", icon: Globe },
     { href: "/admin/products", label: "Products", icon: Package },
     { href: "/admin/projects", label: "Projects", icon: FileText },
     { href: "/admin/gallery", label: "Gallery", icon: Images },

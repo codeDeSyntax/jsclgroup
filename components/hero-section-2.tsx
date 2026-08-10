@@ -18,13 +18,19 @@ import { useMobileMenu } from "@/contexts/mobile-menu-context";
 import { contactInfo } from "@/lib/contact";
 import { BACKEND_URL } from "@/lib/auth";
 
+import { useLandingContent } from "@/hooks/use-landing-content";
+
 export default function HeroSection2() {
   const pathname = usePathname();
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
   const [activeImage, setActiveImage] = useState(0);
   const [fetchedProducts, setFetchedProducts] = useState<any[]>([]);
 
-  const appliances = [
+  const { hero2, navbar } = useLandingContent();
+
+  const appliances = hero2.fallbackAppliances && hero2.fallbackAppliances.length > 0
+    ? hero2.fallbackAppliances.map((a, i) => ({ id: `appliance-${i}`, ...a }))
+    : [
     {
       id: "appliances",
       name: "Refrigerator",
@@ -107,7 +113,7 @@ export default function HeroSection2() {
   const whatsappHref = `https://wa.me/${(contactInfo.phone).replace(/\D/g, "")}?text=Hello%20JCL%20Group`;
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-jcl-white px-2 pb-10 pt-2 sm:pt-0 text-jcl-primary sm:px-3 sm:py-3">
+    <section className="relative min-h-screen overflow-hidden bg-jcl-white px-2 pb-10 pt-2 sm:pt-0 text-jcl-primary sm:px-0 sm:py-0">
       <div className="pointer-events-none absolute left-6 top-7 hidden text-jcl-primary/10 sm:block">
         <Sparkles className="h-10 w-10 fill-jcl-primary/10 stroke-[3]" />
       </div>
@@ -122,9 +128,9 @@ export default function HeroSection2() {
         }
       `}</style>
 
-      {/* Desktop editorial canvas */}
-      <div className="relative mx-auto hidden min-h-[calc(100vh-1.5rem)] w-full max-w-[94rem] items-stretch sm:grid">
-        <div className="flex min-h-[calc(100vh-1.5rem)] flex-col rounded-[28px] border border-black/5 bg-jcl-white p-3 relative overflow-hidden text-black shadow-xl">
+      {/* Desktop editorial canvas — full bleed */}
+      <div className="relative mx-auto hidden min-h-screen w-full max-w-none items-stretch sm:grid">
+        <div className="flex min-h-screen flex-col rounded-none border-0 bg-jcl-white px-6 py-4 relative overflow-hidden text-black">
           {/* Mesh pattern background inside card canvas */}
           <HeroMeshPattern
             holes={[
@@ -179,113 +185,110 @@ export default function HeroSection2() {
             </Link>
           </div>
 
-          {/* Core Content Grid */}
-          <div className="mt-12 grid flex-1 grid-cols-[minmax(0,1fr)_clamp(150px,16vw,260px)] gap-5 z-10 relative">
-            <div>
-              <div className="flex items-start gap-4">
-                <h1 className="max-w-[74rem] text-[clamp(4.25rem,8.6vw,9.2rem)] font-thin leading-[0.84] tracking-[-0.085em] text-jcl-primary">
-                  Electrical
+          {/* Content: 2-column split — headline left, showcase right */}
+          <div className="mt-8 flex flex-1 gap-5 z-10 relative">
+            {/* LEFT — headline + description + bottom info card */}
+            <div className="flex flex-1 flex-col justify-between">
+              <div>
+                <h1 className="text-[clamp(4rem,8.2vw,9rem)] font-thin leading-[0.84] tracking-[-0.085em] text-jcl-primary">
+                  {hero2.headlineLine1 || "Electrical"}
                   <br />
-                  <span className="font-normal">gadget</span> sales
+                  <span className="font-normal">{hero2.headlineLine2 || "gadget"}</span> sales
                 </h1>
-                <div className="mt-3 max-w-[320px] text-sm leading-6 text-jcl-primary/70 flex flex-col gap-4">
-                  <p>
-                    Explore our curated selection of electrical gadgets and home
-                    appliances, from refrigerators and fans to televisions, kitchen
-                    essentials, and everyday devices.
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    <Link
-                      href="/products/electronics"
-                      className="inline-flex items-center gap-1 rounded-full bg-jcl-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-black/90 transition shadow-md shadow-jcl-accent/20"
-                    >
-                      Explore Appliances
-                      <ArrowUpRight className="h-3 w-3" />
-                    </Link>
-                    <Link
-                      href="/products/electronics"
-                      className="inline-flex items-center gap-1 rounded-full border border-black/10 bg-white/40 px-4 py-2 text-xs font-bold uppercase tracking-wider text-jcl-primary hover:bg-white hover:border-black/30 transition shadow-sm"
-                    >
-                      Shop Now
-                    </Link>
-                  </div>
+                <div className="mt-5 max-w-[280px] text-xs leading-5 text-jcl-primary/60">
+                  {hero2.subtext || "Explore our curated selection of electrical gadgets and home appliances, from refrigerators and fans to televisions, kitchen essentials, and everyday devices."}
                 </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link
+                    href={hero2.ctaHref1 || "/products/electronics"}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-jcl-accent px-4 py-2 text-xs font-semibold text-white hover:bg-black/90 transition shadow-md shadow-jcl-accent/20"
+                  >
+                    {hero2.ctaLabel1 || "Explore Appliances"}
+                    <ArrowUpRight className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    href={hero2.ctaHref2 || "/products/electronics"}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-4 py-2 text-xs font-semibold text-jcl-primary hover:bg-black/[0.06] transition"
+                  >
+                    {hero2.ctaLabel2 || "Shop Now"}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bottom info card */}
+              <div className="flex h-[clamp(160px,22vh,240px)] flex-col justify-end overflow-hidden rounded-2xl border border-black/[0.06] bg-jcl-primary/5 p-6">
+                <p className="text-2xl font-light leading-tight text-jcl-primary">
+                  {hero2.bottomCardLine1 || "Available now in Ghana."}
+                </p>
+                <p className="mt-1.5 text-lg font-thin leading-tight text-jcl-primary/60">
+                  {hero2.bottomCardLine2 || "Premium electrical brands with secure payment and local delivery support."}
+                </p>
               </div>
             </div>
 
-            <Link
-              href="/products/electronics"
-              className="group relative flex min-h-[clamp(132px,18vh,210px)] flex-col justify-end overflow-hidden rounded-xl bg-jcl-primary p-5 text-white shadow-lg"
-            >
-              <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              <p className="max-w-[12rem] text-2xl font-light leading-tight">
-                Modern essentials for comfortable living
-              </p>
-            </Link>
-          </div>
+            {/* RIGHT — side card + product showcase stacked */}
+            <div className="flex w-[clamp(220px,28vw,420px)] shrink-0 flex-col gap-3">
+              <Link
+                href="/products/electronics"
+                className="group relative flex h-[clamp(80px,12vh,140px)] shrink-0 flex-col justify-end overflow-hidden rounded-2xl bg-jcl-primary p-5 text-white"
+              >
+                <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <p className="text-xl font-light leading-tight">
+                  {hero2.sideCardText || "Modern essentials for comfortable living"}
+                </p>
+              </Link>
 
-          {/* Bottom Grid and Showcase */}
-          <div className="mt-5 grid grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] gap-3 z-10 relative">
-            <div className="flex h-[clamp(220px,32vh,360px)] flex-col justify-end overflow-hidden rounded-xl border border-black/5 bg-jcl-primary/5 backdrop-blur-md p-6">
-              <p className="text-3xl font-light leading-tight text-jcl-primary">
-                Available now in Ghana.
-              </p>
-              <p className="mt-2 text-2xl font-thin leading-tight text-jcl-primary/70">
-                Premium electrical brands with secure payment and local delivery support.
-              </p>
-            </div>
-
-            <div className="relative grid grid-cols-2 gap-2 h-[clamp(220px,32vh,360px)] overflow-hidden rounded-xl bg-black/[0.025] border border-black/5 p-2 backdrop-blur-sm">
-              {[0, 1].map((idx) => {
-                const itemIndex = (activeImage + idx) % currentItems.length;
-                const item = currentItems[itemIndex];
-                if (!item) return null;
-                return (
-                  <Link
-                    key={item.id && item.id !== "appliances" ? `${item.id}-${idx}` : `${item.name}-${idx}`}
-                    href={
-                      item.id && item.id !== "appliances"
-                        ? `/products/${item.id}`
-                        : "/products/electronics"
-                    }
-                    className="relative flex h-full min-w-0 flex-col items-center justify-center rounded-lg bg-white p-3 hover:scale-[1.02] transition-all duration-300 border border-black/5 group"
-                  >
-                    <div className="relative w-full h-[70%] max-h-[180px] flex items-center justify-center mt-2">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-contain filter drop-shadow-md"
-                        priority
-                      />
-                    </div>
-                    
-                    <div className="mt-2 w-full text-center">
-                      <p className="text-[11px] font-bold text-slate-900 line-clamp-1">
-                        {item.name}
-                      </p>
-                      <p className="text-[10px] text-jcl-accent font-semibold mt-0.5">
-                        {typeof item.price === "number"
-                          ? `₵${item.price.toFixed(2)}`
-                          : String(item.price || "Check Price")}
-                      </p>
-                    </div>
-                  </Link>
-                );
-              })}
-
-              {/* Slider Dots */}
-              <div className="absolute bottom-4 right-4 flex rounded-full bg-white/40 backdrop-blur-md p-1 shadow-lg border border-black/5 z-20">
-                {currentItems.map((item, index) => (
-                  <button
-                    key={item.id && item.id !== "appliances" ? item.id : item.name}
-                    onClick={() => setActiveImage(index)}
-                    aria-label={`Show slide ${index + 1}`}
-                    className={`mx-0.5 h-1.5 rounded-full transition-all duration-300 ${
-                      index === activeImage ? "bg-jcl-primary w-3.5" : "bg-jcl-primary/30 hover:bg-jcl-primary/50"
-                    }`}
-                  />
-                ))}
+              {/* Product showcase — tall panel */}
+              <div className="relative flex-1 grid grid-cols-2 gap-2 overflow-hidden rounded-2xl bg-black/[0.025] border border-black/5 p-2">
+                {[0, 1].map((idx) => {
+                  const itemIndex = (activeImage + idx) % currentItems.length;
+                  const item = currentItems[itemIndex];
+                  if (!item) return null;
+                  return (
+                    <Link
+                      key={item.id && item.id !== "appliances" ? `${item.id}-${idx}` : `${item.name}-${idx}`}
+                      href={
+                        item.id && item.id !== "appliances"
+                          ? `/products/${item.id}`
+                          : "/products/electronics"
+                      }
+                      className="relative flex h-full min-w-0 flex-col items-center justify-center rounded-xl bg-white p-3 hover:scale-[1.02] transition-all duration-300 border border-black/5 group"
+                    >
+                      <div className="relative w-full h-[70%] max-h-[180px] flex items-center justify-center mt-2">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-contain filter drop-shadow-md"
+                          priority
+                        />
+                      </div>
+                      <div className="mt-2 w-full text-center">
+                        <p className="text-[11px] font-bold text-slate-900 line-clamp-1">
+                          {item.name}
+                        </p>
+                        <p className="text-[10px] text-jcl-accent font-semibold mt-0.5">
+                          {typeof item.price === "number"
+                            ? `₵${item.price.toFixed(2)}`
+                            : String(item.price || "Check Price")}
+                        </p>
+                      </div>
+                    </Link>
+                  );
+                })}
+                {/* Slider dots */}
+                <div className="absolute bottom-3 right-3 flex rounded-full bg-white/60 backdrop-blur-md p-1 shadow border border-black/5 z-20">
+                  {currentItems.map((item, index) => (
+                    <button
+                      key={item.id && item.id !== "appliances" ? item.id : item.name}
+                      onClick={() => setActiveImage(index)}
+                      aria-label={`Show slide ${index + 1}`}
+                      className={`mx-0.5 h-1.5 rounded-full transition-all duration-300 ${
+                        index === activeImage ? "bg-jcl-primary w-3.5" : "bg-jcl-primary/30 hover:bg-jcl-primary/50"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -7,6 +7,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Home, Shield, Sparkles, Zap } from "lucide-react";
 import { realEstateImages, gadgetsImages } from "@/lib/images";
 
+import { useLandingContent } from "@/hooks/use-landing-content";
+
 interface Service {
   id: string;
   kind: "service";
@@ -29,86 +31,109 @@ type ServiceCardItem = Service | PromoCard;
 
 const promoTones: Array<NonNullable<PromoCard["tone"]>> = ["accent", "primary"];
 
-const services: Service[] = [
-  {
-    id: "properties",
-    kind: "service",
-    icon: <Home className="w-6 h-6" />,
-    title: "Property Sales & Rentals",
-    description:
-      "Browse verified homes, rentals, and investment opportunities with a team that understands what matters in every neighborhood.",
-    imageUrl:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683097/Modern_Luxury_Bangla_Villa_sm7qxz.jpg",
-  },
-  {
-    id: "Building and Construction",
-    kind: "service",
-    icon: <Shield className="w-6 h-6" />,
-    title: "Building & Construction",
-    description:
-      "From planning to completion, we manage construction projects with quality craftsmanship, clear timelines, and attention to detail.",
-    imageUrl:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683100/download_vqjuzk.jpg",
-  },
-  {
-    id: "gadgets",
-    kind: "service",
-    icon: <Zap className="w-6 h-6" />,
-    title: "Gadget Sales & Sourcing",
-    description:
-      "Find electrical gadgets, appliances, and accessories selected for quality, performance, and value.",
-    imageUrl:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778682789/applc1_xs8bbg.jpg",
-  },
-  {
-    id: "gadgets",
-    kind: "service",
-    icon: <Sparkles className="w-6 h-6" />,
-    title: "Customer Support",
-    description:
-      "Work with a responsive team that helps you move smoothly from inquiry to delivery and after-sales support.",
-    imageUrl:
-      "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779222097/download_4_g6bclv.jpg",
-  },
-];
-
-const promoCards: PromoCard[] = [
-  {
-    id: "real-estate-services-promo",
-    kind: "promo",
-    eyebrow: "JCL Services",
-    title: "Real estate support that moves with your plans.",
-    description:
-      "From property search and rentals to building support, our team helps you make confident decisions with clear guidance.",
-  },
-  {
-    id: "tonefo-promo",
-    kind: "promo",
-    eyebrow: "Tonefo",
-    title: "Everyday electronics, sourced with care.",
-    description:
-      "Shop practical appliances, gadgets, and accessories selected for homes, offices, and reliable daily use.",
-  },
-];
-
-function getRandomServiceCards(): ServiceCardItem[] {
-  const nextCards: ServiceCardItem[] = [...services];
-  const shouldShowPromo = Math.random() < 0.67;
-
-  if (!shouldShowPromo) return nextCards;
-
-  const promo = promoCards[Math.floor(Math.random() * promoCards.length)];
-  const replaceIndex = Math.floor(Math.random() * nextCards.length);
-  const tone = promoTones[Math.floor(Math.random() * promoTones.length)];
-  nextCards[replaceIndex] = { ...promo, tone };
-  return nextCards;
-}
-
 export default function ServicesSection() {
-  const [serviceCards, setServiceCards] = useState<ServiceCardItem[]>(services);
+  const { services: servicesData } = useLandingContent();
+
+  const servicesList: Service[] = (servicesData.services && servicesData.services.length > 0)
+    ? servicesData.services.map((s, idx) => ({
+        id: `service-${idx}`,
+        kind: "service" as const,
+        icon: <Sparkles className="w-6 h-6" />,
+        title: s.title,
+        description: s.description,
+        imageUrl: s.imageUrl,
+      }))
+    : [
+        {
+          id: "properties",
+          kind: "service",
+          icon: <Home className="w-6 h-6" />,
+          title: "Property Sales & Rentals",
+          description:
+            "Browse verified homes, rentals, and investment opportunities with a team that understands what matters in every neighborhood.",
+          imageUrl:
+            "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683097/Modern_Luxury_Bangla_Villa_sm7qxz.jpg",
+        },
+        {
+          id: "Building and Construction",
+          kind: "service",
+          icon: <Shield className="w-6 h-6" />,
+          title: "Building & Construction",
+          description:
+            "From planning to completion, we manage construction projects with quality craftsmanship, clear timelines, and attention to detail.",
+          imageUrl:
+            "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778683100/download_vqjuzk.jpg",
+        },
+        {
+          id: "gadgets",
+          kind: "service",
+          icon: <Zap className="w-6 h-6" />,
+          title: "Gadget Sales & Sourcing",
+          description:
+            "Find electrical gadgets, appliances, and accessories selected for quality, performance, and value.",
+          imageUrl:
+            "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778682789/applc1_xs8bbg.jpg",
+        },
+        {
+          id: "gadgets",
+          kind: "service",
+          icon: <Sparkles className="w-6 h-6" />,
+          title: "Customer Support",
+          description:
+            "Work with a responsive team that helps you move smoothly from inquiry to delivery and after-sales support.",
+          imageUrl:
+            "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779222097/download_4_g6bclv.jpg",
+        },
+      ];
+
+  const promoCards: PromoCard[] = (servicesData.promoCards && servicesData.promoCards.length > 0)
+    ? servicesData.promoCards.map((p, idx) => ({
+        id: `promo-${idx}`,
+        kind: "promo" as const,
+        eyebrow: p.eyebrow,
+        title: p.title,
+        description: p.description,
+      }))
+    : [
+        {
+          id: "real-estate-services-promo",
+          kind: "promo",
+          eyebrow: "JCL Services",
+          title: "Real estate support that moves with your plans.",
+          description:
+            "From property search and rentals to building support, our team helps you make confident decisions with clear guidance.",
+        },
+        {
+          id: "tonefo-promo",
+          kind: "promo",
+          eyebrow: "Tonefo",
+          title: "Everyday electronics, sourced with care.",
+          description:
+            "Shop practical appliances, gadgets, and accessories selected for homes, offices, and reliable daily use.",
+        },
+      ];
+
+  const [serviceCards, setServiceCards] = useState<ServiceCardItem[]>(servicesList);
   const [shuffleId, setShuffleId] = useState(0);
 
   useEffect(() => {
+    setServiceCards(servicesList);
+  }, [servicesData]);
+
+  useEffect(() => {
+    const getRandomServiceCards = (): ServiceCardItem[] => {
+      const nextCards: ServiceCardItem[] = [...servicesList];
+      const shouldShowPromo = Math.random() < 0.67;
+
+      if (!shouldShowPromo || promoCards.length === 0) return nextCards;
+
+      const promo = promoCards[Math.floor(Math.random() * promoCards.length)];
+      const replaceIndex = Math.floor(Math.random() * nextCards.length);
+      const tone = promoTones[Math.floor(Math.random() * promoTones.length)];
+      nextCards[replaceIndex] = { ...promo, tone };
+      return nextCards;
+    };
+
     const shuffle = () => {
       setServiceCards(getRandomServiceCards());
       setShuffleId((value) => value + 1);
@@ -120,7 +145,7 @@ export default function ServicesSection() {
     }, 7000);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [servicesData]);
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-0 sm:pb-20 lg:pb-24">
@@ -129,23 +154,22 @@ export default function ServicesSection() {
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.75fr)] lg:items-end">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-brand-navy/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-brand-navy/55">
-                What we do best
+                {servicesData.eyebrow || "What we do best"}
               </div>
               <h2 className="mt-4 max-w-4xl text-[clamp(3.15rem,8vw,7.5rem)] font-thin leading-[0.86] tracking-[-0.085em] text-jcl-primary">
-                Property and electrical solutions that feel sharp and simple,
+                {servicesData.heading || "Property and electrical solutions that feel sharp and simple,"}
               </h2>
             </div>
 
             <div className="max-w-md lg:justify-self-end">
               <p className="text-sm leading-7 text-jcl ">
-                From property guidance to gadget sourcing, we provide tailored
-                solutions for homes, investment buyers, and everyday tech needs.
+                {servicesData.subtitle || "From property guidance to gadget sourcing, we provide tailored solutions for homes, investment buyers, and everyday tech needs."}
               </p>
               <Link
-                href="/services"
+                href={servicesData.ctaHref || "/services"}
                 className="mt-5 inline-flex items-center gap-3 rounded-full border border-brand-navy/10 bg-jcl-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#cfb18f] sm:px-6 sm:py-3.5"
               >
-                See our services
+                {servicesData.ctaLabel || "See our services"}
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-navy text-white">
                   <ArrowRight className="h-4 w-4" />
                 </span>

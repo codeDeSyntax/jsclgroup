@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ServicesSection from "@/components/services-section";
@@ -6,6 +8,7 @@ import HeroSectionSwitcher from "@/components/hero-section-switcher";
 import HeroWatermarkSection from "@/components/hero-watermark-section";
 import ScrollAwareHeader from "@/components/scroll-aware-header";
 import FlyerCarousel from "@/components/flyer-carousel";
+import { useLandingContent } from "@/hooks/use-landing-content";
 import {
   Star,
   Search,
@@ -19,6 +22,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function HomePage() {
+  const { jclDifference, ceo, testimonials } = useLandingContent();
   return (
     <div className="flex flex-col min-h-screen bg-jcl-white">
       {/* Scroll-aware header - appears after hero */}
@@ -42,15 +46,15 @@ export default function HomePage() {
             <div className="relative overflow-hidden  bg-transparent p-0">
               <div className="relative  z-10 mb-6 sm:mb-8 lg:mb-10">
                 <h2 className="max-w-4xl text-[clamp(3.25rem,8vw,7.4rem)] font-thin leading-[0.86] tracking-[-0.085em] text-jcl-primary">
-                  The JCL Difference
+                  {jclDifference.heading || "The JCL Difference"}
                 </h2>
               </div>
 
               <div className="relative z-10 flex flex-col gap-3 sm:gap-4 md:grid md:grid-cols-2">
                 <div className="overflow-hidden rounded-[20px] bg-jcl-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px] grid-cols-2">
                   <Image
-                    src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg"
-                    alt="Property and home essentials display"
+                    src={jclDifference.card1?.imageUrl || "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778744174/download_1_zlxwgi.jpg"}
+                    alt={jclDifference.card1?.title || "Property and home essentials display"}
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -61,15 +65,10 @@ export default function HomePage() {
                 <div className="flex min-h-[140px] items-center justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-xl text-center">
                     <h3 className="text-3xl font-thin leading-[0.95] tracking-[-0.06em] text-brand-navy sm:text-4xl lg:text-5xl">
-                      Real Estate, Building & Construction Expertise
+                      {jclDifference.card1?.title || "Real Estate, Building & Construction Expertise"}
                     </h3>
                     <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
-                      From property sourcing and site appraisal to project
-                      management and final handover, our construction and
-                      real-estate teams coordinate every step. We manage
-                      contractors, ensure compliance with local building
-                      standards, and provide inspections and aftercare so your
-                      investment is protected.
+                      {jclDifference.card1?.body || "From property sourcing and site appraisal to project management and final handover, our construction and real-estate teams coordinate every step. We manage contractors, ensure compliance with local building standards, and provide inspections and aftercare so your investment is protected."}
                     </p>
                   </div>
                 </div>
@@ -77,22 +76,18 @@ export default function HomePage() {
                 <div className="flex min-h-[140px] items-center grid-cols-3 justify-center rounded-[20px] bg-jcl-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] sm:min-h-[170px] sm:p-5 lg:p-6">
                   <div className="max-w-xl text-center">
                     <h3 className="text-3xl font-thin leading-[0.95] tracking-[-0.06em] text-brand-navy sm:text-4xl lg:text-5xl">
-                      Gadgets & Electronics — Supply, Install, Support
+                      {jclDifference.card2?.title || "Gadgets & Electronics — Supply, Install, Support"}
                     </h3>
                     <p className="mt-3 max-w-xl mx-auto leading-6 text-brand-navy/80 sm:leading-7 text-base">
-                      We curate and supply trusted electronics, manage seamless
-                      procurement and installation, and provide warranty and
-                      technical support. Our team handles logistics and offers
-                      ongoing after-sales assistance so your technology keeps
-                      working for you.
+                      {jclDifference.card2?.body || "We curate and supply trusted electronics, manage seamless procurement and installation, and provide warranty and technical support. Our team handles logistics and offers ongoing after-sales assistance so your technology keeps working for you."}
                     </p>
                   </div>
                 </div>
 
                 <div className="overflow-hidden rounded-[20px]  shadow-[0_10px_30px_rgba(0,0,0,0.06)] min-h-[140px] sm:min-h-[170px] ">
                   <Image
-                    src="https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"
-                    alt="Electrical gadgets and home appliances"
+                    src={jclDifference.card2?.imageUrl || "https://res.cloudinary.com/dlhyawc5e/image/upload/v1778745059/set-modern-home-appliances-grey-table_495423-30742_qe72re.jpg"}
+                    alt={jclDifference.card2?.title || "Electrical gadgets and home appliances"}
                     width={1080}
                     height={836}
                     className="h-full w-full object-cover"
@@ -114,7 +109,7 @@ export default function HomePage() {
               {/* Left: Text */}
               <div className="order-1 lg:order-1">
                 <div className="mb-3 text-sm font-medium italic text-brand-navy/45">
-                  Mr Eric Kwaw - CEO / Founder
+                  {ceo.name || "Mr Eric Kwaw"} - {ceo.role || "CEO / Founder"}
                 </div>
 
                 <h2 className="mb-4 text-[clamp(4rem,8vw,7.25rem)] font-thin leading-[0.86] tracking-[-0.085em] text-jcl-primary">
@@ -124,31 +119,50 @@ export default function HomePage() {
                 </h2>
 
                 <p className="text-lg font-semibold text-brand-navy/90 mb-4 max-w-xl">
-                  A hands-on builder of brands, deals, and customer trust, with
-                  a sharp eye for the details.
+                  {ceo.tagline || "A hands-on builder of brands, deals, and customer trust, with a sharp eye for the details."}
                 </p>
 
                 <p className="text-black mb-6 max-w-2xl">
-                  Mr. Eric Kwaw, the visionary CEO and founder of JCL Group, has
-                  helped shape a business built around dependable property
-                  solutions and trusted electrical gadget sales. His focus on
-                  quality, speed, and customer satisfaction continues to guide
-                  the company’s growth across both divisions.
+                  {ceo.bio || "Mr. Eric Kwaw, the visionary CEO and founder of JCL Group, has helped shape a business built around dependable property solutions and trusted electrical gadget sales. His focus on quality, speed, and customer satisfaction continues to guide the company’s growth across both divisions."}
                 </p>
 
                 <div className="flex items-center gap-4 text-gray-600">
-                  <Twitter className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
-                  <Instagram className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
-                  <Linkedin className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
-                  <Facebook className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                  {ceo.twitterUrl ? (
+                    <a href={ceo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                      <Twitter className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                    </a>
+                  ) : (
+                    <Twitter className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                  )}
+                  {ceo.instagramUrl ? (
+                    <a href={ceo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                      <Instagram className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                    </a>
+                  ) : (
+                    <Instagram className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                  )}
+                  {ceo.linkedinUrl ? (
+                    <a href={ceo.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                    </a>
+                  ) : (
+                    <Linkedin className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                  )}
+                  {ceo.facebookUrl ? (
+                    <a href={ceo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                      <Facebook className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                    </a>
+                  ) : (
+                    <Facebook className="w-5 h-5 text-brand-navy/70 hover:text-brand-navy transition-colors" />
+                  )}
                 </div>
               </div>
 
               <div className="order-2 lg:order-2 flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-[520px] overflow-hidden rounded-[28px] border border-white/40 bg-white shadow-[0_24px_70px_rgba(7,13,75,0.16)] aspect-[4/5]">
                   <Image
-                    src="https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg"
-                    alt="Mr Eric Kwaw, CEO and founder of JCL Group"
+                    src={ceo.photo || "https://res.cloudinary.com/dqidnnssq/image/upload/v1771239782/ceo_ukjbgd.jpg"}
+                    alt={`${ceo.name || "Mr Eric Kwaw"}, ${ceo.role || "CEO and founder of JCL Group"}`}
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 520px"
@@ -165,47 +179,38 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-navy rounded-full mb-4 sm:mb-6">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-white fill-white" />
                 <span className="text-xs font-medium uppercase tracking-[0.22em] text-white sm:text-sm">
-                  Client Stories
+                  {testimonials.sectionEyebrow || "Client Stories"}
                 </span>
               </div>
               <h2 className="max-w-5xl text-[clamp(3.1rem,7vw,6.5rem)] font-thin leading-[0.88] tracking-[-0.08em] text-brand-navy">
-                Real experiences from property buyers and gadget customers.
+                {testimonials.sectionHeading || "Real experiences from property buyers and gadget customers."}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {[
+              {(testimonials.items && testimonials.items.length > 0 ? testimonials.items : [
                 {
                   name: "Wilhelmina T. Lartey",
-                  content:
+                  quote:
                     "We found a home that matched our budget and move-in timeline. The process was clear, fast, and handled professionally from the first call to the final paperwork.",
-                  image:
+                  photo:
                     "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223266/WILHELMINA_T._LARTEY_sjzlr4.png",
-                  bgColor: "bg-brand-navy/5",
-                  quoteColor: "text-brand-navy/30",
-                  rotation: "-rotate-3",
                 },
                 {
                   name: "Lydia Narh",
-                  content:
+                  quote:
                     "JCL Group helped us secure the right property and gave practical advice every step of the way. The service felt personal and genuinely reliable.",
-                  image:
+                  photo:
                     "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223261/LYDIA_NARH_xf8cll.jpg",
-                  bgColor: "bg-white",
-                  quoteColor: "text-gray-300",
-                  rotation: "rotate-0",
                 },
                 {
                   name: "Abdul-Razak Mustapha",
-                  content:
+                  quote:
                     "I ordered electrical gadgets for my home and the recommendations were spot on. Good value, great support, and delivery was handled without stress.",
-                  image:
+                  photo:
                     "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223265/ABDUL-RAZAK_MUSTAPHA_nzlqyn.png",
-                  bgColor: "bg-brand-navy/5",
-                  quoteColor: "text-brand-navy/40",
-                  rotation: "rotate-2",
                 },
-              ].map((testimonial, index) => (
+              ]).map((testimonial, index) => (
                 <div
                   key={index}
                   className="relative"
@@ -214,13 +219,13 @@ export default function HomePage() {
                   }}
                 >
                   <div
-                    className={`${testimonial.bgColor} ${testimonial.rotation} rounded-3xl sm:rounded-3xl p-6 sm:p-8  hover:shadow-lg sm:hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 relative`}
+                    className={`${index % 2 === 0 ? "bg-brand-navy/5" : "bg-white"} ${index === 0 ? "-rotate-3" : index === 2 ? "rotate-2" : "rotate-0"} rounded-3xl sm:rounded-3xl p-6 sm:p-8  hover:shadow-lg sm:hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1 relative`}
                   >
                     {/* Image floated left on wider screens so text wraps around it */}
                     <div className="mb-4 sm:mb-6">
                       <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl overflow-hidden float-left sm:float-left mr-4 sm:mr-6 mb-3 sm:mb-0">
                         <Image
-                          src={testimonial.image}
+                          src={testimonial.photo || (testimonial as any).image || "https://res.cloudinary.com/dlhyawc5e/image/upload/v1779223261/LYDIA_NARH_xf8cll.jpg"}
                           alt={testimonial.name}
                           width={128}
                           height={128}
@@ -233,14 +238,14 @@ export default function HomePage() {
                       </p>
 
                       <p className="text-gray-700 leading-relaxed text-sm sm:text-[15px] mt-2">
-                        {testimonial.content}
+                        {testimonial.quote || (testimonial as any).content}
                       </p>
 
                       <div className="clear-both" />
                     </div>
 
                     {/* Quote Icon at Bottom Right */}
-                    <div className={`${testimonial.quoteColor} ml-auto w-fit`}>
+                    <div className="text-brand-navy/30 ml-auto w-fit">
                       <svg
                         className="w-8 h-8 sm:w-10 sm:h-10"
                         fill="currentColor"

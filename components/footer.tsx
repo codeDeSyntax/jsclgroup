@@ -7,12 +7,16 @@ import FooterCtaCard from "@/components/footer-cta-card";
 import { contactInfo } from "@/lib/contact";
 import { BACKEND_URL } from "@/lib/auth";
 
+import { useLandingContent } from "@/hooks/use-landing-content";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [subscriberEmail, setSubscriberEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null);
   const [subscribeError, setSubscribeError] = useState<string | null>(null);
+
+  const { footer } = useLandingContent();
 
   const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,10 +57,10 @@ export default function Footer() {
     }
   };
 
-  // Footer-specific contact lines (as provided)
-  const footerPhones = ["025 646 6565", "053 110 1123", "0245118310"];
+  // Footer-specific contact lines
+  const footerPhones = footer.phones && footer.phones.length > 0 ? footer.phones : ["025 646 6565", "053 110 1123", "0245118310"];
 
-  const quickLinks = [
+  const quickLinks = footer.quickLinks && footer.quickLinks.length > 0 ? footer.quickLinks : [
     { href: "/", label: "Home" },
     { href: "/products/electronics", label: "Shop" },
     { href: "/gadgets", label: "Gadgets" },
@@ -67,16 +71,19 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      href: "https://www.linkedin.com/in/jclroyalgh",
+      href: footer.linkedinUrl || "https://www.linkedin.com/in/jclroyalgh",
       label: "LinkedIn",
       icon: Linkedin,
     },
     {
-      href: "https://www.tiktok.com/@tonefo2",
+      href: footer.tiktokUrl || "https://www.tiktok.com/@tonefo2",
       label: "TikTok",
       icon: null,
     },
   ];
+
+  const displayEmail = footer.email || contactInfo.email;
+  const emailHref = `mailto:${displayEmail}`;
 
   return (
     <footer className="relative mt-52 w-full rounded-t-3xl bg-jcl-primary text-white sm:mt-80">
@@ -127,10 +134,10 @@ export default function Footer() {
                   <li className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-jcl-orange-400" />
                     <a
-                      href={contactInfo.emailHref}
+                      href={emailHref}
                       className="transition hover:text-white"
                     >
-                      {contactInfo.email}
+                      {displayEmail}
                     </a>
                   </li>
                   <li>
@@ -151,7 +158,7 @@ export default function Footer() {
 
               <div>
                 <h3 className="max-w-sm text-3xl font-black leading-tight tracking-[-0.03em] text-white">
-                  Ready to buy, rent, or source the right gadget?
+                  {footer.footerCtaHeading || "Ready to buy, rent, or source the right gadget?"}
                 </h3>
                 <ul className="mt-6 flex items-center gap-3">
                   {socialLinks.map(({ href, label, icon: Icon }) => (
@@ -182,7 +189,7 @@ export default function Footer() {
 
             <div className="grid gap-6 border-t border-white/15 py-8 lg:grid-cols-[1fr_1.15fr] lg:items-end">
               <p className="max-w-xl text-4xl font-black leading-tight tracking-[-0.04em] text-white sm:text-5xl">
-                Get updates on fresh properties, offers, and gadget drops.
+                {footer.newsletterHeadline || "Get updates on fresh properties, offers, and gadget drops."}
               </p>
 
               <form className="space-y-3" onSubmit={handleSubscribe}>
@@ -224,7 +231,7 @@ export default function Footer() {
             </div>
 
             <div className="border-t border-white/10 pt-6 text-center text-xs text-white/55">
-              Copyright © {currentYear} JCL Group. All rights reserved.
+              Copyright © {currentYear} {footer.copyright || "JCL Group"}. All rights reserved.
             </div>
           </div>
         </div>
