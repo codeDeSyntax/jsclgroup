@@ -3,11 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function AdminRestrictedScreen() {
-  const currentDate = new Date().toLocaleDateString("en-US", {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
-  }).replace(/\//g, ".");
+  const currentDate = new Date()
+    .toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    })
+    .replace(/\//g, ".");
 
   return (
     <main className="min-h-screen w-full bg-[#f4f3ef] flex items-center justify-center p-4 sm:p-8 select-none">
@@ -35,14 +37,14 @@ export default function AdminRestrictedScreen() {
               <span>{currentDate} • RESTRICTED</span>
             </div>
 
-            {/* Main Headline in elegant editorial serif typography */}
+            {/* Main Headline in elegant editorial serif typography without amount */}
             <div className="my-3">
               <h1 className="font-serif text-2xl sm:text-3xl text-gray-950 font-normal leading-[1.2] tracking-tight">
-                Pending Fee of GHC 500. Not accessible at the moment.
+                Pending Fee. Not accessible at the moment.
               </h1>
 
               <p className="mt-3 text-xs sm:text-[13.5px] leading-relaxed text-gray-700 font-normal">
-                Access to the administrative control panel has been temporarily paused pending the clearance of the outstanding fee. Portal management will resume immediately once confirmed.
+                Access to the administrative control panel has been temporarily paused pending fee settlement. Portal management will resume immediately once confirmed.
               </p>
             </div>
 
