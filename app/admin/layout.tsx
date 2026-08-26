@@ -52,19 +52,8 @@ export default function AdminLayout({
   };
 
   // If fee is unpaid, completely block all admin & login views and display the restricted screen
-  if (!hasPaid && !isChecking) {
+  if (!hasPaid) {
     return <AdminRestrictedScreen />;
-  }
-
-  if (isChecking && !hasPaid) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-[#0a0a0c]">
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
-          <p className="text-xs font-semibold text-white/50 tracking-wider uppercase">Verifying Authorization...</p>
-        </div>
-      </div>
-    );
   }
 
   const navItems = [
