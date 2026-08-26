@@ -22,6 +22,8 @@ import {
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/components/auth-provider";
 import { Button } from "@/components/ui/button";
+import { usePaymentStatus } from "@/lib/payment-status";
+import AdminRestrictedScreen from "@/components/admin-restricted-screen";
 
 export default function AdminLayout({
   children,
@@ -30,6 +32,7 @@ export default function AdminLayout({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const { hasPaid, isChecking } = usePaymentStatus();
   const [currentPath, setCurrentPath] = useState(
     typeof window !== "undefined" ? window.location.pathname : pathname || "",
   );
@@ -47,6 +50,22 @@ export default function AdminLayout({
     logout();
     router.push("/admin/login");
   };
+
+  // If fee is unpaid, completely block all admin & login views and display the restricted screen
+  if (!hasPaid && !isChecking) {
+    return <AdminRestrictedScreen />;
+  }
+
+  if (isChecking && !hasPaid) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-[#0a0a0c]">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
+          <p className="text-xs font-semibold text-white/50 tracking-wider uppercase">Verifying Authorization...</p>
+        </div>
+      </div>
+    );
+  }
 
   const navItems = [
     { href: "/admin", label: "Dashboard", icon: Home },

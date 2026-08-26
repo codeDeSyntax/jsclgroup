@@ -13,9 +13,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { usePaymentStatus } from "@/lib/payment-status";
+import AdminRestrictedScreen from "@/components/admin-restricted-screen";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const { hasPaid, isChecking } = usePaymentStatus();
   const { setToken, isAuthenticated, isLoading: authLoading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +30,21 @@ export default function AdminLoginPage() {
       router.replace("/admin");
     }
   }, [isAuthenticated, authLoading, router]);
+
+  if (!hasPaid && !isChecking) {
+    return <AdminRestrictedScreen />;
+  }
+
+  if (isChecking && !hasPaid) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-[#0a0a0c]">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
+          <p className="text-xs font-semibold text-white/50 tracking-wider uppercase">Verifying Authorization...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
